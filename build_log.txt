@@ -1,0 +1,527 @@
+
+> optibid-energy-enterprise@1.0.0 build
+> next build
+
+  Γû▓ Next.js 14.2.33
+  - Environments: .env.local, .env.production
+
+   Creating an optimized production build ...
+ ΓÜá Compiled with warnings
+
+./app/quantum-computing/page.tsx
+Attempted import error: 'CircuitBoardIcon' is not exported from '__barrel_optimize__?names=ArrowPathIcon,ArrowTrendingUpIcon,AtomIcon,BeakerIcon,BoltIcon,ChartBarIcon,CheckCircleIcon,CircuitBoardIcon,ClockIcon,CpuChipIcon,ExclamationTriangleIcon,FireIcon,RocketLaunchIcon,ShieldCheckIcon!=!@heroicons/react/24/outline' (imported as 'CircuitBoardIcon').
+
+Import trace for requested module:
+./app/quantum-computing/page.tsx
+
+./app/quantum-computing/page.tsx
+Attempted import error: 'AtomIcon' is not exported from '__barrel_optimize__?names=ArrowPathIcon,ArrowTrendingUpIcon,AtomIcon,BeakerIcon,BoltIcon,ChartBarIcon,CheckCircleIcon,CircuitBoardIcon,ClockIcon,CpuChipIcon,ExclamationTriangleIcon,FireIcon,RocketLaunchIcon,ShieldCheckIcon!=!@heroicons/react/24/outline' (imported as 'AtomIcon').
+
+Import trace for requested module:
+./app/quantum-computing/page.tsx
+
+./components/integrations/ApiManagementDashboard.tsx
+Attempted import error: 'WebhookIcon' is not exported from '__barrel_optimize__?names=AlertCircleIcon,AnalyticsIcon,ApiIcon,CheckCircleIcon,DatabaseIcon,EditIcon,GoogleIcon,KeyIcon,MicrosoftIcon,PauseIcon,PlayIcon,PlusIcon,RefreshCwIcon,SettingIcon,ShieldIcon,TrashIcon,WebhookIcon,WorkflowIcon!=!@heroicons/react/24/outline' (imported as 'WebhookIcon').
+
+Import trace for requested module:
+./components/integrations/ApiManagementDashboard.tsx
+./app/api-management/page.tsx
+
+./components/integrations/ApiManagementDashboard.tsx
+Attempted import error: 'WorkflowIcon' is not exported from '__barrel_optimize__?names=AlertCircleIcon,AnalyticsIcon,ApiIcon,CheckCircleIcon,DatabaseIcon,EditIcon,GoogleIcon,KeyIcon,MicrosoftIcon,PauseIcon,PlayIcon,PlusIcon,RefreshCwIcon,SettingIcon,ShieldIcon,TrashIcon,WebhookIcon,WorkflowIcon!=!@heroicons/react/24/outline' (imported as 'WorkflowIcon').
+
+Import trace for requested module:
+./components/integrations/ApiManagementDashboard.tsx
+./app/api-management/page.tsx
+
+./components/integrations/ApiManagementDashboard.tsx
+Attempted import error: 'DatabaseIcon' is not exported from '__barrel_optimize__?names=AlertCircleIcon,AnalyticsIcon,ApiIcon,CheckCircleIcon,DatabaseIcon,EditIcon,GoogleIcon,KeyIcon,MicrosoftIcon,PauseIcon,PlayIcon,PlusIcon,RefreshCwIcon,SettingIcon,ShieldIcon,TrashIcon,WebhookIcon,WorkflowIcon!=!@heroicons/react/24/outline' (imported as 'DatabaseIcon').
+
+Import trace for requested module:
+./components/integrations/ApiManagementDashboard.tsx
+./app/api-management/page.tsx
+
+./components/integrations/ApiManagementDashboard.tsx
+Attempted import error: 'WebhookIcon' is not exported from '__barrel_optimize__?names=AlertCircleIcon,AnalyticsIcon,ApiIcon,CheckCircleIcon,DatabaseIcon,EditIcon,GoogleIcon,KeyIcon,MicrosoftIcon,PauseIcon,PlayIcon,PlusIcon,RefreshCwIcon,SettingIcon,ShieldIcon,TrashIcon,WebhookIcon,WorkflowIcon!=!@heroicons/react/24/outline' (imported as 'WebhookIcon').
+
+Import trace for requested module:
+./components/integrations/ApiManagementDashboard.tsx
+./app/api-management/page.tsx
+
+./components/integrations/ApiManagementDashboard.tsx
+Attempted import error: 'AlertCircleIcon' is not exported from '__barrel_optimize__?names=AlertCircleIcon,AnalyticsIcon,ApiIcon,CheckCircleIcon,DatabaseIcon,EditIcon,GoogleIcon,KeyIcon,MicrosoftIcon,PauseIcon,PlayIcon,PlusIcon,RefreshCwIcon,SettingIcon,ShieldIcon,TrashIcon,WebhookIcon,WorkflowIcon!=!@heroicons/react/24/outline' (imported as 'AlertCircleIcon').
+
+Import trace for requested module:
+./components/integrations/ApiManagementDashboard.tsx
+./app/api-management/page.tsx
+
+./components/integrations/ApiManagementDashboard.tsx
+Attempted import error: 'EditIcon' is not exported from '__barrel_optimize__?names=AlertCircleIcon,AnalyticsIcon,ApiIcon,CheckCircleIcon,DatabaseIcon,EditIcon,GoogleIcon,KeyIcon,MicrosoftIcon,PauseIcon,PlayIcon,PlusIcon,RefreshCwIcon,SettingIcon,ShieldIcon,TrashIcon,WebhookIcon,WorkflowIcon!=!@heroicons/react/24/outline' (imported as 'EditIcon').
+
+Import trace for requested module:
+./components/integrations/ApiManagementDashboard.tsx
+./app/api-management/page.tsx
+
+./components/integrations/ApiManagementDashboard.tsx
+Attempted import error: 'GoogleIcon' is not exported from '__barrel_optimize__?names=AlertCircleIcon,AnalyticsIcon,ApiIcon,CheckCircleIcon,DatabaseIcon,EditIcon,GoogleIcon,KeyIcon,MicrosoftIcon,PauseIcon,PlayIcon,PlusIcon,RefreshCwIcon,SettingIcon,ShieldIcon,TrashIcon,WebhookIcon,WorkflowIcon!=!@heroicons/react/24/outline' (imported as 'GoogleIcon').
+
+Import trace for requested module:
+./components/integrations/ApiManagementDashboard.tsx
+./app/api-management/page.tsx
+
+./components/integrations/ApiManagementDashboard.tsx
+Attempted import error: 'MicrosoftIcon' is not exported from '__barrel_optimize__?names=AlertCircleIcon,AnalyticsIcon,ApiIcon,CheckCircleIcon,DatabaseIcon,EditIcon,GoogleIcon,KeyIcon,MicrosoftIcon,PauseIcon,PlayIcon,PlusIcon,RefreshCwIcon,SettingIcon,ShieldIcon,TrashIcon,WebhookIcon,WorkflowIcon!=!@heroicons/react/24/outline' (imported as 'MicrosoftIcon').
+
+Import trace for requested module:
+./components/integrations/ApiManagementDashboard.tsx
+./app/api-management/page.tsx
+
+./components/integrations/ApiManagementDashboard.tsx
+Attempted import error: 'ShieldIcon' is not exported from '__barrel_optimize__?names=AlertCircleIcon,AnalyticsIcon,ApiIcon,CheckCircleIcon,DatabaseIcon,EditIcon,GoogleIcon,KeyIcon,MicrosoftIcon,PauseIcon,PlayIcon,PlusIcon,RefreshCwIcon,SettingIcon,ShieldIcon,TrashIcon,WebhookIcon,WorkflowIcon!=!@heroicons/react/24/outline' (imported as 'ShieldIcon').
+
+Import trace for requested module:
+./components/integrations/ApiManagementDashboard.tsx
+./app/api-management/page.tsx
+
+./components/integrations/ApiManagementDashboard.tsx
+Attempted import error: 'RefreshCwIcon' is not exported from '__barrel_optimize__?names=AlertCircleIcon,AnalyticsIcon,ApiIcon,CheckCircleIcon,DatabaseIcon,EditIcon,GoogleIcon,KeyIcon,MicrosoftIcon,PauseIcon,PlayIcon,PlusIcon,RefreshCwIcon,SettingIcon,ShieldIcon,TrashIcon,WebhookIcon,WorkflowIcon!=!@heroicons/react/24/outline' (imported as 'RefreshCwIcon').
+
+Import trace for requested module:
+./components/integrations/ApiManagementDashboard.tsx
+./app/api-management/page.tsx
+
+./components/integrations/ApiManagementDashboard.tsx
+Attempted import error: 'RefreshCwIcon' is not exported from '__barrel_optimize__?names=AlertCircleIcon,AnalyticsIcon,ApiIcon,CheckCircleIcon,DatabaseIcon,EditIcon,GoogleIcon,KeyIcon,MicrosoftIcon,PauseIcon,PlayIcon,PlusIcon,RefreshCwIcon,SettingIcon,ShieldIcon,TrashIcon,WebhookIcon,WorkflowIcon!=!@heroicons/react/24/outline' (imported as 'RefreshCwIcon').
+
+Import trace for requested module:
+./components/integrations/ApiManagementDashboard.tsx
+./app/api-management/page.tsx
+
+./components/integrations/ApiManagementDashboard.tsx
+Attempted import error: 'ApiIcon' is not exported from '__barrel_optimize__?names=AlertCircleIcon,AnalyticsIcon,ApiIcon,CheckCircleIcon,DatabaseIcon,EditIcon,GoogleIcon,KeyIcon,MicrosoftIcon,PauseIcon,PlayIcon,PlusIcon,RefreshCwIcon,SettingIcon,ShieldIcon,TrashIcon,WebhookIcon,WorkflowIcon!=!@heroicons/react/24/outline' (imported as 'ApiIcon').
+
+Import trace for requested module:
+./components/integrations/ApiManagementDashboard.tsx
+./app/api-management/page.tsx
+
+./components/integrations/ApiManagementDashboard.tsx
+Attempted import error: 'WebhookIcon' is not exported from '__barrel_optimize__?names=AlertCircleIcon,AnalyticsIcon,ApiIcon,CheckCircleIcon,DatabaseIcon,EditIcon,GoogleIcon,KeyIcon,MicrosoftIcon,PauseIcon,PlayIcon,PlusIcon,RefreshCwIcon,SettingIcon,ShieldIcon,TrashIcon,WebhookIcon,WorkflowIcon!=!@heroicons/react/24/outline' (imported as 'WebhookIcon').
+
+Import trace for requested module:
+./components/integrations/ApiManagementDashboard.tsx
+./app/api-management/page.tsx
+
+./components/integrations/ApiManagementDashboard.tsx
+Attempted import error: 'WorkflowIcon' is not exported from '__barrel_optimize__?names=AlertCircleIcon,AnalyticsIcon,ApiIcon,CheckCircleIcon,DatabaseIcon,EditIcon,GoogleIcon,KeyIcon,MicrosoftIcon,PauseIcon,PlayIcon,PlusIcon,RefreshCwIcon,SettingIcon,ShieldIcon,TrashIcon,WebhookIcon,WorkflowIcon!=!@heroicons/react/24/outline' (imported as 'WorkflowIcon').
+
+Import trace for requested module:
+./components/integrations/ApiManagementDashboard.tsx
+./app/api-management/page.tsx
+
+./components/integrations/ApiManagementDashboard.tsx
+Attempted import error: 'SettingIcon' is not exported from '__barrel_optimize__?names=AlertCircleIcon,AnalyticsIcon,ApiIcon,CheckCircleIcon,DatabaseIcon,EditIcon,GoogleIcon,KeyIcon,MicrosoftIcon,PauseIcon,PlayIcon,PlusIcon,RefreshCwIcon,SettingIcon,ShieldIcon,TrashIcon,WebhookIcon,WorkflowIcon!=!@heroicons/react/24/outline' (imported as 'SettingIcon').
+
+Import trace for requested module:
+./components/integrations/ApiManagementDashboard.tsx
+./app/api-management/page.tsx
+
+./components/integrations/ApiManagementDashboard.tsx
+Attempted import error: 'AnalyticsIcon' is not exported from '__barrel_optimize__?names=AlertCircleIcon,AnalyticsIcon,ApiIcon,CheckCircleIcon,DatabaseIcon,EditIcon,GoogleIcon,KeyIcon,MicrosoftIcon,PauseIcon,PlayIcon,PlusIcon,RefreshCwIcon,SettingIcon,ShieldIcon,TrashIcon,WebhookIcon,WorkflowIcon!=!@heroicons/react/24/outline' (imported as 'AnalyticsIcon').
+
+Import trace for requested module:
+./components/integrations/ApiManagementDashboard.tsx
+./app/api-management/page.tsx
+
+./components/integrations/IntegrationConnectors.tsx
+Attempted import error: 'GoogleIcon' is not exported from '__barrel_optimize__?names=CheckCircleIcon,CloudIcon,CogIcon,ExclamationTriangleIcon,EyeIcon,EyeSlashIcon,GoogleIcon,LinkIcon,MessageSquareIcon,MicrosoftIcon,XCircleIcon!=!@heroicons/react/24/outline' (imported as 'GoogleIcon').
+
+Import trace for requested module:
+./components/integrations/IntegrationConnectors.tsx
+./app/api-management/page.tsx
+
+./components/integrations/IntegrationConnectors.tsx
+Attempted import error: 'MicrosoftIcon' is not exported from '__barrel_optimize__?names=CheckCircleIcon,CloudIcon,CogIcon,ExclamationTriangleIcon,EyeIcon,EyeSlashIcon,GoogleIcon,LinkIcon,MessageSquareIcon,MicrosoftIcon,XCircleIcon!=!@heroicons/react/24/outline' (imported as 'MicrosoftIcon').
+
+Import trace for requested module:
+./components/integrations/IntegrationConnectors.tsx
+./app/api-management/page.tsx
+
+./components/integrations/IntegrationConnectors.tsx
+Attempted import error: 'MicrosoftIcon' is not exported from '__barrel_optimize__?names=CheckCircleIcon,CloudIcon,CogIcon,ExclamationTriangleIcon,EyeIcon,EyeSlashIcon,GoogleIcon,LinkIcon,MessageSquareIcon,MicrosoftIcon,XCircleIcon!=!@heroicons/react/24/outline' (imported as 'MicrosoftIcon').
+
+Import trace for requested module:
+./components/integrations/IntegrationConnectors.tsx
+./app/api-management/page.tsx
+
+./components/integrations/IntegrationConnectors.tsx
+Attempted import error: 'MessageSquareIcon' is not exported from '__barrel_optimize__?names=CheckCircleIcon,CloudIcon,CogIcon,ExclamationTriangleIcon,EyeIcon,EyeSlashIcon,GoogleIcon,LinkIcon,MessageSquareIcon,MicrosoftIcon,XCircleIcon!=!@heroicons/react/24/outline' (imported as 'MessageSquareIcon').
+
+Import trace for requested module:
+./components/integrations/IntegrationConnectors.tsx
+./app/api-management/page.tsx
+
+./components/integrations/IntegrationConnectors.tsx
+Attempted import error: 'GoogleIcon' is not exported from '__barrel_optimize__?names=CheckCircleIcon,CloudIcon,CogIcon,ExclamationTriangleIcon,EyeIcon,EyeSlashIcon,GoogleIcon,LinkIcon,MessageSquareIcon,MicrosoftIcon,XCircleIcon!=!@heroicons/react/24/outline' (imported as 'GoogleIcon').
+
+Import trace for requested module:
+./components/integrations/IntegrationConnectors.tsx
+./app/api-management/page.tsx
+
+./components/integrations/IntegrationConnectors.tsx
+Attempted import error: 'MicrosoftIcon' is not exported from '__barrel_optimize__?names=CheckCircleIcon,CloudIcon,CogIcon,ExclamationTriangleIcon,EyeIcon,EyeSlashIcon,GoogleIcon,LinkIcon,MessageSquareIcon,MicrosoftIcon,XCircleIcon!=!@heroicons/react/24/outline' (imported as 'MicrosoftIcon').
+
+Import trace for requested module:
+./components/integrations/IntegrationConnectors.tsx
+./app/api-management/page.tsx
+
+./components/integrations/IntegrationConnectors.tsx
+Attempted import error: 'MessageSquareIcon' is not exported from '__barrel_optimize__?names=CheckCircleIcon,CloudIcon,CogIcon,ExclamationTriangleIcon,EyeIcon,EyeSlashIcon,GoogleIcon,LinkIcon,MessageSquareIcon,MicrosoftIcon,XCircleIcon!=!@heroicons/react/24/outline' (imported as 'MessageSquareIcon').
+
+Import trace for requested module:
+./components/integrations/IntegrationConnectors.tsx
+./app/api-management/page.tsx
+
+./components/integrations/WebhookManagement.tsx
+Attempted import error: 'EditIcon' is not exported from '__barrel_optimize__?names=BeakerIcon,CheckCircleIcon,ClipboardDocumentIcon,ClockIcon,EditIcon,ExclamationTriangleIcon,PauseIcon,PlayIcon,PlusIcon,RefreshCwIcon,TrashIcon,WebhookIcon,XCircleIcon!=!@heroicons/react/24/outline' (imported as 'EditIcon').
+
+Import trace for requested module:
+./components/integrations/WebhookManagement.tsx
+./app/api-management/page.tsx
+
+./components/integrations/WebhookManagement.tsx
+Attempted import error: 'RefreshCwIcon' is not exported from '__barrel_optimize__?names=BeakerIcon,CheckCircleIcon,ClipboardDocumentIcon,ClockIcon,EditIcon,ExclamationTriangleIcon,PauseIcon,PlayIcon,PlusIcon,RefreshCwIcon,TrashIcon,WebhookIcon,XCircleIcon!=!@heroicons/react/24/outline' (imported as 'RefreshCwIcon').
+
+Import trace for requested module:
+./components/integrations/WebhookManagement.tsx
+./app/api-management/page.tsx
+
+./components/integrations/WebhookManagement.tsx
+Attempted import error: 'WebhookIcon' is not exported from '__barrel_optimize__?names=BeakerIcon,CheckCircleIcon,ClipboardDocumentIcon,ClockIcon,EditIcon,ExclamationTriangleIcon,PauseIcon,PlayIcon,PlusIcon,RefreshCwIcon,TrashIcon,WebhookIcon,XCircleIcon!=!@heroicons/react/24/outline' (imported as 'WebhookIcon').
+
+Import trace for requested module:
+./components/integrations/WebhookManagement.tsx
+./app/api-management/page.tsx
+
+./components/iot/IoTAnalyticsMonitoring.tsx
+Attempted import error: 'TrendingUpIcon' is not exported from '__barrel_optimize__?names=ArrowPathIcon,BeakerIcon,BellIcon,CheckCircleIcon,ExclamationTriangleIcon,FunnelIcon,TrendingDownIcon,TrendingUpIcon,XCircleIcon!=!@heroicons/react/24/outline' (imported as 'TrendingUpIcon').
+
+Import trace for requested module:
+./components/iot/IoTAnalyticsMonitoring.tsx
+./app/iot-management/page.tsx
+
+./components/iot/IoTAnalyticsMonitoring.tsx
+Attempted import error: 'TrendingDownIcon' is not exported from '__barrel_optimize__?names=ArrowPathIcon,BeakerIcon,BellIcon,CheckCircleIcon,ExclamationTriangleIcon,FunnelIcon,TrendingDownIcon,TrendingUpIcon,XCircleIcon!=!@heroicons/react/24/outline' (imported as 'TrendingDownIcon').
+
+Import trace for requested module:
+./components/iot/IoTAnalyticsMonitoring.tsx
+./app/iot-management/page.tsx
+
+./components/quantum/QuantumApplicationsDashboard.tsx
+Attempted import error: 'Quantum' is not exported from '__barrel_optimize__?names=Activity,AlertTriangle,ArrowUpRight,Atom,BarChart3,Brain,CheckCircle,Clock,Cpu,Download,Filter,Globe,Layers,Lightbulb,Pause,Play,Quantum,RefreshCw,Rocket,Search,Settings,Target,TrendingUp,Zap!=!lucide-react' (imported as 'Quantum').
+
+Import trace for requested module:
+./components/quantum/QuantumApplicationsDashboard.tsx
+
+./components/quantum/QuantumComputingDashboard.tsx
+Attempted import error: 'CircuitBoardIcon' is not exported from '__barrel_optimize__?names=AtomIcon,BeakerIcon,BoltIcon,ChartBarIcon,CheckCircleIcon,CircuitBoardIcon,ClockIcon,CpuChipIcon,CubeIcon,ExclamationTriangleIcon,FireIcon,RocketLaunchIcon,ShieldCheckIcon!=!@heroicons/react/24/outline' (imported as 'CircuitBoardIcon').
+
+Import trace for requested module:
+./components/quantum/QuantumComputingDashboard.tsx
+./app/quantum-computing/page.tsx
+
+./components/quantum/QuantumComputingDashboard.tsx
+Attempted import error: 'AtomIcon' is not exported from '__barrel_optimize__?names=AtomIcon,BeakerIcon,BoltIcon,ChartBarIcon,CheckCircleIcon,CircuitBoardIcon,ClockIcon,CpuChipIcon,CubeIcon,ExclamationTriangleIcon,FireIcon,RocketLaunchIcon,ShieldCheckIcon!=!@heroicons/react/24/outline' (imported as 'AtomIcon').
+
+Import trace for requested module:
+./components/quantum/QuantumComputingDashboard.tsx
+./app/quantum-computing/page.tsx
+
+./components/quantum/QuantumComputingDashboard.tsx
+Attempted import error: 'AtomIcon' is not exported from '__barrel_optimize__?names=AtomIcon,BeakerIcon,BoltIcon,ChartBarIcon,CheckCircleIcon,CircuitBoardIcon,ClockIcon,CpuChipIcon,CubeIcon,ExclamationTriangleIcon,FireIcon,RocketLaunchIcon,ShieldCheckIcon!=!@heroicons/react/24/outline' (imported as 'AtomIcon').
+
+Import trace for requested module:
+./components/quantum/QuantumComputingDashboard.tsx
+./app/quantum-computing/page.tsx
+
+./components/quantum/QuantumComputingDashboard.tsx
+Attempted import error: 'AtomIcon' is not exported from '__barrel_optimize__?names=AtomIcon,BeakerIcon,BoltIcon,ChartBarIcon,CheckCircleIcon,CircuitBoardIcon,ClockIcon,CpuChipIcon,CubeIcon,ExclamationTriangleIcon,FireIcon,RocketLaunchIcon,ShieldCheckIcon!=!@heroicons/react/24/outline' (imported as 'AtomIcon').
+
+Import trace for requested module:
+./components/quantum/QuantumComputingDashboard.tsx
+./app/quantum-computing/page.tsx
+
+./app/quantum-computing/page.tsx
+Attempted import error: 'CircuitBoardIcon' is not exported from '__barrel_optimize__?names=ArrowPathIcon,ArrowTrendingUpIcon,AtomIcon,BeakerIcon,BoltIcon,ChartBarIcon,CheckCircleIcon,CircuitBoardIcon,ClockIcon,CpuChipIcon,ExclamationTriangleIcon,FireIcon,RocketLaunchIcon,ShieldCheckIcon!=!@heroicons/react/24/outline' (imported as 'CircuitBoardIcon').
+
+Import trace for requested module:
+./app/quantum-computing/page.tsx
+
+./app/quantum-computing/page.tsx
+Attempted import error: 'AtomIcon' is not exported from '__barrel_optimize__?names=ArrowPathIcon,ArrowTrendingUpIcon,AtomIcon,BeakerIcon,BoltIcon,ChartBarIcon,CheckCircleIcon,CircuitBoardIcon,ClockIcon,CpuChipIcon,ExclamationTriangleIcon,FireIcon,RocketLaunchIcon,ShieldCheckIcon!=!@heroicons/react/24/outline' (imported as 'AtomIcon').
+
+Import trace for requested module:
+./app/quantum-computing/page.tsx
+
+./components/integrations/ApiManagementDashboard.tsx
+Attempted import error: 'WebhookIcon' is not exported from '__barrel_optimize__?names=AlertCircleIcon,AnalyticsIcon,ApiIcon,CheckCircleIcon,DatabaseIcon,EditIcon,GoogleIcon,KeyIcon,MicrosoftIcon,PauseIcon,PlayIcon,PlusIcon,RefreshCwIcon,SettingIcon,ShieldIcon,TrashIcon,WebhookIcon,WorkflowIcon!=!@heroicons/react/24/outline' (imported as 'WebhookIcon').
+
+Import trace for requested module:
+./components/integrations/ApiManagementDashboard.tsx
+./app/api-management/page.tsx
+
+./components/integrations/ApiManagementDashboard.tsx
+Attempted import error: 'WorkflowIcon' is not exported from '__barrel_optimize__?names=AlertCircleIcon,AnalyticsIcon,ApiIcon,CheckCircleIcon,DatabaseIcon,EditIcon,GoogleIcon,KeyIcon,MicrosoftIcon,PauseIcon,PlayIcon,PlusIcon,RefreshCwIcon,SettingIcon,ShieldIcon,TrashIcon,WebhookIcon,WorkflowIcon!=!@heroicons/react/24/outline' (imported as 'WorkflowIcon').
+
+Import trace for requested module:
+./components/integrations/ApiManagementDashboard.tsx
+./app/api-management/page.tsx
+
+./components/integrations/ApiManagementDashboard.tsx
+Attempted import error: 'DatabaseIcon' is not exported from '__barrel_optimize__?names=AlertCircleIcon,AnalyticsIcon,ApiIcon,CheckCircleIcon,DatabaseIcon,EditIcon,GoogleIcon,KeyIcon,MicrosoftIcon,PauseIcon,PlayIcon,PlusIcon,RefreshCwIcon,SettingIcon,ShieldIcon,TrashIcon,WebhookIcon,WorkflowIcon!=!@heroicons/react/24/outline' (imported as 'DatabaseIcon').
+
+Import trace for requested module:
+./components/integrations/ApiManagementDashboard.tsx
+./app/api-management/page.tsx
+
+./components/integrations/ApiManagementDashboard.tsx
+Attempted import error: 'WebhookIcon' is not exported from '__barrel_optimize__?names=AlertCircleIcon,AnalyticsIcon,ApiIcon,CheckCircleIcon,DatabaseIcon,EditIcon,GoogleIcon,KeyIcon,MicrosoftIcon,PauseIcon,PlayIcon,PlusIcon,RefreshCwIcon,SettingIcon,ShieldIcon,TrashIcon,WebhookIcon,WorkflowIcon!=!@heroicons/react/24/outline' (imported as 'WebhookIcon').
+
+Import trace for requested module:
+./components/integrations/ApiManagementDashboard.tsx
+./app/api-management/page.tsx
+
+./components/integrations/ApiManagementDashboard.tsx
+Attempted import error: 'AlertCircleIcon' is not exported from '__barrel_optimize__?names=AlertCircleIcon,AnalyticsIcon,ApiIcon,CheckCircleIcon,DatabaseIcon,EditIcon,GoogleIcon,KeyIcon,MicrosoftIcon,PauseIcon,PlayIcon,PlusIcon,RefreshCwIcon,SettingIcon,ShieldIcon,TrashIcon,WebhookIcon,WorkflowIcon!=!@heroicons/react/24/outline' (imported as 'AlertCircleIcon').
+
+Import trace for requested module:
+./components/integrations/ApiManagementDashboard.tsx
+./app/api-management/page.tsx
+
+./components/integrations/ApiManagementDashboard.tsx
+Attempted import error: 'EditIcon' is not exported from '__barrel_optimize__?names=AlertCircleIcon,AnalyticsIcon,ApiIcon,CheckCircleIcon,DatabaseIcon,EditIcon,GoogleIcon,KeyIcon,MicrosoftIcon,PauseIcon,PlayIcon,PlusIcon,RefreshCwIcon,SettingIcon,ShieldIcon,TrashIcon,WebhookIcon,WorkflowIcon!=!@heroicons/react/24/outline' (imported as 'EditIcon').
+
+Import trace for requested module:
+./components/integrations/ApiManagementDashboard.tsx
+./app/api-management/page.tsx
+
+./components/integrations/ApiManagementDashboard.tsx
+Attempted import error: 'GoogleIcon' is not exported from '__barrel_optimize__?names=AlertCircleIcon,AnalyticsIcon,ApiIcon,CheckCircleIcon,DatabaseIcon,EditIcon,GoogleIcon,KeyIcon,MicrosoftIcon,PauseIcon,PlayIcon,PlusIcon,RefreshCwIcon,SettingIcon,ShieldIcon,TrashIcon,WebhookIcon,WorkflowIcon!=!@heroicons/react/24/outline' (imported as 'GoogleIcon').
+
+Import trace for requested module:
+./components/integrations/ApiManagementDashboard.tsx
+./app/api-management/page.tsx
+
+./components/integrations/ApiManagementDashboard.tsx
+Attempted import error: 'MicrosoftIcon' is not exported from '__barrel_optimize__?names=AlertCircleIcon,AnalyticsIcon,ApiIcon,CheckCircleIcon,DatabaseIcon,EditIcon,GoogleIcon,KeyIcon,MicrosoftIcon,PauseIcon,PlayIcon,PlusIcon,RefreshCwIcon,SettingIcon,ShieldIcon,TrashIcon,WebhookIcon,WorkflowIcon!=!@heroicons/react/24/outline' (imported as 'MicrosoftIcon').
+
+Import trace for requested module:
+./components/integrations/ApiManagementDashboard.tsx
+./app/api-management/page.tsx
+
+./components/integrations/ApiManagementDashboard.tsx
+Attempted import error: 'ShieldIcon' is not exported from '__barrel_optimize__?names=AlertCircleIcon,AnalyticsIcon,ApiIcon,CheckCircleIcon,DatabaseIcon,EditIcon,GoogleIcon,KeyIcon,MicrosoftIcon,PauseIcon,PlayIcon,PlusIcon,RefreshCwIcon,SettingIcon,ShieldIcon,TrashIcon,WebhookIcon,WorkflowIcon!=!@heroicons/react/24/outline' (imported as 'ShieldIcon').
+
+Import trace for requested module:
+./components/integrations/ApiManagementDashboard.tsx
+./app/api-management/page.tsx
+
+./components/integrations/ApiManagementDashboard.tsx
+Attempted import error: 'RefreshCwIcon' is not exported from '__barrel_optimize__?names=AlertCircleIcon,AnalyticsIcon,ApiIcon,CheckCircleIcon,DatabaseIcon,EditIcon,GoogleIcon,KeyIcon,MicrosoftIcon,PauseIcon,PlayIcon,PlusIcon,RefreshCwIcon,SettingIcon,ShieldIcon,TrashIcon,WebhookIcon,WorkflowIcon!=!@heroicons/react/24/outline' (imported as 'RefreshCwIcon').
+
+Import trace for requested module:
+./components/integrations/ApiManagementDashboard.tsx
+./app/api-management/page.tsx
+
+./components/integrations/ApiManagementDashboard.tsx
+Attempted import error: 'RefreshCwIcon' is not exported from '__barrel_optimize__?names=AlertCircleIcon,AnalyticsIcon,ApiIcon,CheckCircleIcon,DatabaseIcon,EditIcon,GoogleIcon,KeyIcon,MicrosoftIcon,PauseIcon,PlayIcon,PlusIcon,RefreshCwIcon,SettingIcon,ShieldIcon,TrashIcon,WebhookIcon,WorkflowIcon!=!@heroicons/react/24/outline' (imported as 'RefreshCwIcon').
+
+Import trace for requested module:
+./components/integrations/ApiManagementDashboard.tsx
+./app/api-management/page.tsx
+
+./components/integrations/ApiManagementDashboard.tsx
+Attempted import error: 'ApiIcon' is not exported from '__barrel_optimize__?names=AlertCircleIcon,AnalyticsIcon,ApiIcon,CheckCircleIcon,DatabaseIcon,EditIcon,GoogleIcon,KeyIcon,MicrosoftIcon,PauseIcon,PlayIcon,PlusIcon,RefreshCwIcon,SettingIcon,ShieldIcon,TrashIcon,WebhookIcon,WorkflowIcon!=!@heroicons/react/24/outline' (imported as 'ApiIcon').
+
+Import trace for requested module:
+./components/integrations/ApiManagementDashboard.tsx
+./app/api-management/page.tsx
+
+./components/integrations/ApiManagementDashboard.tsx
+Attempted import error: 'WebhookIcon' is not exported from '__barrel_optimize__?names=AlertCircleIcon,AnalyticsIcon,ApiIcon,CheckCircleIcon,DatabaseIcon,EditIcon,GoogleIcon,KeyIcon,MicrosoftIcon,PauseIcon,PlayIcon,PlusIcon,RefreshCwIcon,SettingIcon,ShieldIcon,TrashIcon,WebhookIcon,WorkflowIcon!=!@heroicons/react/24/outline' (imported as 'WebhookIcon').
+
+Import trace for requested module:
+./components/integrations/ApiManagementDashboard.tsx
+./app/api-management/page.tsx
+
+./components/integrations/ApiManagementDashboard.tsx
+Attempted import error: 'WorkflowIcon' is not exported from '__barrel_optimize__?names=AlertCircleIcon,AnalyticsIcon,ApiIcon,CheckCircleIcon,DatabaseIcon,EditIcon,GoogleIcon,KeyIcon,MicrosoftIcon,PauseIcon,PlayIcon,PlusIcon,RefreshCwIcon,SettingIcon,ShieldIcon,TrashIcon,WebhookIcon,WorkflowIcon!=!@heroicons/react/24/outline' (imported as 'WorkflowIcon').
+
+Import trace for requested module:
+./components/integrations/ApiManagementDashboard.tsx
+./app/api-management/page.tsx
+
+./components/integrations/ApiManagementDashboard.tsx
+Attempted import error: 'SettingIcon' is not exported from '__barrel_optimize__?names=AlertCircleIcon,AnalyticsIcon,ApiIcon,CheckCircleIcon,DatabaseIcon,EditIcon,GoogleIcon,KeyIcon,MicrosoftIcon,PauseIcon,PlayIcon,PlusIcon,RefreshCwIcon,SettingIcon,ShieldIcon,TrashIcon,WebhookIcon,WorkflowIcon!=!@heroicons/react/24/outline' (imported as 'SettingIcon').
+
+Import trace for requested module:
+./components/integrations/ApiManagementDashboard.tsx
+./app/api-management/page.tsx
+
+./components/integrations/ApiManagementDashboard.tsx
+Attempted import error: 'AnalyticsIcon' is not exported from '__barrel_optimize__?names=AlertCircleIcon,AnalyticsIcon,ApiIcon,CheckCircleIcon,DatabaseIcon,EditIcon,GoogleIcon,KeyIcon,MicrosoftIcon,PauseIcon,PlayIcon,PlusIcon,RefreshCwIcon,SettingIcon,ShieldIcon,TrashIcon,WebhookIcon,WorkflowIcon!=!@heroicons/react/24/outline' (imported as 'AnalyticsIcon').
+
+Import trace for requested module:
+./components/integrations/ApiManagementDashboard.tsx
+./app/api-management/page.tsx
+
+./components/integrations/IntegrationConnectors.tsx
+Attempted import error: 'GoogleIcon' is not exported from '__barrel_optimize__?names=CheckCircleIcon,CloudIcon,CogIcon,ExclamationTriangleIcon,EyeIcon,EyeSlashIcon,GoogleIcon,LinkIcon,MessageSquareIcon,MicrosoftIcon,XCircleIcon!=!@heroicons/react/24/outline' (imported as 'GoogleIcon').
+
+Import trace for requested module:
+./components/integrations/IntegrationConnectors.tsx
+./app/api-management/page.tsx
+
+./components/integrations/IntegrationConnectors.tsx
+Attempted import error: 'MicrosoftIcon' is not exported from '__barrel_optimize__?names=CheckCircleIcon,CloudIcon,CogIcon,ExclamationTriangleIcon,EyeIcon,EyeSlashIcon,GoogleIcon,LinkIcon,MessageSquareIcon,MicrosoftIcon,XCircleIcon!=!@heroicons/react/24/outline' (imported as 'MicrosoftIcon').
+
+Import trace for requested module:
+./components/integrations/IntegrationConnectors.tsx
+./app/api-management/page.tsx
+
+./components/integrations/IntegrationConnectors.tsx
+Attempted import error: 'MicrosoftIcon' is not exported from '__barrel_optimize__?names=CheckCircleIcon,CloudIcon,CogIcon,ExclamationTriangleIcon,EyeIcon,EyeSlashIcon,GoogleIcon,LinkIcon,MessageSquareIcon,MicrosoftIcon,XCircleIcon!=!@heroicons/react/24/outline' (imported as 'MicrosoftIcon').
+
+Import trace for requested module:
+./components/integrations/IntegrationConnectors.tsx
+./app/api-management/page.tsx
+
+./components/integrations/IntegrationConnectors.tsx
+Attempted import error: 'MessageSquareIcon' is not exported from '__barrel_optimize__?names=CheckCircleIcon,CloudIcon,CogIcon,ExclamationTriangleIcon,EyeIcon,EyeSlashIcon,GoogleIcon,LinkIcon,MessageSquareIcon,MicrosoftIcon,XCircleIcon!=!@heroicons/react/24/outline' (imported as 'MessageSquareIcon').
+
+Import trace for requested module:
+./components/integrations/IntegrationConnectors.tsx
+./app/api-management/page.tsx
+
+./components/integrations/IntegrationConnectors.tsx
+Attempted import error: 'GoogleIcon' is not exported from '__barrel_optimize__?names=CheckCircleIcon,CloudIcon,CogIcon,ExclamationTriangleIcon,EyeIcon,EyeSlashIcon,GoogleIcon,LinkIcon,MessageSquareIcon,MicrosoftIcon,XCircleIcon!=!@heroicons/react/24/outline' (imported as 'GoogleIcon').
+
+Import trace for requested module:
+./components/integrations/IntegrationConnectors.tsx
+./app/api-management/page.tsx
+
+./components/integrations/IntegrationConnectors.tsx
+Attempted import error: 'MicrosoftIcon' is not exported from '__barrel_optimize__?names=CheckCircleIcon,CloudIcon,CogIcon,ExclamationTriangleIcon,EyeIcon,EyeSlashIcon,GoogleIcon,LinkIcon,MessageSquareIcon,MicrosoftIcon,XCircleIcon!=!@heroicons/react/24/outline' (imported as 'MicrosoftIcon').
+
+Import trace for requested module:
+./components/integrations/IntegrationConnectors.tsx
+./app/api-management/page.tsx
+
+./components/integrations/IntegrationConnectors.tsx
+Attempted import error: 'MessageSquareIcon' is not exported from '__barrel_optimize__?names=CheckCircleIcon,CloudIcon,CogIcon,ExclamationTriangleIcon,EyeIcon,EyeSlashIcon,GoogleIcon,LinkIcon,MessageSquareIcon,MicrosoftIcon,XCircleIcon!=!@heroicons/react/24/outline' (imported as 'MessageSquareIcon').
+
+Import trace for requested module:
+./components/integrations/IntegrationConnectors.tsx
+./app/api-management/page.tsx
+
+./components/integrations/WebhookManagement.tsx
+Attempted import error: 'EditIcon' is not exported from '__barrel_optimize__?names=BeakerIcon,CheckCircleIcon,ClipboardDocumentIcon,ClockIcon,EditIcon,ExclamationTriangleIcon,PauseIcon,PlayIcon,PlusIcon,RefreshCwIcon,TrashIcon,WebhookIcon,XCircleIcon!=!@heroicons/react/24/outline' (imported as 'EditIcon').
+
+Import trace for requested module:
+./components/integrations/WebhookManagement.tsx
+./app/api-management/page.tsx
+
+./components/integrations/WebhookManagement.tsx
+Attempted import error: 'RefreshCwIcon' is not exported from '__barrel_optimize__?names=BeakerIcon,CheckCircleIcon,ClipboardDocumentIcon,ClockIcon,EditIcon,ExclamationTriangleIcon,PauseIcon,PlayIcon,PlusIcon,RefreshCwIcon,TrashIcon,WebhookIcon,XCircleIcon!=!@heroicons/react/24/outline' (imported as 'RefreshCwIcon').
+
+Import trace for requested module:
+./components/integrations/WebhookManagement.tsx
+./app/api-management/page.tsx
+
+./components/integrations/WebhookManagement.tsx
+Attempted import error: 'WebhookIcon' is not exported from '__barrel_optimize__?names=BeakerIcon,CheckCircleIcon,ClipboardDocumentIcon,ClockIcon,EditIcon,ExclamationTriangleIcon,PauseIcon,PlayIcon,PlusIcon,RefreshCwIcon,TrashIcon,WebhookIcon,XCircleIcon!=!@heroicons/react/24/outline' (imported as 'WebhookIcon').
+
+Import trace for requested module:
+./components/integrations/WebhookManagement.tsx
+./app/api-management/page.tsx
+
+./components/iot/IoTAnalyticsMonitoring.tsx
+Attempted import error: 'TrendingUpIcon' is not exported from '__barrel_optimize__?names=ArrowPathIcon,BeakerIcon,BellIcon,CheckCircleIcon,ExclamationTriangleIcon,FunnelIcon,TrendingDownIcon,TrendingUpIcon,XCircleIcon!=!@heroicons/react/24/outline' (imported as 'TrendingUpIcon').
+
+Import trace for requested module:
+./components/iot/IoTAnalyticsMonitoring.tsx
+./app/iot-management/page.tsx
+
+./components/iot/IoTAnalyticsMonitoring.tsx
+Attempted import error: 'TrendingDownIcon' is not exported from '__barrel_optimize__?names=ArrowPathIcon,BeakerIcon,BellIcon,CheckCircleIcon,ExclamationTriangleIcon,FunnelIcon,TrendingDownIcon,TrendingUpIcon,XCircleIcon!=!@heroicons/react/24/outline' (imported as 'TrendingDownIcon').
+
+Import trace for requested module:
+./components/iot/IoTAnalyticsMonitoring.tsx
+./app/iot-management/page.tsx
+
+./components/quantum/QuantumApplicationsDashboard.tsx
+Attempted import error: 'Quantum' is not exported from '__barrel_optimize__?names=Activity,AlertTriangle,ArrowUpRight,Atom,BarChart3,Brain,CheckCircle,Clock,Cpu,Download,Filter,Globe,Layers,Lightbulb,Pause,Play,Quantum,RefreshCw,Rocket,Search,Settings,Target,TrendingUp,Zap!=!lucide-react' (imported as 'Quantum').
+
+Import trace for requested module:
+./components/quantum/QuantumApplicationsDashboard.tsx
+
+./components/quantum/QuantumComputingDashboard.tsx
+Attempted import error: 'CircuitBoardIcon' is not exported from '__barrel_optimize__?names=AtomIcon,BeakerIcon,BoltIcon,ChartBarIcon,CheckCircleIcon,CircuitBoardIcon,ClockIcon,CpuChipIcon,CubeIcon,ExclamationTriangleIcon,FireIcon,RocketLaunchIcon,ShieldCheckIcon!=!@heroicons/react/24/outline' (imported as 'CircuitBoardIcon').
+
+Import trace for requested module:
+./components/quantum/QuantumComputingDashboard.tsx
+./app/quantum-computing/page.tsx
+
+./components/quantum/QuantumComputingDashboard.tsx
+Attempted import error: 'AtomIcon' is not exported from '__barrel_optimize__?names=AtomIcon,BeakerIcon,BoltIcon,ChartBarIcon,CheckCircleIcon,CircuitBoardIcon,ClockIcon,CpuChipIcon,CubeIcon,ExclamationTriangleIcon,FireIcon,RocketLaunchIcon,ShieldCheckIcon!=!@heroicons/react/24/outline' (imported as 'AtomIcon').
+
+Import trace for requested module:
+./components/quantum/QuantumComputingDashboard.tsx
+./app/quantum-computing/page.tsx
+
+./components/quantum/QuantumComputingDashboard.tsx
+Attempted import error: 'AtomIcon' is not exported from '__barrel_optimize__?names=AtomIcon,BeakerIcon,BoltIcon,ChartBarIcon,CheckCircleIcon,CircuitBoardIcon,ClockIcon,CpuChipIcon,CubeIcon,ExclamationTriangleIcon,FireIcon,RocketLaunchIcon,ShieldCheckIcon!=!@heroicons/react/24/outline' (imported as 'AtomIcon').
+
+Import trace for requested module:
+./components/quantum/QuantumComputingDashboard.tsx
+./app/quantum-computing/page.tsx
+
+./components/quantum/QuantumComputingDashboard.tsx
+Attempted import error: 'AtomIcon' is not exported from '__barrel_optimize__?names=AtomIcon,BeakerIcon,BoltIcon,ChartBarIcon,CheckCircleIcon,CircuitBoardIcon,ClockIcon,CpuChipIcon,CubeIcon,ExclamationTriangleIcon,FireIcon,RocketLaunchIcon,ShieldCheckIcon!=!@heroicons/react/24/outline' (imported as 'AtomIcon').
+
+Import trace for requested module:
+./components/quantum/QuantumComputingDashboard.tsx
+./app/quantum-computing/page.tsx
+
+./app/quantum-applications/page.tsx
+Attempted import error: 'Quantum' is not exported from '__barrel_optimize__?names=Activity,Atom,Brain,Cpu,Globe,Layers,Network,Quantum,Rocket,Shield,Target,TrendingUp,Zap!=!lucide-react' (imported as 'Quantum').
+
+Import trace for requested module:
+./app/quantum-applications/page.tsx
+
+./app/quantum-applications/page.tsx
+Attempted import error: 'QuantumApplicationsDashboard' is not exported from '@/components/quantum/QuantumApplicationsDashboard' (imported as 'QuantumApplicationsDashboard').
+
+Import trace for requested module:
+./app/quantum-applications/page.tsx
+
+   Skipping validation of types
+   Skipping linting
+   Collecting page data ...
+Error: supabaseUrl is required.
+    at C:\Users\crypt\Downloads\Ai projects\websites\Optibid Energy\enterprise-marketing\.next\server\app\api\features\route.js:34:44529
+    at new rk (C:\Users\crypt\Downloads\Ai projects\websites\Optibid Energy\enterprise-marketing\.next\server\app\api\features\route.js:34:44780)
+    at 99079 (C:\Users\crypt\Downloads\Ai projects\websites\Optibid Energy\enterprise-marketing\.next\server\app\api\features\route.js:34:50813)
+    at t (C:\Users\crypt\Downloads\Ai projects\websites\Optibid Energy\enterprise-marketing\.next\server\webpack-runtime.js:1:143)
+    at r (C:\Users\crypt\Downloads\Ai projects\websites\Optibid Energy\enterprise-marketing\.next\server\app\api\features\route.js:37:20631)
+    at C:\Users\crypt\Downloads\Ai projects\websites\Optibid Energy\enterprise-marketing\.next\server\app\api\features\route.js:37:20664
+    at t.X (C:\Users\crypt\Downloads\Ai projects\websites\Optibid Energy\enterprise-marketing\.next\server\webpack-runtime.js:1:2214)
+    at C:\Users\crypt\Downloads\Ai projects\websites\Optibid Energy\enterprise-marketing\.next\server\app\api\features\route.js:37:20644
+    at Object.<anonymous> (C:\Users\crypt\Downloads\Ai projects\websites\Optibid Energy\enterprise-marketing\.next\server\app\api\features\route.js:37:20692)
+    at Module._compile (node:internal/modules/cjs/loader:1738:14)
+
+> Build error occurred
+Error: Failed to collect page data for /api/features
+    at C:\Users\crypt\Downloads\Ai projects\websites\Optibid Energy\enterprise-marketing\node_modules\next\dist\build\utils.js:1269:15
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5) {
+  type: 'Error'
+}

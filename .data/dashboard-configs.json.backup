@@ -1,0 +1,203 @@
+{
+  "configs": {
+    "1": {
+      "id": "dashboard-1-1766181346794",
+      "userId": "1",
+      "name": "My Dashboard",
+      "description": "Personal energy trading dashboard",
+      "widgets": [
+        {
+          "id": "iex-live-prices-1",
+          "type": "iex-india-live-prices",
+          "title": "IEX India Live Prices",
+          "position": {
+            "x": 0,
+            "y": 0,
+            "w": 6,
+            "h": 4
+          },
+          "config": {
+            "market": "DAM",
+            "region": "All India",
+            "refreshInterval": "30s"
+          },
+          "permissions": []
+        },
+        {
+          "id": "portfolio-1",
+          "type": "portfolio-analytics",
+          "title": "Portfolio Performance",
+          "position": {
+            "x": 6,
+            "y": 0,
+            "w": 6,
+            "h": 4
+          },
+          "config": {
+            "view": "Full",
+            "benchmark": "Market Index"
+          },
+          "permissions": []
+        },
+        {
+          "id": "ai-signals-1",
+          "type": "ai-trading-signals",
+          "title": "AI Trading Signals",
+          "position": {
+            "x": 0,
+            "y": 4,
+            "w": 4,
+            "h": 4
+          },
+          "config": {
+            "showConfidence": true,
+            "minConfidence": "70%"
+          },
+          "permissions": []
+        },
+        {
+          "id": "weather-1",
+          "type": "weather-impact",
+          "title": "Weather Impact",
+          "position": {
+            "x": 4,
+            "y": 4,
+            "w": 4,
+            "h": 4
+          },
+          "config": {
+            "location": "All India",
+            "showForecast": true
+          },
+          "permissions": []
+        },
+        {
+          "id": "iex-demand-1",
+          "type": "iex-india-demand-supply",
+          "title": "Demand-Supply Balance",
+          "position": {
+            "x": 8,
+            "y": 4,
+            "w": 4,
+            "h": 4
+          },
+          "config": {
+            "region": "All India",
+            "showForecast": true
+          },
+          "permissions": []
+        },
+        {
+          "id": "trading-dashboard-1766235278780",
+          "userId": "1",
+          "type": "trading-dashboard",
+          "title": "Trading Dashboard",
+          "position": {
+            "x": 0,
+            "y": 8,
+            "w": 8,
+            "h": 5
+          },
+          "config": {
+            "marketZone": "PJM",
+            "showOrders": true,
+            "timeHorizon": "day-ahead"
+          },
+          "permissions": [
+            "data.view-market"
+          ],
+          "createdBy": "1",
+          "isShared": false,
+          "createdAt": "2025-12-20T12:54:38.780Z",
+          "updatedAt": "2025-12-20T12:54:38.780Z"
+        },
+        {
+          "id": "iex-india-live-prices-1766236645901",
+          "userId": "1",
+          "type": "iex-india-live-prices",
+          "title": "IEX India Live Prices",
+          "position": {
+            "x": 8,
+            "y": 8,
+            "w": 4,
+            "h": 4
+          },
+          "config": {
+            "market": "DAM",
+            "region": "All India",
+            "refreshInterval": "10s"
+          },
+          "permissions": [
+            "data.view-market"
+          ],
+          "createdBy": "1",
+          "isShared": false,
+          "createdAt": "2025-12-20T13:17:25.901Z",
+          "updatedAt": "2025-12-20T13:17:25.901Z"
+        },
+        {
+          "id": "geographic-map-1766287039237",
+          "userId": "1",
+          "type": "geographic-map",
+          "title": "Geographic Asset Map",
+          "position": {
+            "x": 0,
+            "y": 13,
+            "w": 6,
+            "h": 5
+          },
+          "config": {
+            "mapType": "terrain",
+            "showClusters": true,
+            "highlightBy": "capacity"
+          },
+          "permissions": [
+            "data.view-asset"
+          ],
+          "createdBy": "1",
+          "isShared": false,
+          "createdAt": "2025-12-21T03:17:19.237Z",
+          "updatedAt": "2025-12-21T03:17:19.237Z"
+        }
+      ],
+      "layout": "grid",
+      "theme": "light",
+      "autoRefresh": "5m",
+      "language": "en",
+      "timezone": "Asia/Kolkata",
+      "currency": "INR",
+      "notifications": {
+        "email": true,
+        "push": true,
+        "sms": false,
+        "priceAlerts": true,
+        "systemAlerts": true
+      },
+      "privacy": {
+        "showOnlineStatus": true,
+        "shareAnalytics": true
+      },
+      "performance": {
+        "reduceAnimations": false,
+        "lazyLoadWidgets": true
+      },
+      "accessibility": {
+        "highContrast": false,
+        "largeText": false
+      },
+      "permissions": [
+        "dashboard.view",
+        "dashboard.edit",
+        "widget.view",
+        "widget.create",
+        "widget.edit",
+        "widget.delete"
+      ],
+      "sharedWith": [],
+      "createdAt": "2025-12-19T21:55:46.794Z",
+      "updatedAt": "2025-12-21T03:17:19.909Z"
+    }
+  },
+  "version": 1,
+  "lastModified": "2025-12-21T03:17:19.909Z"
+}
