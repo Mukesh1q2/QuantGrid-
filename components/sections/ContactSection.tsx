@@ -2,10 +2,10 @@
 
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { 
-  EnvelopeIcon, 
-  PhoneIcon, 
-  MapPinIcon, 
+import {
+  EnvelopeIcon,
+  PhoneIcon,
+  MapPinIcon,
   ClockIcon,
   ChatBubbleLeftRightIcon,
   UserGroupIcon,
@@ -65,10 +65,10 @@ export function ContactSection() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
-    
+
     // Simulate form submission
     await new Promise(resolve => setTimeout(resolve, 2000))
-    
+
     setIsSubmitting(false)
     setSubmitted(true)
   }
@@ -89,7 +89,7 @@ export function ContactSection() {
             <p className="text-green-700 mb-6">
               We've received your {currentInquiryType.name.toLowerCase()} request and will get back to you within 24 hours.
             </p>
-            <button 
+            <button
               onClick={() => setSubmitted(false)}
               className="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700 transition-colors"
             >
@@ -110,7 +110,7 @@ export function ContactSection() {
             Get in Touch
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Ready to transform your energy trading? Contact our team for personalized demos, 
+            Ready to transform your energy trading? Contact our team for personalized demos,
             enterprise solutions, or technical support.
           </p>
         </div>
@@ -120,7 +120,7 @@ export function ContactSection() {
           <div className="lg:col-span-1">
             <div className="bg-white rounded-2xl shadow-lg border border-gray-200 p-8">
               <h2 className="text-2xl font-bold text-gray-900 mb-6">Contact Information</h2>
-              
+
               <div className="space-y-6">
                 <div className="flex items-start">
                   <div className="flex-shrink-0">
@@ -128,8 +128,8 @@ export function ContactSection() {
                   </div>
                   <div className="ml-4">
                     <h3 className="font-medium text-gray-900">Email</h3>
-                    <p className="text-gray-600">hello@optibid-energy.com</p>
-                    <p className="text-gray-600">support@optibid-energy.com</p>
+                    <p className="text-gray-600">hello@quantgrid.energy</p>
+                    <p className="text-gray-600">support@quantgrid.energy</p>
                   </div>
                 </div>
 
@@ -220,11 +220,10 @@ export function ContactSection() {
                           key={key}
                           type="button"
                           onClick={() => setFormData(prev => ({ ...prev, inquiryType: key as ContactForm['inquiryType'] }))}
-                          className={`p-3 rounded-lg border-2 text-left transition-colors ${
-                            formData.inquiryType === key
+                          className={`p-3 rounded-lg border-2 text-left transition-colors ${formData.inquiryType === key
                               ? `border-blue-500 bg-blue-50`
                               : 'border-gray-200 hover:border-gray-300'
-                          }`}
+                            }`}
                         >
                           <Icon className={`h-5 w-5 mb-2 ${formData.inquiryType === key ? 'text-blue-600' : 'text-gray-400'}`} />
                           <div className={`text-sm font-medium ${formData.inquiryType === key ? 'text-blue-900' : 'text-gray-900'}`}>
@@ -407,11 +406,10 @@ export function ContactSection() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className={`w-full py-4 px-6 rounded-lg font-medium transition-colors ${
-                    isSubmitting
+                  className={`w-full py-4 px-6 rounded-lg font-medium transition-colors ${isSubmitting
                       ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
                       : 'bg-gradient-to-r from-blue-500 to-purple-600 text-white hover:from-blue-600 hover:to-purple-700'
-                  }`}
+                    }`}
                 >
                   {isSubmitting ? (
                     <div className="flex items-center justify-center">
@@ -437,7 +435,7 @@ export function ContactSection() {
               Start Chat →
             </button>
           </div>
-          
+
           <div className="text-center p-6 bg-green-50 rounded-lg">
             <PhoneIcon className="h-8 w-8 text-green-600 mx-auto mb-4" />
             <h3 className="font-semibold text-green-900 mb-2">Phone Support</h3>
@@ -446,7 +444,7 @@ export function ContactSection() {
               Call Now →
             </button>
           </div>
-          
+
           <div className="text-center p-6 bg-purple-50 rounded-lg">
             <UserGroupIcon className="h-8 w-8 text-purple-600 mx-auto mb-4" />
             <h3 className="font-semibold text-purple-900 mb-2">Schedule Call</h3>

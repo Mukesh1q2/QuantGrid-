@@ -7,7 +7,7 @@ import { StarIcon, ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24
 const testimonials = [
     {
         id: 1,
-        quote: "OptiBid reduced our energy procurement costs by 23% in the first quarter. The AI forecasting is incredibly accurate.",
+        quote: "QuantGrid reduced our energy procurement costs by 23% in the first quarter. The AI forecasting is incredibly accurate.",
         author: "David Morrison",
         role: "VP of Operations",
         company: "Nexus Energy Partners",
@@ -29,7 +29,7 @@ const testimonials = [
     },
     {
         id: 3,
-        quote: "Enterprise-grade security and 99.9% uptime. OptiBid handles our $500M+ annual trading volume flawlessly.",
+        quote: "Enterprise-grade security and 99.9% uptime. QuantGrid handles our $500M+ annual trading volume flawlessly.",
         author: "James Chen",
         role: "Director of Energy Trading",
         company: "Pacific Grid Solutions",
@@ -87,7 +87,7 @@ export function TestimonialsSection() {
                         Trusted by Energy Leaders
                     </h2>
                     <p className="mt-4 text-lg text-gray-600 dark:text-gray-300">
-                        See how companies are transforming their energy operations with OptiBid
+                        See how companies are transforming their energy operations with QuantGrid
                     </p>
                 </div>
 
@@ -178,8 +178,8 @@ export function TestimonialsSection() {
                                 setCurrentIndex(index)
                             }}
                             className={`w-3 h-3 rounded-full transition-all duration-300 ${index === currentIndex
-                                    ? 'bg-blue-600 w-8'
-                                    : 'bg-gray-300 dark:bg-gray-600 hover:bg-gray-400'
+                                ? 'bg-blue-600 w-8'
+                                : 'bg-gray-300 dark:bg-gray-600 hover:bg-gray-400'
                                 }`}
                             aria-label={`Go to testimonial ${index + 1}`}
                         />
@@ -196,8 +196,8 @@ export function TestimonialsSection() {
                             <div
                                 key={i}
                                 className={`px-4 py-2 rounded-lg transition-all duration-300 ${i === currentIndex
-                                        ? 'bg-blue-100 dark:bg-blue-900/30 scale-110'
-                                        : 'opacity-60 hover:opacity-100'
+                                    ? 'bg-blue-100 dark:bg-blue-900/30 scale-110'
+                                    : 'opacity-60 hover:opacity-100'
                                     }`}
                             >
                                 <div className={`w-8 h-8 rounded-full bg-gradient-to-br ${t.color} flex items-center justify-center mr-2 inline-block`}>

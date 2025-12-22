@@ -88,7 +88,7 @@ export function FeaturesSection() {
             viewport={{ once: true }}
             className="mt-4 text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto"
           >
-            Discover the advanced capabilities that set OptiBid apart from traditional energy trading platforms
+            Discover the advanced capabilities that set QuantGrid apart from traditional energy trading platforms
           </motion.p>
         </div>
 
@@ -197,7 +197,7 @@ export function FeaturesSection() {
                       <div className="absolute bottom-8 left-8 w-3 h-3 bg-purple-500 rounded-full animate-pulse delay-200"></div>
                       <div className="absolute bottom-4 right-4 w-2 h-2 bg-orange-500 rounded-full animate-pulse delay-300"></div>
                       <div className="absolute top-1/2 left-1/2 w-2 h-2 bg-pink-500 rounded-full animate-pulse delay-400"></div>
-                      
+
                       {/* Connection lines */}
                       <svg className="absolute inset-0 w-full h-full">
                         <line x1="20%" y1="15%" x2="70%" y2="35%" stroke="rgba(59, 130, 246, 0.3)" strokeWidth="2" className="animate-pulse"></line>
@@ -211,7 +211,7 @@ export function FeaturesSection() {
                       Energy Network
                     </div>
                   </div>
-                  
+
                   {/* Stats */}
                   <div className="grid grid-cols-3 gap-4">
                     <div className="bg-white dark:bg-gray-800 p-4 rounded-lg text-center">
@@ -263,7 +263,7 @@ export function FeaturesSection() {
                       </svg>
                     </div>
                   </div>
-                  
+
                   {/* AI Insights */}
                   <div className="space-y-3">
                     <div className="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg">
@@ -312,7 +312,7 @@ export function FeaturesSection() {
                       </div>
                     </div>
                   </div>
-                  
+
                   {/* Comments */}
                   <div className="space-y-3">
                     <div className="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
@@ -371,11 +371,10 @@ export function FeaturesSection() {
             <button
               key={index}
               onClick={() => setActiveFeature(index)}
-              className={`w-3 h-3 rounded-full transition-all duration-200 ${
-                activeFeature === index
+              className={`w-3 h-3 rounded-full transition-all duration-200 ${activeFeature === index
                   ? 'bg-blue-600 dark:bg-blue-400 scale-110'
                   : 'bg-gray-300 dark:bg-gray-600 hover:bg-gray-400 dark:hover:bg-gray-500'
-              }`}
+                }`}
               onMouseEnter={() => handleFeatureInteraction(features[index].id, 'hover_dot')}
             />
           ))}

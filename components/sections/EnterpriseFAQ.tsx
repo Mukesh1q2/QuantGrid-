@@ -4,7 +4,7 @@ import { SectionWrapper } from '@/components/ui/SectionWrapper'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
-import { 
+import {
   QuestionMarkCircleIcon,
   CheckCircleIcon,
   ShieldCheckIcon,
@@ -20,8 +20,8 @@ export function EnterpriseFAQ() {
   const [openItems, setOpenItems] = useState<number[]>([])
 
   const toggleItem = (index: number) => {
-    setOpenItems(prev => 
-      prev.includes(index) 
+    setOpenItems(prev =>
+      prev.includes(index)
         ? prev.filter(i => i !== index)
         : [...prev, index]
     )
@@ -40,7 +40,7 @@ export function EnterpriseFAQ() {
             Common Enterprise Questions
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            Everything you need to know about deploying and scaling OptiBid Enterprise 
+            Everything you need to know about deploying and scaling QuantGrid Enterprise
             for your energy trading operations.
           </p>
         </div>
@@ -49,7 +49,7 @@ export function EnterpriseFAQ() {
         <div className="space-y-4">
           {enterpriseFaqs.map((faq, index) => (
             <Card key={index} className="overflow-hidden">
-              <CardHeader 
+              <CardHeader
                 className="cursor-pointer"
                 onClick={() => toggleItem(index)}
               >
@@ -76,7 +76,7 @@ export function EnterpriseFAQ() {
                   </motion.div>
                 </div>
               </CardHeader>
-              
+
               <AnimatePresence>
                 {openItems.includes(index) && (
                   <motion.div
@@ -90,7 +90,7 @@ export function EnterpriseFAQ() {
                         <p className="text-gray-600 dark:text-gray-300 mb-4">
                           {faq.answer}
                         </p>
-                        
+
                         {faq.details && (
                           <ul className="space-y-2 mb-4">
                             {faq.details.map((detail, idx) => (
@@ -101,7 +101,7 @@ export function EnterpriseFAQ() {
                             ))}
                           </ul>
                         )}
-                        
+
                         {faq.cta && (
                           <Button variant="outline" size="sm" className="mt-4">
                             {faq.cta}
@@ -124,7 +124,7 @@ export function EnterpriseFAQ() {
               Have More Questions?
             </h3>
             <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
-              Our enterprise sales team is ready to discuss your specific requirements 
+              Our enterprise sales team is ready to discuss your specific requirements
               and provide a customized solution for your organization.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

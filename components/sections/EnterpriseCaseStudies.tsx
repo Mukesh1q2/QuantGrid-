@@ -2,9 +2,9 @@ import { SectionWrapper } from '@/components/ui/SectionWrapper'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
-import { 
-  TrophyIcon, 
-  ChartBarIcon, 
+import {
+  TrophyIcon,
+  ChartBarIcon,
   CurrencyDollarIcon,
   ClockIcon,
   ArrowRightIcon,
@@ -23,10 +23,10 @@ export function EnterpriseCaseStudies() {
             Enterprise Success Stories
           </Badge>
           <h2 className="text-3xl lg:text-4xl font-bold mb-4">
-            Fortune 500 Companies Trust OptiBid
+            Fortune 500 Companies Trust QuantGrid
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            Real results from enterprise energy trading companies that have transformed 
+            Real results from enterprise energy trading companies that have transformed
             their operations with our platform.
           </p>
         </div>
@@ -53,7 +53,7 @@ export function EnterpriseCaseStudies() {
                   </Badge>
                 </div>
               </CardHeader>
-              
+
               <CardContent className="space-y-6">
                 {/* Challenge */}
                 <div>
@@ -130,7 +130,7 @@ export function EnterpriseCaseStudies() {
             Ready to Join Fortune 500 Leaders?
           </h3>
           <p className="text-gray-600 dark:text-gray-300 mb-6 max-w-2xl mx-auto">
-            See how our enterprise platform can transform your energy trading operations 
+            See how our enterprise platform can transform your energy trading operations
             with AI-powered optimization and advanced analytics.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -155,7 +155,7 @@ const caseStudies = [
     company: "Global Energy Corp",
     industry: "Fortune 500 Energy Conglomerate",
     challenge: "Managing complex energy portfolios across 15+ markets with manual processes leading to $50M in annual inefficiencies and delayed decision-making.",
-    solution: "Implemented OptiBid Enterprise with AI-powered optimization, real-time market integration, and automated portfolio rebalancing across all trading operations.",
+    solution: "Implemented QuantGrid Enterprise with AI-powered optimization, real-time market integration, and automated portfolio rebalancing across all trading operations.",
     results: {
       timeframe: "12 months",
       metrics: [
@@ -165,7 +165,7 @@ const caseStudies = [
         { value: "99.2%", label: "System Uptime" }
       ]
     },
-    quote: "OptiBid transformed our energy trading operations completely. The AI optimization alone has saved us over $127 million in the first year.",
+    quote: "QuantGrid transformed our energy trading operations completely. The AI optimization alone has saved us over $127 million in the first year.",
     testimonial: {
       name: "Sarah Johnson",
       title: "VP of Energy Trading"
@@ -175,7 +175,7 @@ const caseStudies = [
     company: "PowerGrid Systems",
     industry: "National Grid Operator",
     challenge: "Complex grid balancing across renewable and traditional sources with limited visibility into real-time market conditions and forecasting accuracy below 60%.",
-    solution: "Deployed OptiBid Enterprise with advanced forecasting algorithms, real-time grid optimization, and comprehensive market data integration.",
+    solution: "Deployed QuantGrid Enterprise with advanced forecasting algorithms, real-time grid optimization, and comprehensive market data integration.",
     results: {
       timeframe: "6 months",
       metrics: [

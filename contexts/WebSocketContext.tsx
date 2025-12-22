@@ -61,8 +61,8 @@ const WebSocketContext = createContext<WebSocketContextType | undefined>(undefin
 
 // WebSocket configuration - connection is optional, won't spam console if server unavailable
 const WS_CONFIG = {
-  url: process.env.NEXT_PUBLIC_WS_URL || 'ws://localhost:8000',
-  enabled: process.env.NEXT_PUBLIC_WS_ENABLED !== 'false', // Can be disabled via env
+  url: process.env.NEXT_PUBLIC_WS_URL || '',
+  enabled: !!process.env.NEXT_PUBLIC_WS_URL && process.env.NEXT_PUBLIC_WS_ENABLED !== 'false',
   options: {
     transports: ['websocket'],
     timeout: 5000, // Shorter timeout

@@ -2,10 +2,10 @@ import { Metadata } from 'next'
 
 export function generateMetadata(): Metadata {
   return {
-    metadataBase: new URL('https://optibid-energy.com'),
+    metadataBase: new URL('https://quantgrid.energy'),
     title: {
-      default: 'Enterprise Energy Trading Solutions | OptiBid Energy',
-      template: '%s | OptiBid Energy'
+      default: 'Enterprise Energy Trading Solutions | QuantGrid',
+      template: '%s | QuantGrid'
     },
     description: 'Scale your energy trading operations with our enterprise platform. Advanced analytics, AI optimization, and industry-leading security for Fortune 500 energy companies worldwide.',
     keywords: [
@@ -20,9 +20,9 @@ export function generateMetadata(): Metadata {
       'real-time energy analytics',
       'energy trading optimization'
     ],
-    authors: [{ name: 'OptiBid Energy Team' }],
-    creator: 'OptiBid Energy',
-    publisher: 'OptiBid Energy',
+    authors: [{ name: 'QuantGrid Team' }],
+    creator: 'QuantGrid',
+    publisher: 'QuantGrid',
     formatDetection: {
       email: false,
       address: false,
@@ -31,22 +31,22 @@ export function generateMetadata(): Metadata {
     openGraph: {
       type: 'website',
       locale: 'en_US',
-      url: 'https://optibid-energy.com/enterprise',
-      title: 'Enterprise Energy Trading Solutions | OptiBid Energy',
+      url: 'https://quantgrid.energy/enterprise',
+      title: 'Enterprise Energy Trading Solutions | QuantGrid',
       description: 'Scale your energy trading operations with our enterprise platform. Advanced analytics, AI optimization, and industry-leading security for Fortune 500 energy companies worldwide.',
-      siteName: 'OptiBid Energy',
+      siteName: 'QuantGrid',
       images: [
         {
           url: '/images/enterprise-og-image.jpg',
           width: 1200,
           height: 630,
-          alt: 'OptiBid Enterprise Energy Trading Platform',
+          alt: 'QuantGrid Enterprise Energy Trading Platform',
         },
       ],
     },
     twitter: {
       card: 'summary_large_image',
-      title: 'Enterprise Energy Trading Solutions | OptiBid Energy',
+      title: 'Enterprise Energy Trading Solutions | QuantGrid',
       description: 'Scale your energy trading operations with our enterprise platform. Advanced analytics, AI optimization, and industry-leading security for Fortune 500 energy companies worldwide.',
       images: ['/images/enterprise-twitter-image.jpg'],
     },
@@ -73,10 +73,10 @@ export function EnterpriseSchema() {
   const schemaData = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "name": "OptiBid Energy",
-    "alternateName": "OptiBid",
-    "url": "https://optibid-energy.com",
-    "logo": "https://optibid-energy.com/images/logo.png",
+    "name": "QuantGrid",
+    "alternateName": "QuantGrid",
+    "url": "https://quantgrid.energy",
+    "logo": "https://quantgrid.energy/images/logo.png",
     "foundingDate": "2020",
     "description": "Enterprise energy trading platform with AI-powered optimization, real-time analytics, and visual knowledge graphs for energy professionals.",
     "address": {
@@ -91,13 +91,13 @@ export function EnterpriseSchema() {
       "@type": "ContactPoint",
       "telephone": "+1-555-ENERGY",
       "contactType": "sales",
-      "email": "enterprise@optibid-energy.com",
+      "email": "enterprise@quantgrid.energy",
       "availableLanguage": ["English"]
     },
     "sameAs": [
-      "https://linkedin.com/company/optibid-energy",
-      "https://twitter.com/optibid_energy",
-      "https://github.com/optibid-energy"
+      "https://linkedin.com/company/quantgrid",
+      "https://twitter.com/quantgrid",
+      "https://github.com/Mukesh1q2/QuantGrid-"
     ],
     "offers": [
       {

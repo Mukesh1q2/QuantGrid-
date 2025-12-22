@@ -13,7 +13,7 @@ import { CookieBanner } from '@/components/ui/CookieBanner'
 import { FeatureGate, FeatureEnabled } from '@/lib/feature-flags/components'
 
 export const metadata: Metadata = {
-  title: 'Enterprise Energy Trading Platform | OptiBid Energy',
+  title: 'Enterprise Energy Trading Platform | QuantGrid',
   description: 'Transform your energy trading with AI-powered optimization, real-time analytics, and visual knowledge graphs. Enterprise-grade platform for energy professionals.',
 }
 
