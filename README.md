@@ -1,4 +1,4 @@
-# OptiBid Energy - Enterprise Marketing Website
+# QuantGrid - Enterprise Marketing Website
 
 > Revolutionary enterprise-grade energy trading platform with AI-powered optimization, real-time analytics, and visual knowledge graphs.
 
@@ -103,8 +103,8 @@ enterprise-marketing/
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/your-org/optibid-energy-marketing.git
-   cd optibid-energy-marketing
+   git clone https://github.com/Mukesh1q2/QuantGrid-.git
+   cd QuantGrid-
    ```
 
 2. **Install dependencies**
@@ -124,12 +124,12 @@ enterprise-marketing/
    NEXT_PUBLIC_HOTJAR_ID=XXXXXXX
    
    # API Endpoints
-   NEXT_PUBLIC_API_URL=https://api.optibid-energy.com
-   NEXT_PUBLIC_DEMO_URL=https://demo.optibid-energy.com
+   NEXT_PUBLIC_API_URL=https://api.quantgrid.energy
+   NEXT_PUBLIC_DEMO_URL=https://demo.quantgrid.energy
    
    # Social Media
-   NEXT_PUBLIC_TWITTER_HANDLE=@optibid_energy
-   NEXT_PUBLIC_LINKEDIN_URL=https://linkedin.com/company/optibid-energy
+   NEXT_PUBLIC_TWITTER_HANDLE=@quantgrid_energy
+   NEXT_PUBLIC_LINKEDIN_URL=https://linkedin.com/company/quantgrid
    
    # Feature Flags
    NEXT_PUBLIC_ENABLE_DEMO=true
@@ -240,8 +240,8 @@ vercel --prod
 
 ### Docker
 ```bash
-docker build -t optibid-marketing .
-docker run -p 3000:3000 optibid-marketing
+docker build -t quantgrid-marketing .
+docker run -p 3000:3000 quantgrid-marketing
 ```
 
 ### Environment Configuration
@@ -324,14 +324,14 @@ docker run -p 3000:3000 optibid-marketing
 
 ## 📄 License
 
-This project is proprietary software owned by OptiBid Energy. All rights reserved.
+This project is proprietary software owned by QuantGrid. All rights reserved.
 
 ## 🆘 Support
 
-- **Documentation**: [docs.optibid-energy.com](https://docs.optibid-energy.com)
-- **Issues**: [GitHub Issues](https://github.com/your-org/optibid-energy-marketing/issues)
-- **Email**: support@optibid-energy.com
-- **Status**: [status.optibid-energy.com](https://status.optibid-energy.com)
+- **Documentation**: [docs.quantgrid.energy](https://docs.quantgrid.energy)
+- **Issues**: [GitHub Issues](https://github.com/Mukesh1q2/QuantGrid-/issues)
+- **Email**: support@quantgrid.energy
+- **Status**: [status.quantgrid.energy](https://status.quantgrid.energy)
 
 ## 🗺️ Roadmap
 
@@ -355,6 +355,6 @@ This project is proprietary software owned by OptiBid Energy. All rights reserve
 
 ---
 
-**Built with ❤️ by the OptiBid Energy Team**
+**Built with ❤️ by the QuantGrid Team**
 
 *Transforming energy trading through innovative technology and AI-powered insights.*
