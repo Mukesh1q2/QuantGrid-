@@ -281,7 +281,7 @@ export function Footer() {
                 rel="noopener noreferrer"
                 className="text-sm text-gray-400 hover:text-purple-400 transition-colors mt-2 sm:mt-0"
               >
-                Design by <span className="font-semibold">TheQbitLabs</span>
+                Designed by <span className="font-semibold">TheQbitlabs</span>
               </a>
             </div>
           </div>
