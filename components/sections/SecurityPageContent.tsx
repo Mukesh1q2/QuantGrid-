@@ -8,7 +8,7 @@ export default function SecurityPageContent() {
     {
       icon: Shield,
       title: 'End-to-End Encryption',
-      description: 'All data transmitted through OptiBid is encrypted using AES-256 encryption standards, ensuring your trading data remains confidential.',
+      description: 'All data transmitted through QuantGrid is encrypted using AES-256 encryption standards, ensuring your trading data remains confidential.',
       status: 'Active'
     },
     {
@@ -75,7 +75,7 @@ export default function SecurityPageContent() {
               </span>
             </h1>
             <p className="text-xl text-slate-300 max-w-3xl mx-auto">
-              OptiBid employs military-grade security measures to protect your energy trading operations,
+              QuantGrid employs military-grade security measures to protect your energy trading operations,
               ensuring data integrity, confidentiality, and compliance with global standards.
             </p>
           </div>
@@ -246,7 +246,7 @@ export default function SecurityPageContent() {
               Ready to Secure Your Energy Trading?
             </h2>
             <p className="text-blue-100 text-lg mb-8 max-w-2xl mx-auto">
-              Join leading energy companies who trust OptiBid with their critical trading operations
+              Join leading energy companies who trust QuantGrid with their critical trading operations
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button className="px-8 py-4 bg-white text-blue-600 rounded-lg font-semibold hover:bg-blue-50 transition-colors">

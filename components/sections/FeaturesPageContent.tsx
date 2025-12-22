@@ -78,7 +78,7 @@ export default function FeaturesPageContent() {
             </span>
           </h1>
           <p className="text-xl text-slate-300 max-w-3xl mx-auto">
-            From AI-powered forecasting to quantum computing optimization, OptiBid provides
+            From AI-powered forecasting to quantum computing optimization, QuantGrid provides
             the most advanced technology stack in the energy trading industry.
           </p>
         </div>
@@ -121,7 +121,7 @@ export default function FeaturesPageContent() {
               Ready to Experience the Future?
             </h2>
             <p className="text-blue-100 text-lg mb-8 max-w-2xl mx-auto">
-              Join leading energy companies using OptiBid to transform their trading operations
+              Join leading energy companies using QuantGrid to transform their trading operations
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a

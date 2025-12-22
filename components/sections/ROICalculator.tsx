@@ -52,7 +52,7 @@ export function ROICalculator() {
 
         // Calculate efficiency gains (time savings)
         const hoursPerWeekManual = inputs.teamSize * 8 // 8 hours/week per team member
-        const automationFactor = 0.7 // OptiBid automates 70% of manual work
+        const automationFactor = 0.7 // QuantGrid automates 70% of manual work
         const hoursSaved = hoursPerWeekManual * automationFactor * 52
         const laborCostPerHour = 75
         const laborSavings = hoursSaved * laborCostPerHour
@@ -103,7 +103,7 @@ export function ROICalculator() {
                         Calculate Your ROI
                     </h2>
                     <p className="mt-4 text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-                        See how much you could save with OptiBid's AI-powered energy trading platform
+                        See how much you could save with QuantGrid's AI-powered energy trading platform
                     </p>
                 </div>
 
@@ -198,7 +198,7 @@ export function ROICalculator() {
                                 </span>
                             </div>
                             <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
-                                OptiBid achieves 94.2% accuracy
+                                QuantGrid achieves 94.2% accuracy
                             </p>
                         </div>
 
@@ -213,8 +213,8 @@ export function ROICalculator() {
                                         key={plan}
                                         onClick={() => setSelectedPlan(plan)}
                                         className={`py-2 px-3 rounded-lg text-sm font-medium transition-all ${selectedPlan === plan
-                                                ? 'bg-blue-600 text-white'
-                                                : 'bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-600 hover:border-blue-300'
+                                            ? 'bg-blue-600 text-white'
+                                            : 'bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-600 hover:border-blue-300'
                                             }`}
                                     >
                                         {plan.charAt(0).toUpperCase() + plan.slice(1)}
@@ -237,7 +237,7 @@ export function ROICalculator() {
                                 {formatCurrency(results.annualSavings)}
                             </div>
                             <p className="text-sm opacity-80">
-                                Based on your inputs and OptiBid's proven performance metrics
+                                Based on your inputs and QuantGrid's proven performance metrics
                             </p>
                         </motion.div>
 

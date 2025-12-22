@@ -2,10 +2,10 @@ import { Metadata } from 'next'
 
 export function generateMetadata(): Metadata {
   return {
-    metadataBase: new URL('https://optibid-energy.com'),
+    metadataBase: new URL('https://quantgrid.energy'),
     title: {
-      default: 'Enterprise Security & Compliance | OptiBid Energy - Bank-Grade Protection',
-      template: '%s | OptiBid Energy'
+      default: 'Enterprise Security & Compliance | QuantGrid - Bank-Grade Protection',
+      template: '%s | QuantGrid'
     },
     description: 'Comprehensive enterprise security platform with SOC 2 Type II certification, advanced encryption, SSO integration, and compliance framework for energy trading companies.',
     keywords: [
@@ -20,9 +20,9 @@ export function generateMetadata(): Metadata {
       'energy security',
       'cybersecurity compliance'
     ],
-    authors: [{ name: 'OptiBid Energy Security Team' }],
-    creator: 'OptiBid Energy',
-    publisher: 'OptiBid Energy',
+    authors: [{ name: 'QuantGrid Security Team' }],
+    creator: 'QuantGrid',
+    publisher: 'QuantGrid',
     formatDetection: {
       email: false,
       address: false,
@@ -31,8 +31,8 @@ export function generateMetadata(): Metadata {
     openGraph: {
       type: 'website',
       locale: 'en_US',
-      url: 'https://optibid-energy.com/enterprise-security',
-      title: 'Enterprise Security & Compliance | OptiBid Energy',
+      url: 'https://quantgrid.energy/enterprise-security',
+      title: 'Enterprise Security & Compliance | QuantGrid',
       description: 'Comprehensive enterprise security platform with SOC 2 Type II certification, advanced encryption, SSO integration, and compliance framework for energy trading companies.',
       siteName: 'OptiBid Energy',
       images: [
@@ -40,13 +40,13 @@ export function generateMetadata(): Metadata {
           url: '/images/security-og-image.jpg',
           width: 1200,
           height: 630,
-          alt: 'OptiBid Enterprise Security & Compliance Platform',
+          alt: 'QuantGrid Enterprise Security & Compliance Platform',
         },
       ],
     },
     twitter: {
       card: 'summary_large_image',
-      title: 'Enterprise Security & Compliance | OptiBid Energy',
+      title: 'Enterprise Security & Compliance | QuantGrid',
       description: 'Comprehensive enterprise security platform with SOC 2 Type II certification, advanced encryption, SSO integration, and compliance framework for energy trading companies.',
       images: ['/images/security-twitter-image.jpg'],
     },
@@ -71,14 +71,14 @@ export function EnterpriseSecuritySchema() {
   const schemaData = {
     "@context": "https://schema.org",
     "@type": "Service",
-    "name": "OptiBid Enterprise Security Platform",
+    "name": "QuantGrid Enterprise Security Platform",
     "description": "Comprehensive enterprise security platform with SOC 2 Type II certification, advanced encryption, SSO integration, and compliance framework for energy trading companies.",
     "url": "https://optibid-energy.com/enterprise-security",
     "serviceType": "Cybersecurity Service",
     "provider": {
       "@type": "Organization",
-      "name": "OptiBid Energy",
-      "url": "https://optibid-energy.com"
+      "name": "QuantGrid",
+      "url": "https://quantgrid.energy"
     },
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
@@ -124,7 +124,7 @@ export function EnterpriseSecuritySchema() {
     },
     "availableChannel": {
       "@type": "ServiceChannel",
-      "serviceUrl": "https://optibid-energy.com/contact",
+      "serviceUrl": "https://quantgrid.energy/contact",
       "servicePhone": "+1-555-SECURITY"
     },
     "aggregateRating": {

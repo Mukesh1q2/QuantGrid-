@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { 
+import {
   DocumentTextIcon,
   CodeBracketSquareIcon,
   BookOpenIcon,
@@ -28,7 +28,7 @@ interface Resource {
 const resources: Resource[] = [
   {
     id: 'getting-started',
-    title: 'Getting Started with OptiBid Energy',
+    title: 'Getting Started with QuantGrid',
     description: 'Complete guide to setting up your first energy trading dashboard and connecting your data sources.',
     type: 'documentation',
     category: 'Getting Started',
@@ -61,7 +61,7 @@ const resources: Resource[] = [
   {
     id: 'enterprise-case-study',
     title: 'Enterprise Case Study: Grid Optimization',
-    description: 'How a major utility improved grid efficiency by 25% using OptiBid Energy platform.',
+    description: 'How a major utility improved grid efficiency by 25% using QuantGrid platform.',
     type: 'case-study',
     category: 'Success Stories',
     difficulty: 'beginner',
@@ -81,7 +81,7 @@ const resources: Resource[] = [
   {
     id: 'api-quickstart',
     title: 'API Quickstart Tutorial',
-    description: 'Step-by-step video guide to integrating OptiBid API into your applications.',
+    description: 'Step-by-step video guide to integrating QuantGrid API into your applications.',
     type: 'video',
     category: 'Developers',
     difficulty: 'beginner',
@@ -141,7 +141,7 @@ export function ResourcesPageContent() {
     const categoryMatch = selectedCategory === 'All' || resource.category === selectedCategory
     const typeMatch = selectedType === 'all' || resource.type === selectedType
     const difficultyMatch = selectedDifficulty === 'all' || resource.difficulty === selectedDifficulty
-    
+
     return categoryMatch && typeMatch && difficultyMatch
   })
 
@@ -154,7 +154,7 @@ export function ResourcesPageContent() {
             Resources & Documentation
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Everything you need to master energy trading with OptiBid. From quick tutorials to in-depth technical guides.
+            Everything you need to master energy trading with QuantGrid. From quick tutorials to in-depth technical guides.
           </p>
         </div>
 
@@ -211,11 +211,10 @@ export function ResourcesPageContent() {
                 <button
                   key={category}
                   onClick={() => setSelectedCategory(category)}
-                  className={`px-3 py-1 rounded-full text-sm font-medium transition-colors ${
-                    selectedCategory === category
+                  className={`px-3 py-1 rounded-full text-sm font-medium transition-colors ${selectedCategory === category
                       ? 'bg-blue-500 text-white'
                       : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                  }`}
+                    }`}
                 >
                   {category}
                 </button>
@@ -263,7 +262,7 @@ export function ResourcesPageContent() {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredResources.map((resource) => {
             const Icon = resource.icon
-            
+
             return (
               <motion.div
                 key={resource.id}
@@ -287,10 +286,10 @@ export function ResourcesPageContent() {
                       </div>
                     </div>
                   </div>
-                  
+
                   <h3 className="text-lg font-semibold text-gray-900 mb-2">{resource.title}</h3>
                   <p className="text-gray-600 text-sm mb-4">{resource.description}</p>
-                  
+
                   <div className="flex items-center justify-between">
                     <span className="text-sm text-gray-500">{resource.category}</span>
                     {resource.duration && (

@@ -2,8 +2,8 @@
 
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { 
-  ShieldCheckIcon, 
+import {
+  ShieldCheckIcon,
   DocumentTextIcon,
   ClockIcon,
   UserGroupIcon,
@@ -28,7 +28,7 @@ export function PrivacyPolicyContent() {
             <h1 className="text-4xl font-bold text-gray-900">Privacy Policy</h1>
           </motion.div>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Your privacy is important to us. This policy explains how OptiBid Energy collects, uses, and protects your personal information.
+            Your privacy is important to us. This policy explains how QuantGrid collects, uses, and protects your personal information.
           </p>
           <div className="flex items-center justify-center mt-4 text-sm text-gray-500">
             <ClockIcon className="h-4 w-4 mr-2" />
@@ -58,16 +58,16 @@ export function PrivacyPolicyContent() {
         {/* Privacy Policy Content */}
         <div className="prose prose-lg max-w-none">
           <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-8 space-y-8">
-            
+
             {/* Section 1 */}
             <div>
               <h2 className="text-2xl font-bold text-gray-900 mb-4">1. Information We Collect</h2>
               <div className="space-y-4 text-gray-700">
                 <p>
-                  We collect information you provide directly to us, such as when you create an account, 
+                  We collect information you provide directly to us, such as when you create an account,
                   use our services, or contact us for support.
                 </p>
-                
+
                 <h3 className="text-lg font-semibold text-gray-900 mt-6">Personal Information</h3>
                 <ul className="list-disc pl-6 space-y-2">
                   <li>Name, email address, and contact information</li>
@@ -99,7 +99,7 @@ export function PrivacyPolicyContent() {
               <h2 className="text-2xl font-bold text-gray-900 mb-4">2. How We Use Your Information</h2>
               <div className="space-y-4 text-gray-700">
                 <p>We use the information we collect to provide, maintain, and improve our services:</p>
-                
+
                 <ul className="list-disc pl-6 space-y-2">
                   <li>Provide and personalize our energy trading platform</li>
                   <li>Process transactions and send related information</li>
@@ -117,13 +117,13 @@ export function PrivacyPolicyContent() {
               <h2 className="text-2xl font-bold text-gray-900 mb-4">3. Information Sharing and Disclosure</h2>
               <div className="space-y-4 text-gray-700">
                 <p>We do not sell, trade, or otherwise transfer your personal information to third parties except as described in this policy:</p>
-                
+
                 <h3 className="text-lg font-semibold text-gray-900 mt-6">Service Providers</h3>
                 <p>We may share your information with trusted third-party service providers who assist us in operating our platform, conducting business, or serving users.</p>
-                
+
                 <h3 className="text-lg font-semibold text-gray-900 mt-6">Legal Requirements</h3>
                 <p>We may disclose your information if required to do so by law or in response to valid requests by public authorities.</p>
-                
+
                 <h3 className="text-lg font-semibold text-gray-900 mt-6">Business Transfers</h3>
                 <p>In the event of a merger, acquisition, or sale of assets, your information may be transferred as part of the transaction.</p>
               </div>
@@ -134,7 +134,7 @@ export function PrivacyPolicyContent() {
               <h2 className="text-2xl font-bold text-gray-900 mb-4">4. Data Security</h2>
               <div className="space-y-4 text-gray-700">
                 <p>We implement appropriate technical and organizational measures to protect your personal information:</p>
-                
+
                 <ul className="list-disc pl-6 space-y-2">
                   <li>Encryption in transit and at rest using industry-standard protocols</li>
                   <li>Regular security assessments and penetration testing</li>
@@ -150,7 +150,7 @@ export function PrivacyPolicyContent() {
               <h2 className="text-2xl font-bold text-gray-900 mb-4">5. Your Rights and Choices</h2>
               <div className="space-y-4 text-gray-700">
                 <p>Depending on your location, you may have certain rights regarding your personal information:</p>
-                
+
                 <ul className="list-disc pl-6 space-y-2">
                   <li>Access: Request access to your personal information</li>
                   <li>Correction: Request correction of inaccurate information</li>
@@ -167,7 +167,7 @@ export function PrivacyPolicyContent() {
               <h2 className="text-2xl font-bold text-gray-900 mb-4">6. Data Retention</h2>
               <div className="space-y-4 text-gray-700">
                 <p>We retain your personal information for as long as necessary to provide our services and comply with legal obligations:</p>
-                
+
                 <ul className="list-disc pl-6 space-y-2">
                   <li>Account information: Retained while your account is active</li>
                   <li>Energy trading data: Retained according to industry regulations</li>
@@ -182,7 +182,7 @@ export function PrivacyPolicyContent() {
               <h2 className="text-2xl font-bold text-gray-900 mb-4">7. International Data Transfers</h2>
               <div className="space-y-4 text-gray-700">
                 <p>
-                  Your information may be transferred to and processed in countries other than your own. 
+                  Your information may be transferred to and processed in countries other than your own.
                   We ensure appropriate safeguards are in place for international transfers.
                 </p>
                 <p>
@@ -196,7 +196,7 @@ export function PrivacyPolicyContent() {
               <h2 className="text-2xl font-bold text-gray-900 mb-4">8. Children's Privacy</h2>
               <div className="space-y-4 text-gray-700">
                 <p>
-                  Our services are not intended for children under 16 years of age. We do not knowingly collect 
+                  Our services are not intended for children under 16 years of age. We do not knowingly collect
                   personal information from children under 16.
                 </p>
               </div>
@@ -207,7 +207,7 @@ export function PrivacyPolicyContent() {
               <h2 className="text-2xl font-bold text-gray-900 mb-4">9. Changes to This Policy</h2>
               <div className="space-y-4 text-gray-700">
                 <p>
-                  We may update this privacy policy from time to time. We will notify you of any material changes 
+                  We may update this privacy policy from time to time. We will notify you of any material changes
                   by posting the new privacy policy on this page and updating the "Last Updated" date.
                 </p>
               </div>
