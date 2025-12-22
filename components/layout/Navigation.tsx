@@ -4,9 +4,9 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
-import { 
-  Bars3Icon, 
-  XMarkIcon, 
+import {
+  Bars3Icon,
+  XMarkIcon,
   ChevronDownIcon,
   SunIcon,
   MoonIcon,
@@ -19,8 +19,8 @@ import { trackInteraction } from '@/components/providers/Analytics'
 
 const navigation = [
   { name: 'Home', href: '/' },
-  { 
-    name: 'Solutions', 
+  {
+    name: 'Solutions',
     href: '/solutions',
     submenu: [
       { name: 'Energy Analyst', href: '/solutions/analyst' },
@@ -30,8 +30,8 @@ const navigation = [
       { name: 'Energy Storage', href: '/solutions/storage' },
     ]
   },
-  { 
-    name: 'Enterprise', 
+  {
+    name: 'Enterprise',
     href: '/enterprise',
     submenu: [
       { name: 'Enterprise Platform', href: '/enterprise' },
@@ -42,8 +42,8 @@ const navigation = [
   },
   { name: 'Features', href: '/features' },
   { name: 'Pricing', href: '/pricing' },
-  { 
-    name: 'Resources', 
+  {
+    name: 'Resources',
     href: '/resources',
     submenu: [
       { name: 'Documentation', href: '/docs' },
@@ -105,11 +105,10 @@ export function Navigation() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
           ? 'bg-white/95 dark:bg-gray-900/95 backdrop-blur-md shadow-lg border-b border-gray-200/20 dark:border-gray-700/20'
           : 'bg-transparent'
-      }`}
+        }`}
       role="navigation"
       aria-label="Main navigation"
     >
@@ -137,7 +136,7 @@ export function Navigation() {
                 />
               </svg>
               <span className="text-xl font-bold bg-gradient-to-r from-blue-600 to-green-500 bg-clip-text text-transparent">
-                OptiBid Energy
+                QuantGrid
               </span>
             </Link>
           </div>
@@ -153,11 +152,10 @@ export function Navigation() {
               >
                 <Link
                   href={item.href}
-                  className={`flex items-center space-x-1 px-3 py-2 text-sm font-medium transition-colors duration-200 rounded-lg ${
-                    pathname === item.href
+                  className={`flex items-center space-x-1 px-3 py-2 text-sm font-medium transition-colors duration-200 rounded-lg ${pathname === item.href
                       ? 'text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20'
                       : 'text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-gray-800'
-                  }`}
+                    }`}
                   onClick={() => handleNavClick(item.href, item.name)}
                   aria-expanded={activeDropdown === item.name}
                   aria-haspopup={!!item.submenu}
@@ -247,11 +245,10 @@ export function Navigation() {
                         <button
                           key={option.value}
                           onClick={() => handleThemeChange(option.value)}
-                          className={`w-full flex items-center space-x-2 px-3 py-2 text-sm transition-colors duration-200 ${
-                            theme === option.value
+                          className={`w-full flex items-center space-x-2 px-3 py-2 text-sm transition-colors duration-200 ${theme === option.value
                               ? 'text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20'
                               : 'text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700'
-                          }`}
+                            }`}
                           role="menuitem"
                         >
                           <Icon className="h-4 w-4" />
@@ -314,11 +311,10 @@ export function Navigation() {
                 <div key={item.name}>
                   <Link
                     href={item.href}
-                    className={`block px-3 py-2 text-base font-medium rounded-lg transition-colors duration-200 ${
-                      pathname === item.href
+                    className={`block px-3 py-2 text-base font-medium rounded-lg transition-colors duration-200 ${pathname === item.href
                         ? 'text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20'
                         : 'text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-gray-800'
-                    }`}
+                      }`}
                     onClick={() => handleNavClick(item.href, item.name)}
                   >
                     {item.name}

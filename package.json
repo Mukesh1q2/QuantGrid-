@@ -1,7 +1,7 @@
 {
-  "name": "optibid-energy-enterprise",
+  "name": "quantgrid-enterprise",
   "version": "1.0.0",
-  "description": "OptiBid Energy - Enterprise Marketing Website",
+  "description": "QuantGrid - Enterprise Energy Trading Platform",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -88,8 +88,9 @@
     "enterprise",
     "saas",
     "renewable",
-    "grid"
+    "grid",
+    "quantgrid"
   ],
-  "author": "OptiBid Energy Team",
+  "author": "QuantGrid Team",
   "license": "PROPRIETARY"
 }

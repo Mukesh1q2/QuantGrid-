@@ -99,13 +99,13 @@ export function HeroSection() {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.6, delay: 0.4 + index * 0.1 }}
                     className={`flex items-center space-x-3 transition-all duration-300 ${currentFeature === index
-                        ? 'text-blue-600 dark:text-blue-400 scale-105'
-                        : 'text-gray-700 dark:text-gray-300'
+                      ? 'text-blue-600 dark:text-blue-400 scale-105'
+                      : 'text-gray-700 dark:text-gray-300'
                       }`}
                   >
                     <div className={`w-2 h-2 rounded-full transition-colors duration-300 ${currentFeature === index
-                        ? 'bg-blue-600 dark:bg-blue-400'
-                        : 'bg-gray-400 dark:bg-gray-500'
+                      ? 'bg-blue-600 dark:bg-blue-400'
+                      : 'bg-gray-400 dark:bg-gray-500'
                       }`} />
                     <span className="text-sm font-medium">{feature}</span>
                   </motion.div>
@@ -211,7 +211,7 @@ export function HeroSection() {
                     <div className="w-3 h-3 bg-green-400 rounded-full"></div>
                   </div>
                   <div className="text-sm font-medium text-gray-600 dark:text-gray-300">
-                    OptiBid Dashboard
+                    QuantGrid Dashboard
                   </div>
                 </div>
 

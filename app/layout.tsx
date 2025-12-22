@@ -18,8 +18,8 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: 'OptiBid Energy - Enterprise Energy Trading Platform',
-    template: '%s | OptiBid Energy'
+    default: 'QuantGrid - Enterprise Energy Trading Platform',
+    template: '%s | QuantGrid'
   },
   description: 'Revolutionary enterprise-grade energy trading platform with AI-powered optimization, real-time analytics, and visual knowledge graphs. Transform your energy portfolio management.',
   keywords: [
@@ -34,17 +34,18 @@ export const metadata: Metadata = {
     'portfolio management',
     'AI optimization',
     'real-time analytics',
-    'knowledge graphs'
+    'knowledge graphs',
+    'QuantGrid'
   ],
-  authors: [{ name: 'OptiBid Energy Team' }],
-  creator: 'OptiBid Energy',
-  publisher: 'OptiBid Energy',
+  authors: [{ name: 'QuantGrid Team' }],
+  creator: 'QuantGrid',
+  publisher: 'QuantGrid',
   formatDetection: {
     email: false,
     address: false,
     telephone: false,
   },
-  metadataBase: new URL('https://optibid-energy.com'),
+  metadataBase: new URL('https://quantgrid.energy'),
   alternates: {
     canonical: '/',
     languages: {
@@ -57,25 +58,25 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://optibid-energy.com',
-    title: 'OptiBid Energy - Enterprise Energy Trading Platform',
+    url: 'https://quantgrid.energy',
+    title: 'QuantGrid - Enterprise Energy Trading Platform',
     description: 'Revolutionary enterprise-grade energy trading platform with AI-powered optimization and real-time analytics.',
-    siteName: 'OptiBid Energy',
+    siteName: 'QuantGrid',
     images: [
       {
         url: '/images/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'OptiBid Energy Platform',
+        alt: 'QuantGrid Platform',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'OptiBid Energy - Enterprise Energy Trading Platform',
+    title: 'QuantGrid - Enterprise Energy Trading Platform',
     description: 'Revolutionary enterprise-grade energy trading platform with AI-powered optimization and real-time analytics.',
     images: ['/images/twitter-image.jpg'],
-    creator: '@optibid_energy',
+    creator: '@quantgrid_energy',
   },
   robots: {
     index: true,
@@ -130,9 +131,9 @@ export default function RootLayout({
             __html: JSON.stringify({
               '@context': 'https://schema.org',
               '@type': 'Organization',
-              name: 'OptiBid Energy',
-              url: 'https://optibid-energy.com',
-              logo: 'https://optibid-energy.com/logo.png',
+              name: 'QuantGrid',
+              url: 'https://quantgrid.energy',
+              logo: 'https://quantgrid.energy/logo.png',
               description: 'Enterprise-grade energy trading platform with AI-powered optimization and real-time analytics.',
               address: {
                 '@type': 'PostalAddress',
@@ -143,8 +144,8 @@ export default function RootLayout({
                 contactType: 'customer service',
               },
               sameAs: [
-                'https://linkedin.com/company/optibid-energy',
-                'https://twitter.com/optibid_energy',
+                'https://linkedin.com/company/quantgrid',
+                'https://twitter.com/quantgrid',
               ],
             }),
           }}
