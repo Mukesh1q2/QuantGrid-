@@ -135,7 +135,9 @@ export function Sidebar({ defaultCollapsed = false, onCollapsedChange }: Sidebar
                                 exit={{ opacity: 0, x: -10 }}
                                 className="font-bold text-gray-900 dark:text-white whitespace-nowrap"
                             >
-                                OptiBid
+                                <span className="text-xl font-bold bg-gradient-to-r from-blue-600 to-green-500 bg-clip-text text-transparent ml-2">
+                                    QuantGrid
+                                </span>
                             </motion.span>
                         )}
                     </AnimatePresence>

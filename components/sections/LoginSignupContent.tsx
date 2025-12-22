@@ -195,12 +195,12 @@ export function LoginSignupContent() {
                   />
                 </svg>
                 <span className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-green-500 bg-clip-text text-transparent">
-                  OptiBid Energy
+                  QuantGrid
                 </span>
               </div>
 
               <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-                {isLogin ? 'Welcome Back' : 'Join OptiBid Energy'}
+                {isLogin ? 'Welcome Back' : 'Join QuantGrid'}
               </h1>
 
               <p className="text-xl text-gray-600 mb-8">

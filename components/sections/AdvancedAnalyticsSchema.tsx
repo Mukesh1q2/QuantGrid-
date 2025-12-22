@@ -2,15 +2,15 @@ import { Metadata } from 'next'
 
 export function generateMetadata(): Metadata {
   return {
-    metadataBase: new URL('https://optibid-energy.com'),
+    metadataBase: new URL('https://quantgrid.energy'),
     title: {
-      default: 'Advanced Enterprise Analytics | OptiBid Energy - Real-time Market Intelligence',
-      template: '%s | OptiBid Energy'
+      default: 'Advanced Enterprise Analytics | QuantGrid - Real-time Market Intelligence',
+      template: '%s | QuantGrid'
     },
     description: 'Enterprise-grade analytics platform with real-time market data, advanced KPIs, custom reporting, and AI-powered insights for energy trading professionals.',
     keywords: [
       'energy analytics',
-      'market intelligence', 
+      'market intelligence',
       'real-time reporting',
       'enterprise KPIs',
       'energy trading analytics',
@@ -20,9 +20,9 @@ export function generateMetadata(): Metadata {
       'energy market data',
       'trading analytics'
     ],
-    authors: [{ name: 'OptiBid Energy Team' }],
-    creator: 'OptiBid Energy',
-    publisher: 'OptiBid Energy',
+    authors: [{ name: 'QuantGrid Team' }],
+    creator: 'QuantGrid',
+    publisher: 'QuantGrid',
     formatDetection: {
       email: false,
       address: false,
@@ -31,22 +31,22 @@ export function generateMetadata(): Metadata {
     openGraph: {
       type: 'website',
       locale: 'en_US',
-      url: 'https://optibid-energy.com/advanced-analytics',
-      title: 'Advanced Enterprise Analytics | OptiBid Energy',
+      url: 'https://quantgrid.energy/advanced-analytics',
+      title: 'Advanced Enterprise Analytics | QuantGrid',
       description: 'Enterprise-grade analytics platform with real-time market data, advanced KPIs, custom reporting, and AI-powered insights for energy trading professionals.',
-      siteName: 'OptiBid Energy',
+      siteName: 'QuantGrid',
       images: [
         {
           url: '/images/analytics-og-image.jpg',
           width: 1200,
           height: 630,
-          alt: 'OptiBid Advanced Enterprise Analytics Platform',
+          alt: 'QuantGrid Advanced Enterprise Analytics Platform',
         },
       ],
     },
     twitter: {
       card: 'summary_large_image',
-      title: 'Advanced Enterprise Analytics | OptiBid Energy',
+      title: 'Advanced Enterprise Analytics | QuantGrid',
       description: 'Enterprise-grade analytics platform with real-time market data, advanced KPIs, custom reporting, and AI-powered insights for energy trading professionals.',
       images: ['/images/analytics-twitter-image.jpg'],
     },
@@ -71,9 +71,9 @@ export function AdvancedAnalyticsSchema() {
   const schemaData = {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
-    "name": "OptiBid Advanced Analytics Platform",
+    "name": "QuantGrid Advanced Analytics Platform",
     "description": "Enterprise-grade analytics platform with real-time market data, AI-powered insights, and advanced KPIs for energy trading.",
-    "url": "https://optibid-energy.com/advanced-analytics",
+    "url": "https://quantgrid.energy/advanced-analytics",
     "applicationCategory": "BusinessApplication",
     "operatingSystem": "Web",
     "offers": {
@@ -94,8 +94,8 @@ export function AdvancedAnalyticsSchema() {
     ],
     "provider": {
       "@type": "Organization",
-      "name": "OptiBid Energy",
-      "url": "https://optibid-energy.com"
+      "name": "QuantGrid",
+      "url": "https://quantgrid.energy"
     },
     "aggregateRating": {
       "@type": "AggregateRating",

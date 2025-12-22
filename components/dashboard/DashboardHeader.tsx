@@ -170,9 +170,9 @@ export function DashboardHeader({ onOpenWidgetLibrary, onOpenCollaboration, user
                 <LightBulbIcon className="h-5 w-5 text-white" />
               </div>
               <div className="ml-3">
-                <h1 className="text-lg font-semibold text-gray-900 dark:text-white">
-                  OptiBid Energy
-                </h1>
+                <span className="text-xl font-bold bg-gradient-to-r from-blue-600 to-green-500 bg-clip-text text-transparent hidden md:block">
+                  QuantGrid
+                </span>
                 <p className="text-xs text-gray-500 dark:text-gray-400">
                   Enterprise Dashboard
                 </p>

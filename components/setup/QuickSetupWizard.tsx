@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { 
+import {
   RocketLaunchIcon,
   ChartBarIcon,
   DocumentArrowUpIcon,
@@ -99,12 +99,12 @@ export function QuickSetupWizard({ userId, onComplete, onSkip }: QuickSetupWizar
 
   const handleStepComplete = (stepId: string) => {
     setCompletedSteps(prev => new Set([...prev, stepId]))
-    setStepsState(prev => 
-      prev.map(step => 
+    setStepsState(prev =>
+      prev.map(step =>
         step.id === stepId ? { ...step, completed: true } : step
       )
     )
-    
+
     // Move to next step
     if (currentStep < stepsState.length - 1) {
       setTimeout(() => setCurrentStep(currentStep + 1), 500)
@@ -113,7 +113,7 @@ export function QuickSetupWizard({ userId, onComplete, onSkip }: QuickSetupWizar
 
   const handleComplete = async () => {
     setLoading(true)
-    
+
     try {
       const response = await fetch('/api/quick-setup/complete', {
         method: 'POST',
@@ -148,7 +148,7 @@ export function QuickSetupWizard({ userId, onComplete, onSkip }: QuickSetupWizar
             <SparklesIcon className="w-10 h-10 text-white" />
           </div>
           <h1 className="text-4xl font-bold text-gray-900 mb-4">
-            Welcome to OptiBid Energy! 
+            Welcome to QuantGrid!
           </h1>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
             Let's get you set up quickly so you can start optimizing your energy trading with confidence.
@@ -168,8 +168,8 @@ export function QuickSetupWizard({ userId, onComplete, onSkip }: QuickSetupWizar
             <motion.div
               className="bg-gradient-to-r from-blue-600 to-purple-600 h-3 rounded-full"
               initial={{ width: 0 }}
-              animate={{ 
-                width: `${(completedSteps.size / stepsState.filter(s => !s.optional).length) * 100}%` 
+              animate={{
+                width: `${(completedSteps.size / stepsState.filter(s => !s.optional).length) * 100}%`
               }}
               transition={{ duration: 0.5 }}
             />
@@ -180,28 +180,25 @@ export function QuickSetupWizard({ userId, onComplete, onSkip }: QuickSetupWizar
               const Icon = step.icon
               const isCompleted = completedSteps.has(step.id)
               const isCurrent = currentStep === index
-              
+
               return (
                 <motion.div
                   key={step.id}
-                  className={`p-4 rounded-xl border-2 transition-all cursor-pointer ${
-                    isCompleted 
-                      ? 'border-green-300 bg-green-50' 
+                  className={`p-4 rounded-xl border-2 transition-all cursor-pointer ${isCompleted
+                      ? 'border-green-300 bg-green-50'
                       : isCurrent
-                      ? 'border-blue-300 bg-blue-50'
-                      : 'border-gray-200 bg-gray-50 hover:border-gray-300'
-                  }`}
+                        ? 'border-blue-300 bg-blue-50'
+                        : 'border-gray-200 bg-gray-50 hover:border-gray-300'
+                    }`}
                   onClick={() => setCurrentStep(index)}
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >
                   <div className="flex items-center space-x-3">
-                    <div className={`p-2 rounded-lg ${
-                      isCompleted ? 'bg-green-100' : isCurrent ? 'bg-blue-100' : 'bg-gray-100'
-                    }`}>
-                      <Icon className={`w-5 h-5 ${
-                        isCompleted ? 'text-green-600' : isCurrent ? 'text-blue-600' : 'text-gray-500'
-                      }`} />
+                    <div className={`p-2 rounded-lg ${isCompleted ? 'bg-green-100' : isCurrent ? 'bg-blue-100' : 'bg-gray-100'
+                      }`}>
+                      <Icon className={`w-5 h-5 ${isCompleted ? 'text-green-600' : isCurrent ? 'text-blue-600' : 'text-gray-500'
+                        }`} />
                     </div>
                     <div className="flex-1">
                       <h3 className="font-medium text-gray-900">{step.title}</h3>
@@ -274,7 +271,7 @@ export function QuickSetupWizard({ userId, onComplete, onSkip }: QuickSetupWizar
                 </button>
               )}
             </div>
-            
+
             <div className="flex space-x-3">
               {onSkip && currentStep === 0 && (
                 <button
@@ -284,7 +281,7 @@ export function QuickSetupWizard({ userId, onComplete, onSkip }: QuickSetupWizar
                   Skip Setup
                 </button>
               )}
-              
+
               {currentStep < stepsState.length - 1 ? (
                 <button
                   onClick={() => setCurrentStep(currentStep + 1)}
@@ -320,14 +317,14 @@ export function QuickSetupWizard({ userId, onComplete, onSkip }: QuickSetupWizar
 }
 
 // Step Components
-function ProductTourStep({ 
-  productTour, 
-  onUpdate, 
-  onComplete 
-}: { 
-  productTour: any, 
+function ProductTourStep({
+  productTour,
+  onUpdate,
+  onComplete
+}: {
+  productTour: any,
   onUpdate: (tour: any) => void,
-  onComplete: () => void 
+  onComplete: () => void
 }) {
   const [currentFeature, setCurrentFeature] = useState(0)
 
@@ -373,13 +370,13 @@ function ProductTourStep({
       <div className="mx-auto w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6">
         <PlayIcon className="w-8 h-8 text-blue-600" />
       </div>
-      
+
       <h2 className="text-2xl font-bold text-gray-900 mb-4">
         Product Tour
       </h2>
-      
+
       <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
-        Take a quick tour of OptiBid Energy's key features. We'll walk you through 
+        Take a quick tour of QuantGrid's key features. We'll walk you through
         the most important tools for energy trading success.
       </p>
 
@@ -402,7 +399,7 @@ function ProductTourStep({
                 {features[currentFeature].description}
               </p>
             </div>
-            
+
             {/* Placeholder for feature screenshot */}
             <div className="bg-white rounded-lg border-2 border-dashed border-gray-300 h-64 flex items-center justify-center">
               <div className="text-center text-gray-500">
@@ -430,14 +427,14 @@ function ProductTourStep({
   )
 }
 
-function SampleDataStep({ 
-  sampleData, 
-  onUpdate, 
-  onComplete 
-}: { 
-  sampleData: any, 
+function SampleDataStep({
+  sampleData,
+  onUpdate,
+  onComplete
+}: {
+  sampleData: any,
   onUpdate: (data: any) => void,
-  onComplete: () => void 
+  onComplete: () => void
 }) {
   const [uploadedFile, setUploadedFile] = useState<File | null>(null)
 
@@ -450,11 +447,11 @@ function SampleDataStep({
 
     // Simulate file processing
     setTimeout(() => {
-      onUpdate({ 
-        ...sampleData, 
-        uploaded: true, 
-        type: 'CSV Portfolio Data', 
-        status: 'completed' 
+      onUpdate({
+        ...sampleData,
+        uploaded: true,
+        type: 'CSV Portfolio Data',
+        status: 'completed'
       })
       onComplete()
     }, 2000)
@@ -465,13 +462,13 @@ function SampleDataStep({
       <div className="mx-auto w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6">
         <DocumentArrowUpIcon className="w-8 h-8 text-green-600" />
       </div>
-      
+
       <h2 className="text-2xl font-bold text-gray-900 mb-4">
         Import Sample Data
       </h2>
-      
+
       <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
-        Upload sample trading data to explore OptiBid Energy's features. 
+        Upload sample trading data to explore QuantGrid's features.
         We'll help you get started with realistic portfolio data.
       </p>
 
@@ -495,18 +492,18 @@ function SampleDataStep({
             >
               {uploadedFile ? 'Processing...' : 'Choose File'}
             </label>
-            
+
             <div className="mt-6 text-sm text-gray-500">
               Or try our sample datasets:
             </div>
             <div className="mt-3 space-y-2">
               <button
                 onClick={() => {
-                  onUpdate({ 
-                    ...sampleData, 
-                    uploaded: true, 
-                    type: 'Sample Portfolio', 
-                    status: 'completed' 
+                  onUpdate({
+                    ...sampleData,
+                    uploaded: true,
+                    type: 'Sample Portfolio',
+                    status: 'completed'
                   })
                   onComplete()
                 }}
@@ -516,11 +513,11 @@ function SampleDataStep({
               </button>
               <button
                 onClick={() => {
-                  onUpdate({ 
-                    ...sampleData, 
-                    uploaded: true, 
-                    type: 'Market Data', 
-                    status: 'completed' 
+                  onUpdate({
+                    ...sampleData,
+                    uploaded: true,
+                    type: 'Market Data',
+                    status: 'completed'
                   })
                   onComplete()
                 }}
@@ -544,14 +541,14 @@ function SampleDataStep({
   )
 }
 
-function DashboardCustomizationStep({ 
-  dashboard, 
-  onUpdate, 
-  onComplete 
-}: { 
-  dashboard: any, 
+function DashboardCustomizationStep({
+  dashboard,
+  onUpdate,
+  onComplete
+}: {
+  dashboard: any,
   onUpdate: (data: any) => void,
-  onComplete: () => void 
+  onComplete: () => void
 }) {
   const availableWidgets = [
     'Price Charts',
@@ -568,7 +565,7 @@ function DashboardCustomizationStep({
     const newPinnedWidgets = dashboard.pinnedWidgets.includes(widget)
       ? dashboard.pinnedWidgets.filter((w: string) => w !== widget)
       : [...dashboard.pinnedWidgets, widget]
-    
+
     onUpdate({ ...dashboard, pinnedWidgets: newPinnedWidgets })
   }
 
@@ -577,13 +574,13 @@ function DashboardCustomizationStep({
       <div className="mx-auto w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mb-6">
         <ChartBarIcon className="w-8 h-8 text-purple-600" />
       </div>
-      
+
       <h2 className="text-2xl font-bold text-gray-900 mb-4">
         Customize Your Dashboard
       </h2>
-      
+
       <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
-        Choose which widgets and features you want to see on your main dashboard. 
+        Choose which widgets and features you want to see on your main dashboard.
         You can always change these later in settings.
       </p>
 
@@ -593,11 +590,10 @@ function DashboardCustomizationStep({
             <button
               key={widget}
               onClick={() => toggleWidget(widget)}
-              className={`p-4 border-2 rounded-lg text-left transition-all ${
-                dashboard.pinnedWidgets.includes(widget)
+              className={`p-4 border-2 rounded-lg text-left transition-all ${dashboard.pinnedWidgets.includes(widget)
                   ? 'border-purple-500 bg-purple-50 text-purple-900'
                   : 'border-gray-200 hover:border-gray-300'
-              }`}
+                }`}
             >
               <div className="text-sm font-medium">{widget}</div>
               {dashboard.pinnedWidgets.includes(widget) && (
@@ -637,7 +633,7 @@ function TeamSetupStep({ onComplete }: { onComplete: () => void }) {
   }
 
   const updateInvite = (index: number, field: string, value: string) => {
-    const newInvites = invites.map((invite, i) => 
+    const newInvites = invites.map((invite, i) =>
       i === index ? { ...invite, [field]: value } : invite
     )
     setInvites(newInvites)
@@ -661,13 +657,13 @@ function TeamSetupStep({ onComplete }: { onComplete: () => void }) {
       <div className="mx-auto w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mb-6">
         <UserGroupIcon className="w-8 h-8 text-indigo-600" />
       </div>
-      
+
       <h2 className="text-2xl font-bold text-gray-900 mb-4">
         Invite Your Team
       </h2>
-      
+
       <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
-        Collaborate with your colleagues by inviting them to join your organization. 
+        Collaborate with your colleagues by inviting them to join your organization.
         They'll receive an email invitation to get started.
       </p>
 
@@ -745,13 +741,13 @@ function SettingsStep({ onComplete }: { onComplete: () => void }) {
       <div className="mx-auto w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mb-6">
         <CogIcon className="w-8 h-8 text-yellow-600" />
       </div>
-      
+
       <h2 className="text-2xl font-bold text-gray-900 mb-4">
         Configure Your Settings
       </h2>
-      
+
       <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
-        Customize your OptiBid Energy experience with your preferred settings. 
+        Customize your QuantGrid experience with your preferred settings.
         You can change these anytime in the application.
       </p>
 
