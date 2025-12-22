@@ -220,9 +220,9 @@ export function PrivacyPolicyContent() {
                 If you have any questions about this Privacy Policy or our data practices, please contact us:
               </p>
               <div className="space-y-2 text-blue-700">
-                <p><strong>Email:</strong> privacy@optibid-energy.com</p>
-                <p><strong>Address:</strong> OptiBid Energy Privacy Office, Cyber City, Gurugram, Haryana 122002, India</p>
-                <p><strong>Data Protection Officer:</strong> dpo@optibid-energy.com</p>
+                <p><strong>Email:</strong> privacy@quantgrid.energy</p>
+                <p><strong>Address:</strong> QuantGrid Privacy Office, Cyber City, Gurugram, Haryana 122002, India</p>
+                <p><strong>Data Protection Officer:</strong> dpo@quantgrid.energy</p>
               </div>
             </div>
           </div>

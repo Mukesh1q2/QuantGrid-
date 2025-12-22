@@ -1,5 +1,6 @@
 import NextAuth, { NextAuthOptions } from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
+import CredentialsProvider from "next-auth/providers/credentials";
 
 export const authOptions: NextAuthOptions = {
     providers: [
@@ -7,6 +8,24 @@ export const authOptions: NextAuthOptions = {
             clientId: process.env.GOOGLE_CLIENT_ID || "",
             clientSecret: process.env.GOOGLE_CLIENT_SECRET || "",
         }),
+        CredentialsProvider({
+            name: "Demo Login",
+            credentials: {
+                email: { label: "Email", type: "text" },
+                password: { label: "Password", type: "password" }
+            },
+            async authorize(credentials) {
+                if (credentials?.email === "admin@quantgrid.com" && credentials?.password === "admin123") {
+                    return {
+                        id: "demo-user-1",
+                        name: "QuantGrid Admin",
+                        email: "admin@quantgrid.com",
+                        image: "https://ui-avatars.com/api/?name=Admin+User&background=0D8ABC&color=fff"
+                    };
+                }
+                return null;
+            }
+        })
     ],
     pages: {
         signIn: '/auth/signin',
