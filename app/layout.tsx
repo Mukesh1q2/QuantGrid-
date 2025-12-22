@@ -117,8 +117,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
 
-        {/* Preload critical resources */}
-        <link rel="preload" href="/fonts/inter-var.woff2" as="font" type="font/woff2" crossOrigin="" />
+        {/* Use Google Fonts for Inter instead of local file */}
 
         {/* DNS prefetch for external resources */}
         <link rel="dns-prefetch" href="//api.mapbox.com" />

@@ -1,5 +1,6 @@
 # Ignore large files that bloat serverless functions
 .git
+.next
 .next/cache
 *.eps
 *.ai

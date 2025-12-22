@@ -81,12 +81,12 @@ export const authAPI = {
       },
       body: JSON.stringify({ email, password }),
     })
-    
+
     if (!response.ok) {
       const error = await response.json()
       throw new Error(error.detail || 'Login failed')
     }
-    
+
     return response.json()
   },
 
@@ -104,12 +104,12 @@ export const authAPI = {
       },
       body: JSON.stringify(userData),
     })
-    
+
     if (!response.ok) {
       const error = await response.json()
       throw new Error(error.detail || 'Registration failed')
     }
-    
+
     return response.json()
   },
 
@@ -431,10 +431,10 @@ export const analyticsAPI = {
 
   async getInsights(category?: string) {
     const token = localStorage.getItem('optibid_access_token')
-    const url = category 
+    const url = category
       ? `${API_BASE_URL}/api/v1/analytics/insights?category=${category}`
       : `${API_BASE_URL}/api/v1/analytics/insights`
-    
+
     const response = await fetch(url, {
       headers: {
         'Authorization': `Bearer ${token}`,
@@ -539,7 +539,7 @@ export const handleAPIError = (error: any) => {
 }
 
 // WebSocket URL for real-time updates
-export const WEBSOCKET_URL = process.env.NEXT_PUBLIC_WS_URL || 'ws://localhost:8000/ws'
+export const WEBSOCKET_URL = process.env.NEXT_PUBLIC_WS_URL || ''
 
 // WebSocket event types
 export const WS_EVENTS = {

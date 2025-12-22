@@ -229,13 +229,6 @@ export function EnergyFlowBackground() {
       }
     }
 
-    // Check if on mobile
-    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
-    if (isMobile) {
-      // Reduce animation complexity on mobile
-      particleCount = Math.min(20, particleCount)
-    }
-
     return () => {
       window.removeEventListener('resize', resizeCanvas)
       if (animationRef.current) {
