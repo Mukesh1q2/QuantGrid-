@@ -68,7 +68,7 @@ export class RedisService {
       main: {
         url: process.env.REDIS_URL || 'redis://localhost:6379',
         password: process.env.REDIS_PASSWORD,
-        keyPrefix: process.env.REDIS_KEY_PREFIX || 'optibid:',
+        keyPrefix: process.env.REDIS_KEY_PREFIX || 'quantgrid:',
         retryDelayOnFailover: 100,
         maxRetriesPerRequest: 3
       },
@@ -159,10 +159,10 @@ export class RedisService {
    */
   private setupEventListeners() {
     const clients = [this.client, this.sessionClient, this.rateLimitClient, this.featureClient];
-    
+
     clients.forEach((client, index) => {
       const clientNames = ['main', 'session', 'rateLimit', 'feature'];
-      
+
       client.on('connect', () => {
         console.log(`Redis client ${clientNames[index]} connected`);
       });
@@ -310,8 +310,8 @@ export class RedisService {
    * Check rate limit for a key
    */
   async checkRateLimit(
-    key: string, 
-    maxRequests: number, 
+    key: string,
+    maxRequests: number,
     windowMs: number
   ): Promise<{
     allowed: boolean;
@@ -322,9 +322,9 @@ export class RedisService {
     try {
       const windowSeconds = Math.ceil(windowMs / 1000);
       const rateKey = `ratelimit:${key}`;
-      
+
       const current = await this.rateLimitClient.incr(rateKey);
-      
+
       if (current === 1) {
         await this.rateLimitClient.expire(rateKey, windowSeconds);
       }
@@ -449,7 +449,7 @@ export class RedisService {
   async getFeatureFlag(flagName: string, userId?: string): Promise<FeatureFlagData | null> {
     try {
       const key = `feature:${flagName}`;
-      
+
       // Check user-specific flag first
       if (userId) {
         const userFlag = await this.featureClient.hgetall(`user_feature:${userId}:${flagName}`);
@@ -485,7 +485,7 @@ export class RedisService {
    * Set feature flag
    */
   async setFeatureFlag(
-    flagName: string, 
+    flagName: string,
     data: {
       enabled: boolean;
       value?: any;
@@ -495,11 +495,11 @@ export class RedisService {
     }
   ): Promise<boolean> {
     try {
-      const key = data.userId 
+      const key = data.userId
         ? `user_feature:${data.userId}:${flagName}`
         : data.organizationId
-        ? `org_feature:${data.organizationId}:${flagName}`
-        : `feature:${flagName}`;
+          ? `org_feature:${data.organizationId}:${flagName}`
+          : `feature:${flagName}`;
 
       const flagData = {
         enabled: data.enabled.toString(),
@@ -509,7 +509,7 @@ export class RedisService {
       };
 
       await this.featureClient.hmset(key, flagData);
-      
+
       // Set expiration if specified
       if (data.expiresAt) {
         const ttl = Math.ceil((data.expiresAt.getTime() - Date.now()) / 1000);
@@ -531,11 +531,11 @@ export class RedisService {
    */
   async deleteFeatureFlag(flagName: string, userId?: string, organizationId?: string): Promise<boolean> {
     try {
-      const key = userId 
+      const key = userId
         ? `user_feature:${userId}:${flagName}`
         : organizationId
-        ? `org_feature:${organizationId}:${flagName}`
-        : `feature:${flagName}`;
+          ? `org_feature:${organizationId}:${flagName}`
+          : `feature:${flagName}`;
 
       await this.featureClient.del(key);
       console.log(`Feature flag ${flagName} deleted`);
@@ -573,7 +573,7 @@ export class RedisService {
           await client.ping();
           const info = await client.info();
           const connectedClients = info.match(/connected_clients:(\d+)/)?.[1] || '0';
-          
+
           return {
             name,
             healthy: true,
@@ -609,7 +609,7 @@ export class RedisService {
    */
   async shutdown(): Promise<void> {
     const clients = [this.client, this.sessionClient, this.rateLimitClient, this.featureClient];
-    
+
     console.log('Shutting down Redis connections...');
     await Promise.all(clients.map(client => client.quit()));
     console.log('Redis connections closed');

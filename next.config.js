@@ -13,7 +13,7 @@ const nextConfig = {
     domains: [
       'images.unsplash.com',
       'via.placeholder.com',
-      'optibid-energy.com',
+      'quantgrid.energy',
       'storage.googleapis.com',
       'cloudinary.com'
     ],

@@ -165,7 +165,7 @@ const MOCK_TEAM_MEMBERS: TeamMember[] = [
   {
     id: 'user-1',
     name: 'John Doe',
-    email: 'john@optibid.com',
+    email: 'john@quantgrid.com',
     role: 'Senior Analyst',
     status: 'online',
     lastSeen: '2024-01-20T11:50:00Z',
@@ -175,7 +175,7 @@ const MOCK_TEAM_MEMBERS: TeamMember[] = [
   {
     id: 'user-2',
     name: 'Sarah Wilson',
-    email: 'sarah@optibid.com',
+    email: 'sarah@quantgrid.com',
     role: 'Data Scientist',
     status: 'online',
     lastSeen: '2024-01-20T11:55:00Z',
@@ -185,7 +185,7 @@ const MOCK_TEAM_MEMBERS: TeamMember[] = [
   {
     id: 'user-3',
     name: 'Mike Chen',
-    email: 'mike@optibid.com',
+    email: 'mike@quantgrid.com',
     role: 'Energy Analyst',
     status: 'away',
     lastSeen: '2024-01-20T10:30:00Z',
@@ -194,7 +194,7 @@ const MOCK_TEAM_MEMBERS: TeamMember[] = [
   {
     id: 'user-4',
     name: 'Emily Davis',
-    email: 'emily@optibid.com',
+    email: 'emily@quantgrid.com',
     role: 'Portfolio Manager',
     status: 'busy',
     lastSeen: '2024-01-20T11:45:00Z',
@@ -270,8 +270,8 @@ export function TeamCollaboration({ onClose, user }: TeamCollaborationProps) {
       isResolved: false
     }
 
-    setComments(prev => prev.map(comment => 
-      comment.id === commentId 
+    setComments(prev => prev.map(comment =>
+      comment.id === commentId
         ? { ...comment, replies: [...comment.replies, reply] }
         : comment
     ))
@@ -279,12 +279,12 @@ export function TeamCollaboration({ onClose, user }: TeamCollaborationProps) {
 
   const handleReaction = (commentId: string, emoji: string) => {
     const userId = user?.id || 'current-user'
-    
+
     setComments(prev => prev.map(comment => {
       if (comment.id === commentId) {
         const reactions = { ...comment.reactions }
         const currentUsers = reactions[emoji] || []
-        
+
         if (currentUsers.includes(userId)) {
           reactions[emoji] = currentUsers.filter(id => id !== userId)
           if (reactions[emoji].length === 0) {
@@ -293,7 +293,7 @@ export function TeamCollaboration({ onClose, user }: TeamCollaborationProps) {
         } else {
           reactions[emoji] = [...currentUsers, userId]
         }
-        
+
         return { ...comment, reactions }
       }
       return comment
@@ -312,11 +312,11 @@ export function TeamCollaboration({ onClose, user }: TeamCollaborationProps) {
     const mentionRegex = /@(\w+)/g
     const mentions = []
     let match
-    
+
     while ((match = mentionRegex.exec(content)) !== null) {
       mentions.push(match[1])
     }
-    
+
     return mentions
   }
 
@@ -324,7 +324,7 @@ export function TeamCollaboration({ onClose, user }: TeamCollaborationProps) {
     const date = new Date(timestamp)
     const now = new Date()
     const diffInHours = (now.getTime() - date.getTime()) / (1000 * 60 * 60)
-    
+
     if (diffInHours < 1) {
       return 'Just now'
     } else if (diffInHours < 24) {
@@ -369,7 +369,7 @@ export function TeamCollaboration({ onClose, user }: TeamCollaborationProps) {
             )}
           </div>
           <div className="text-sm text-gray-700 dark:text-gray-300 mb-2">
-            {comment.content.split(/(@\w+)/).map((part, index) => 
+            {comment.content.split(/(@\w+)/).map((part, index) =>
               part.startsWith('@') ? (
                 <span key={index} className="font-medium text-blue-600 dark:text-blue-400">
                   {part}
@@ -377,7 +377,7 @@ export function TeamCollaboration({ onClose, user }: TeamCollaborationProps) {
               ) : part
             )}
           </div>
-          
+
           {/* Reactions */}
           {Object.keys(comment.reactions).length > 0 && (
             <div className="flex flex-wrap gap-2 mb-2">
@@ -393,7 +393,7 @@ export function TeamCollaboration({ onClose, user }: TeamCollaborationProps) {
               ))}
             </div>
           )}
-          
+
           {/* Actions */}
           {!isReply && (
             <div className="flex items-center space-x-4 text-xs">
@@ -414,7 +414,7 @@ export function TeamCollaboration({ onClose, user }: TeamCollaborationProps) {
               </button>
             </div>
           )}
-          
+
           {/* Emoji Picker */}
           {showEmojiPicker === comment.id && (
             <div className="mt-2 p-2 bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg shadow-lg">
@@ -466,9 +466,9 @@ export function TeamCollaboration({ onClose, user }: TeamCollaborationProps) {
           </div>
           <div className="flex items-center space-x-2">
             <div className="text-xs text-gray-500 dark:text-gray-400">
-              {member.status === 'online' ? 'Active' : 
-               member.status === 'away' ? 'Away' :
-               member.status === 'busy' ? 'Busy' : 'Offline'}
+              {member.status === 'online' ? 'Active' :
+                member.status === 'away' ? 'Away' :
+                  member.status === 'busy' ? 'Busy' : 'Offline'}
             </div>
             <button className="p-1 text-gray-400 hover:text-gray-600 dark:hover:text-gray-200">
               <AtSymbolIcon className="w-4 h-4" />

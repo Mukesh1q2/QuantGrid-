@@ -43,8 +43,8 @@ export class EmailService {
   constructor() {
     this.config = {
       apiKey: process.env.SENDGRID_API_KEY || '',
-      fromEmail: process.env.SENDGRID_FROM_EMAIL || 'noreply@optibid-energy.com',
-      fromName: process.env.SENDGRID_FROM_NAME || 'OptiBid Energy Platform'
+      fromEmail: process.env.SENDGRID_FROM_EMAIL || 'noreply@quantgrid.energy',
+      fromName: process.env.SENDGRID_FROM_NAME || 'QuantGrid Platform'
     };
 
     if (!this.config.apiKey) {
@@ -61,7 +61,7 @@ export class EmailService {
   async sendVerificationEmail(data: VerificationEmailData): Promise<boolean> {
     try {
       const templateId = process.env.EMAIL_VERIFICATION_TEMPLATE_ID;
-      
+
       if (!templateId) {
         // Fallback to basic email if template not configured
         return await this.sendBasicVerificationEmail(data);
@@ -77,14 +77,14 @@ export class EmailService {
         dynamicTemplateData: {
           verification_url: data.verificationUrl,
           user_name: data.userName || 'User',
-          company_name: 'OptiBid Energy Platform',
-          support_email: 'support@optibid-energy.com',
+          company_name: 'QuantGrid Platform',
+          support_email: 'support@quantgrid.energy',
           expiration_hours: '24'
         }
       };
 
       await this.sgMail.send(msg);
-      
+
       console.log(`Verification email sent to: ${data.to}`);
       return true;
     } catch (error) {
@@ -99,7 +99,7 @@ export class EmailService {
   async sendPasswordResetEmail(data: PasswordResetEmailData): Promise<boolean> {
     try {
       const templateId = process.env.PASSWORD_RESET_TEMPLATE_ID;
-      
+
       if (!templateId) {
         return await this.sendBasicPasswordResetEmail(data);
       }
@@ -114,14 +114,14 @@ export class EmailService {
         dynamicTemplateData: {
           reset_url: data.resetUrl,
           user_name: data.userName || 'User',
-          company_name: 'OptiBid Energy Platform',
-          support_email: 'support@optibid-energy.com',
+          company_name: 'QuantGrid Platform',
+          support_email: 'support@quantgrid.energy',
           expiration_hours: '1'
         }
       };
 
       await this.sgMail.send(msg);
-      
+
       console.log(`Password reset email sent to: ${data.to}`);
       return true;
     } catch (error) {
@@ -136,7 +136,7 @@ export class EmailService {
   async sendMFAEmail(data: MFAEmailData): Promise<boolean> {
     try {
       const templateId = process.env.MFA_EMAIL_TEMPLATE_ID;
-      
+
       if (!templateId) {
         return await this.sendBasicMFAEmail(data);
       }
@@ -151,13 +151,13 @@ export class EmailService {
         dynamicTemplateData: {
           verification_code: data.verificationCode,
           user_name: data.userName || 'User',
-          company_name: 'OptiBid Energy Platform',
+          company_name: 'QuantGrid Platform',
           expiration_minutes: '10'
         }
       };
 
       await this.sgMail.send(msg);
-      
+
       console.log(`MFA email sent to: ${data.to}`);
       return true;
     } catch (error) {
@@ -172,7 +172,7 @@ export class EmailService {
   async sendWelcomeEmail(data: WelcomeEmailData): Promise<boolean> {
     try {
       const templateId = process.env.WELCOME_EMAIL_TEMPLATE_ID;
-      
+
       if (!templateId) {
         return await this.sendBasicWelcomeEmail(data);
       }
@@ -186,14 +186,14 @@ export class EmailService {
         templateId: templateId,
         dynamicTemplateData: {
           user_name: data.userName,
-          organization_name: data.organizationName || 'OptiBid Energy Platform',
-          dashboard_url: `${process.env.NEXT_PUBLIC_API_URL}/dashboard`,
-          support_email: 'support@optibid-energy.com'
+          organization_name: data.organizationName || 'QuantGrid Platform',
+          invitation_url: data.invitationUrl,
+          support_email: 'support@quantgrid.energy'
         }
       };
 
       await this.sgMail.send(msg);
-      
+
       console.log(`Welcome email sent to: ${data.to}`);
       return true;
     } catch (error) {
@@ -206,13 +206,13 @@ export class EmailService {
    * Send security alert email for suspicious activities
    */
   async sendSecurityAlert(
-    to: string, 
-    alertType: string, 
+    to: string,
+    alertType: string,
     details: any
   ): Promise<boolean> {
     try {
       const templateId = process.env.SECURITY_ALERT_TEMPLATE_ID;
-      
+
       if (!templateId) {
         return await this.sendBasicSecurityAlert(to, alertType, details);
       }
@@ -231,12 +231,12 @@ export class EmailService {
           ip_address: details.ipAddress,
           user_agent: details.userAgent,
           location: details.location,
-          company_name: 'OptiBid Energy Platform'
+          company_name: 'QuantGrid Platform'
         }
       };
 
       await this.sgMail.send(msg);
-      
+
       console.log(`Security alert sent to: ${to} (${alertType})`);
       return true;
     } catch (error) {
@@ -255,12 +255,12 @@ export class EmailService {
         email: this.config.fromEmail,
         name: this.config.fromName
       },
-      subject: 'Verify Your OptiBid Energy Account',
+      subject: 'Verify Your QuantGrid Account',
       html: `
-        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-          <h2 style="color: #0066cc;">Welcome to OptiBid Energy Platform</h2>
+        <div style="font-family: Arial, sans-serif; padding: 20px;">
+          <h2 style="color: #0066cc;">Welcome to QuantGrid Platform</h2>
           <p>Hello ${data.userName || 'there'},</p>
-          <p>Please verify your email address to complete your registration with OptiBid Energy Platform.</p>
+          <p>Please verify your email address to complete your registration with QuantGrid Platform.</p>
           <div style="margin: 30px 0;">
             <a href="${data.verificationUrl}" 
                style="background: #0066cc; color: white; padding: 12px 24px; 
@@ -286,12 +286,12 @@ export class EmailService {
         email: this.config.fromEmail,
         name: this.config.fromName
       },
-      subject: 'Reset Your OptiBid Energy Password',
+      subject: 'Reset Your QuantGrid Password',
       html: `
-        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-          <h2 style="color: #0066cc;">Password Reset Request</h2>
+        <div style="font-family: Arial, sans-serif; padding: 20px;">
+          <h2>Password Reset Request</h2>
           <p>Hello ${data.userName || 'there'},</p>
-          <p>We received a request to reset your password for your OptiBid Energy Platform account.</p>
+          <p>We received a request to reset your password for your QuantGrid Platform account.</p>
           <div style="margin: 30px 0;">
             <a href="${data.resetUrl}" 
                style="background: #dc3545; color: white; padding: 12px 24px; 
@@ -317,12 +317,12 @@ export class EmailService {
         email: this.config.fromEmail,
         name: this.config.fromName
       },
-      subject: 'Your OptiBid Energy MFA Code',
+      subject: 'Your QuantGrid MFA Code',
       html: `
-        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-          <h2 style="color: #0066cc;">Multi-Factor Authentication Code</h2>
+        <div style="font-family: Arial, sans-serif; padding: 20px;">
+          <h2>Security Verification</h2>
           <p>Hello ${data.userName || 'there'},</p>
-          <p>Your verification code for OptiBid Energy Platform is:</p>
+          <p>Your verification code for QuantGrid Platform is:</p>
           <div style="margin: 30px 0; font-size: 24px; font-weight: bold; color: #0066cc;">
             ${data.verificationCode}
           </div>
@@ -344,12 +344,12 @@ export class EmailService {
         email: this.config.fromEmail,
         name: this.config.fromName
       },
-      subject: 'Welcome to OptiBid Energy Platform',
+      subject: 'Welcome to QuantGrid Platform',
       html: `
-        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-          <h2 style="color: #0066cc;">Welcome to OptiBid Energy Platform!</h2>
+        <div style="font-family: Arial, sans-serif; padding: 20px;">
+          <h2 style="color: #0066cc;">Welcome to QuantGrid Platform!</h2>
           <p>Hello ${data.userName},</p>
-          <p>Your OptiBid Energy Platform account has been successfully created.</p>
+          <p>Your QuantGrid Platform account has been successfully created.</p>
           <p>You can now access your dashboard and start optimizing your energy trading strategies with our advanced analytics platform.</p>
           <div style="margin: 30px 0;">
             <a href="${process.env.NEXT_PUBLIC_API_URL}/dashboard" 
@@ -370,8 +370,8 @@ export class EmailService {
   }
 
   private async sendBasicSecurityAlert(
-    to: string, 
-    alertType: string, 
+    to: string,
+    alertType: string,
     details: any
   ): Promise<boolean> {
     const msg = {
@@ -414,14 +414,14 @@ export class EmailService {
         return { healthy: false, details: 'SendGrid API key not configured' };
       }
 
-      return { 
-        healthy: true, 
-        details: `SendGrid configured with from: ${this.config.fromEmail}` 
+      return {
+        healthy: true,
+        details: `SendGrid configured with from: ${this.config.fromEmail}`
       };
     } catch (error) {
-      return { 
-        healthy: false, 
-        details: `SendGrid error: ${error instanceof Error ? error.message : 'Unknown error'}` 
+      return {
+        healthy: false,
+        details: `SendGrid error: ${error instanceof Error ? error.message : 'Unknown error'}`
       };
     }
   }

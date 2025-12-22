@@ -25,7 +25,7 @@ export interface DashboardState {
     }
 }
 
-const STORAGE_KEY = 'optibid-dashboard-state'
+const STORAGE_KEY = 'quantgrid-dashboard-state'
 const STATE_VERSION = '1.0.0'
 
 // ========================

@@ -1,0 +1,26 @@
+# Ignore large files that bloat serverless functions
+.git
+.next/cache
+*.eps
+*.ai
+app/map
+
+# Development files
+*.log
+*.md
+!README.md
+
+# Test files
+__tests__
+*.test.ts
+*.test.tsx
+*.spec.ts
+*.spec.tsx
+
+# Editor/IDE files
+.vscode
+.idea
+
+# OS files
+.DS_Store
+Thumbs.db

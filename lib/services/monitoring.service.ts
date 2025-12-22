@@ -67,7 +67,7 @@ export class MonitoringService {
         apiKey: process.env.DATADOG_API_KEY,
         appKey: process.env.DATADOG_APP_KEY,
         site: process.env.DATADOG_SITE || 'datadoghq.com',
-        service: process.env.DD_SERVICE || 'optibid-energy-api',
+        service: process.env.DD_SERVICE || 'quantgrid-energy-api',
         env: process.env.DD_ENV || 'production'
       }
     };
@@ -127,7 +127,7 @@ export class MonitoringService {
    * Capture exception with context
    */
   captureException(
-    error: Error, 
+    error: Error,
     context?: {
       component?: string;
       operation?: string;
@@ -174,7 +174,7 @@ export class MonitoringService {
    * Capture message with level
    */
   captureMessage(
-    message: string, 
+    message: string,
     level: 'info' | 'warning' | 'error' | 'debug' = 'info',
     context?: Record<string, any>
   ): void {
@@ -197,12 +197,12 @@ export class MonitoringService {
    */
   captureAuthEvent(event: AuthEvent): void {
     const severity = this.getAuthEventSeverity(event.event);
-    
+
     Sentry.withScope((scope) => {
       if (event.userId) {
         scope.setUser({ id: event.userId, email: event.email });
       }
-      
+
       scope.setTag('event_type', 'authentication');
       scope.setTag('auth_event', event.event);
       scope.setTag('severity', severity);
@@ -259,7 +259,7 @@ export class MonitoringService {
         scope.setTag('event_type', 'security');
         scope.setTag('security_event', event.eventType);
         scope.setTag('severity', event.severity);
-        
+
         if (event.userId) {
           scope.setUser({ id: event.userId, email: event.email });
         }
@@ -303,8 +303,8 @@ export class MonitoringService {
    * Track failed login attempts
    */
   trackFailedLogin(
-    email: string, 
-    ipAddress?: string, 
+    email: string,
+    ipAddress?: string,
     userAgent?: string,
     reason?: string
   ): void {
@@ -376,12 +376,12 @@ export class MonitoringService {
    */
   trackMetric(metric: PerformanceMetric): void {
     const timestamp = metric.timestamp || new Date();
-    
+
     // Store in custom metrics
     if (!this.customMetrics.has(metric.name)) {
       this.customMetrics.set(metric.name, []);
     }
-    
+
     const metrics = this.customMetrics.get(metric.name)!;
     metrics.push(metric.value);
 
@@ -407,8 +407,8 @@ export class MonitoringService {
    * Increment counter metric
    */
   incrementMetric(
-    name: string, 
-    value: number = 1, 
+    name: string,
+    value: number = 1,
     tags?: Record<string, string>
   ): void {
     this.trackMetric({
@@ -424,8 +424,8 @@ export class MonitoringService {
    * Track timing/duration metric
    */
   trackTiming(
-    name: string, 
-    duration: number, 
+    name: string,
+    duration: number,
     tags?: Record<string, string>
   ): void {
     this.trackMetric({
@@ -441,9 +441,9 @@ export class MonitoringService {
    * Track API response time
    */
   trackApiResponse(
-    endpoint: string, 
-    method: string, 
-    statusCode: number, 
+    endpoint: string,
+    method: string,
+    statusCode: number,
     duration: number,
     userId?: string
   ): void {
@@ -460,7 +460,7 @@ export class MonitoringService {
     // Track errors
     if (statusCode >= 400) {
       this.incrementMetric('api.errors', 1, tags);
-      
+
       if (statusCode >= 500) {
         this.incrementMetric('api.server_errors', 1, tags);
       } else {
@@ -473,8 +473,8 @@ export class MonitoringService {
    * Track database query performance
    */
   trackDatabaseQuery(
-    query: string, 
-    duration: number, 
+    query: string,
+    duration: number,
     success: boolean,
     userId?: string
   ): void {
@@ -485,7 +485,7 @@ export class MonitoringService {
     };
 
     this.trackTiming('database.query_time', duration, tags);
-    
+
     if (!success) {
       this.incrementMetric('database.errors', 1, tags);
     }
@@ -502,7 +502,7 @@ export class MonitoringService {
     try {
       // This would integrate with your alerting system
       // For now, we'll just log the critical event
-      
+
       console.error('CRITICAL SECURITY ALERT:', {
         eventType: event.eventType,
         userId: event.userId,
@@ -548,14 +548,14 @@ export class MonitoringService {
    */
   private categorizeQuery(query: string): string {
     const upperQuery = query.toUpperCase();
-    
+
     if (upperQuery.includes('SELECT')) return 'select';
     if (upperQuery.includes('INSERT')) return 'insert';
     if (upperQuery.includes('UPDATE')) return 'update';
     if (upperQuery.includes('DELETE')) return 'delete';
     if (upperQuery.includes('CREATE')) return 'create';
     if (upperQuery.includes('ALTER')) return 'alter';
-    
+
     return 'other';
   }
 
@@ -583,19 +583,19 @@ export class MonitoringService {
   } {
     const sentryHealthy = !!this.config.sentry.dsn;
     const datadogHealthy = !!(this.config.datadog.apiKey && this.config.datadog.appKey);
-    
+
     return {
       overall: sentryHealthy || datadogHealthy,
       sentry: {
         healthy: sentryHealthy,
-        details: sentryHealthy 
-          ? `Configured for ${this.config.sentry.environment}` 
+        details: sentryHealthy
+          ? `Configured for ${this.config.sentry.environment}`
           : 'Not configured'
       },
       datadog: {
         healthy: datadogHealthy,
-        details: datadogHealthy 
-          ? `Configured for ${this.config.datadog.service}` 
+        details: datadogHealthy
+          ? `Configured for ${this.config.datadog.service}`
           : 'Not configured'
       },
       custom_metrics: {
@@ -626,7 +626,7 @@ export class MonitoringService {
   } {
     // Calculate summary from stored metrics
     const metrics = this.customMetrics;
-    
+
     // This would calculate actual statistics from stored metrics
     // For now, returning placeholder structure
     return {

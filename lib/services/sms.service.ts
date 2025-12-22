@@ -69,9 +69,9 @@ export class SMSService {
   /**
    * Send verification code via SMS using Twilio Verify
    */
-  async sendVerificationCode(request: SMSVerificationRequest): Promise<{ 
-    success: boolean; 
-    status?: string; 
+  async sendVerificationCode(request: SMSVerificationRequest): Promise<{
+    success: boolean;
+    status?: string;
     error?: string;
     serviceSid?: string;
   }> {
@@ -87,7 +87,7 @@ export class SMSService {
         });
 
       console.log(`Verification code sent to: ${request.phoneNumber} (Status: ${verification.status})`);
-      
+
       return {
         success: true,
         status: verification.status,
@@ -95,13 +95,13 @@ export class SMSService {
       };
     } catch (error) {
       console.error('Failed to send verification code:', error);
-      
+
       // Fallback to regular SMS if Verify fails
       if (this.config.verifyServiceSid && error instanceof Error) {
         console.log('Attempting fallback to direct SMS...');
         return await this.sendFallbackVerificationCode(request);
       }
-      
+
       return {
         success: false,
         error: error instanceof Error ? error.message : 'Unknown error'
@@ -112,8 +112,8 @@ export class SMSService {
   /**
    * Verify the SMS code using Twilio Verify
    */
-  async verifyCode(check: SMSVerificationCheck): Promise<{ 
-    success: boolean; 
+  async verifyCode(check: SMSVerificationCheck): Promise<{
+    success: boolean;
     valid?: boolean;
     error?: string;
   }> {
@@ -130,9 +130,9 @@ export class SMSService {
         });
 
       const isValid = verificationCheck.status === 'approved';
-      
+
       console.log(`Code verification for ${check.phoneNumber}: ${verificationCheck.status}`);
-      
+
       return {
         success: true,
         valid: isValid
@@ -149,8 +149,8 @@ export class SMSService {
   /**
    * Send custom SMS message
    */
-  async sendCustomSMS(data: CustomSMSData): Promise<{ 
-    success: boolean; 
+  async sendCustomSMS(data: CustomSMSData): Promise<{
+    success: boolean;
     messageSid?: string;
     error?: string;
   }> {
@@ -162,7 +162,7 @@ export class SMSService {
       });
 
       console.log(`Custom SMS sent to: ${data.to} (SID: ${message.sid})`);
-      
+
       return {
         success: true,
         messageSid: message.sid
@@ -179,14 +179,14 @@ export class SMSService {
   /**
    * Send security alert SMS
    */
-  async sendSecurityAlert(data: SecurityAlertData): Promise<{ 
-    success: boolean; 
+  async sendSecurityAlert(data: SecurityAlertData): Promise<{
+    success: boolean;
     messageSid?: string;
     error?: string;
   }> {
     try {
       const message = this.formatSecurityAlertMessage(data.alertType, data.details);
-      
+
       const msg = await this.client.messages.create({
         body: message,
         from: this.fromPhone,
@@ -194,7 +194,7 @@ export class SMSService {
       });
 
       console.log(`Security alert sent to: ${data.to} (SID: ${msg.sid})`);
-      
+
       return {
         success: true,
         messageSid: msg.sid
@@ -212,11 +212,11 @@ export class SMSService {
    * Send password reset SMS
    */
   async sendPasswordResetSMS(
-    phoneNumber: string, 
+    phoneNumber: string,
     resetCode: string,
     userName?: string
-  ): Promise<{ 
-    success: boolean; 
+  ): Promise<{
+    success: boolean;
     messageSid?: string;
     error?: string;
   }> {
@@ -230,7 +230,7 @@ export class SMSService {
       });
 
       console.log(`Password reset SMS sent to: ${phoneNumber} (SID: ${msg.sid})`);
-      
+
       return {
         success: true,
         messageSid: msg.sid
@@ -256,15 +256,15 @@ export class SMSService {
       timestamp?: Date;
       userName?: string;
     }
-  ): Promise<{ 
-    success: boolean; 
+  ): Promise<{
+    success: boolean;
     messageSid?: string;
     error?: string;
   }> {
     try {
       const timestamp = details.timestamp || new Date();
       const location = details.location ? ` from ${details.location}` : '';
-      
+
       const message = `OptiBid Energy: New login detected${location}. ${timestamp.toLocaleString()}. If this wasn't you, contact support immediately.`;
 
       const msg = await this.client.messages.create({
@@ -274,7 +274,7 @@ export class SMSService {
       });
 
       console.log(`Login notification sent to: ${phoneNumber} (SID: ${msg.sid})`);
-      
+
       return {
         success: true,
         messageSid: msg.sid
@@ -295,7 +295,7 @@ export class SMSService {
     try {
       // Remove all non-digit characters
       const digits = phoneNumber.replace(/\D/g, '');
-      
+
       // Check if it's a valid length (10-15 digits)
       if (digits.length < 10 || digits.length > 15) {
         return {
@@ -305,8 +305,8 @@ export class SMSService {
       }
 
       // Ensure it starts with + for international format
-      const normalized = digits.startsWith('1') && digits.length === 11 
-        ? `+${digits}` 
+      const normalized = digits.startsWith('1') && digits.length === 11
+        ? `+${digits}`
         : `+${digits}`;
 
       return {
@@ -324,15 +324,15 @@ export class SMSService {
   /**
    * Fallback verification code sender (when Verify service fails)
    */
-  private async sendFallbackVerificationCode(request: SMSVerificationRequest): Promise<{ 
-    success: boolean; 
-    status?: string; 
+  private async sendFallbackVerificationCode(request: SMSVerificationRequest): Promise<{
+    success: boolean;
+    status?: string;
     error?: string;
   }> {
     try {
       // Generate a 6-digit code
       const code = Math.floor(100000 + Math.random() * 900000).toString();
-      const message = `OptiBid Energy: Your verification code is ${code}. This code expires in 10 minutes.`;
+      const message = `QuantGrid: Your verification code is ${code}. This code expires in 10 minutes.`;
 
       const result = await this.sendCustomSMS({
         to: request.phoneNumber,
@@ -361,15 +361,15 @@ export class SMSService {
   /**
    * Fallback code verification (when Verify service fails)
    */
-  private async verifyFallbackCode(check: SMSVerificationCheck): Promise<{ 
-    success: boolean; 
+  private async verifyFallbackCode(check: SMSVerificationCheck): Promise<{
+    success: boolean;
     valid?: boolean;
     error?: string;
   }> {
     // In a real implementation, you'd store the code in Redis with expiration
     // For now, this is a placeholder that always returns true
     // In production, implement proper fallback verification
-    
+
     console.log(`Fallback verification for ${check.phoneNumber} with code ${check.code}`);
     return {
       success: true,
@@ -383,25 +383,25 @@ export class SMSService {
   private formatSecurityAlertMessage(alertType: string, details: any): string {
     const timestamp = new Date().toLocaleString();
     const userName = details.userName ? ` ${details.userName}` : '';
-    
+
     switch (alertType) {
       case 'failed_login':
-        return `OptiBid Energy: Failed login attempt${userName}. ${timestamp}. If this wasn't you, contact support.`;
-      
+        return `QuantGrid: Failed login attempt${userName}. ${timestamp}. If this wasn't you, contact support.`;
+
       case 'account_locked':
-        return `OptiBid Energy: Your account${userName} has been locked due to multiple failed attempts. Contact support to unlock.`;
-      
+        return `QuantGrid: Your account${userName} has been locked due to multiple failed attempts. Contact support to unlock.`;
+
       case 'password_changed':
-        return `OptiBid Energy: Password changed${userName}. ${timestamp}. If this wasn't you, contact support immediately.`;
-      
+        return `QuantGrid: Password changed${userName}. ${timestamp}. If this wasn't you, contact support immediately.`;
+
       case 'new_device_login':
-        return `OptiBid Energy: New device login detected${userName}. ${timestamp}. If this wasn't you, contact support.`;
-      
+        return `QuantGrid: New device login detected${userName}. ${timestamp}. If this wasn't you, contact support.`;
+
       case 'suspicious_activity':
-        return `OptiBid Energy: Suspicious activity detected${userName}. ${timestamp}. Contact support immediately.`;
-      
+        return `QuantGrid: Suspicious activity detected${userName}. ${timestamp}. Contact support immediately.`;
+
       default:
-        return `OptiBid Energy: Security alert${userName}. ${timestamp}. Contact support if you need assistance.`;
+        return `QuantGrid: Security alert${userName}. ${timestamp}. Contact support if you need assistance.`;
     }
   }
 
@@ -411,23 +411,23 @@ export class SMSService {
   async getHealthStatus(): Promise<{ healthy: boolean; details: string }> {
     try {
       if (!this.config.accountSid || !this.config.authToken || !this.config.phoneNumber) {
-        return { 
-          healthy: false, 
-          details: 'Twilio credentials or phone number not configured' 
+        return {
+          healthy: false,
+          details: 'Twilio credentials or phone number not configured'
         };
       }
 
       // Try to fetch account info to verify credentials
       const account = await this.client.api.accounts(this.config.accountSid).fetch();
-      
-      return { 
-        healthy: true, 
-        details: `Twilio configured. Account: ${account.friendlyName}. From: ${this.fromPhone}` 
+
+      return {
+        healthy: true,
+        details: `Twilio configured. Account: ${account.friendlyName}. From: ${this.fromPhone}`
       };
     } catch (error) {
-      return { 
-        healthy: false, 
-        details: `Twilio error: ${error instanceof Error ? error.message : 'Unknown error'}` 
+      return {
+        healthy: false,
+        details: `Twilio error: ${error instanceof Error ? error.message : 'Unknown error'}`
       };
     }
   }

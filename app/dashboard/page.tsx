@@ -443,7 +443,7 @@ export default function DashboardPage() {
       const response = await fetch(`/api/dashboard/widgets/${widgetId}`, {
         method: 'DELETE',
         headers: {
-          'Authorization': `Bearer ${localStorage.getItem('optibid_access_token')}`
+          'Authorization': `Bearer ${localStorage.getItem('quantgrid_access_token')}`
         }
       })
 
