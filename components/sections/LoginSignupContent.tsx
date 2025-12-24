@@ -147,22 +147,42 @@ export function LoginSignupContent() {
   const handleDemoLogin = async () => {
     setLoading(true)
     try {
-      // Use NextAuth signIn for credentials
-      const result = await signIn('credentials', {
-        email: 'admin@quantgrid.com',
-        password: 'admin123',
-        redirect: false,
-      });
+      // Use the Custom API route directly instead of NextAuth
+      // This ensures consistent behavior between manual and demo login
+      const response = await fetch('/api/auth/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        // Use the credentials that exist in app/api/auth/login/route.ts
+        body: JSON.stringify({
+          email: 'admin@optibid.com',
+          password: 'admin123',
+        }),
+      })
 
-      if (result?.error) {
-        alert('Demo login failed. Please try again.');
-        setLoading(false);
-      } else {
-        // Successful login
-        window.location.href = '/dashboard';
+      const data = await response.json()
+
+      if (!response.ok) {
+        alert(data.detail || 'Demo login failed. Please try again.')
+        setLoading(false)
+        return
       }
+
+      // Store the tokens
+      localStorage.setItem('optibid_access_token', data.access_token)
+      if (data.refresh_token) {
+        localStorage.setItem('optibid_refresh_token', data.refresh_token)
+      }
+      if (data.user) {
+        localStorage.setItem('optibid_user', JSON.stringify(data.user))
+      }
+
+      // Redirect to dashboard
+      window.location.href = '/dashboard'
     } catch (error) {
       console.error("Demo login error:", error);
+      alert('Network error during demo login. Please try again.')
       setLoading(false);
     }
   };

@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
   BellIcon,
@@ -23,13 +23,15 @@ import { useRouter } from 'next/navigation'
 interface DashboardHeaderProps {
   onOpenWidgetLibrary: () => void
   onOpenCollaboration: () => void
+  onOpenSettings?: () => void
+  onNavigateAnalytics?: () => void
   user: any
   isConnected?: boolean
   connectionStatus?: 'connecting' | 'connected' | 'disconnected' | 'error'
   lastUpdate?: Date | null
 }
 
-export function DashboardHeader({ onOpenWidgetLibrary, onOpenCollaboration, user, isConnected = false, connectionStatus = 'disconnected', lastUpdate = null }: DashboardHeaderProps) {
+export function DashboardHeader({ onOpenWidgetLibrary, onOpenCollaboration, onOpenSettings, onNavigateAnalytics, user, isConnected = false, connectionStatus = 'disconnected', lastUpdate = null }: DashboardHeaderProps) {
   const { logout } = useAuth()
   const router = useRouter()
   const [searchQuery, setSearchQuery] = useState('')
@@ -44,21 +46,48 @@ export function DashboardHeader({ onOpenWidgetLibrary, onOpenCollaboration, user
     },
     {
       id: 2,
-      title: 'System Update',
-      message: 'New dashboard widgets available in the library',
-      time: '1 hour ago',
-      type: 'info',
+      title: 'Trade Executed',
+      message: 'Sold 500 MWh at ₹4.20/kWh on IEX DAM',
+      time: '12 minutes ago',
+      type: 'success',
       read: false
     },
     {
       id: 3,
-      title: 'Team Activity',
-      message: 'John Doe commented on your Wind Farm B widget',
+      title: 'Risk Warning',
+      message: 'Volatility index spike detected in Western Region',
+      time: '1 hour ago',
+      type: 'warning',
+      read: true
+    },
+    {
+      id: 4,
+      title: 'System Update',
+      message: 'New ML models deployed for price forecasting',
       time: '2 hours ago',
-      type: 'comment',
+      type: 'info',
       read: true
     }
   ])
+
+  // Simulate incoming notifications
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const newNotification = {
+        id: Date.now(),
+        title: Math.random() > 0.5 ? 'Market Update' : 'Trade Alert',
+        message: Math.random() > 0.5
+          ? `Spot price increased by ${(Math.random() * 5).toFixed(1)}% in last hour`
+          : `Buy order filled: ${Math.floor(Math.random() * 100)} MWh @ ₹${(3 + Math.random() * 2).toFixed(2)}`,
+        time: 'Just now',
+        type: Math.random() > 0.7 ? 'warning' : 'success',
+        read: false
+      }
+      setNotifications(prev => [newNotification, ...prev].slice(0, 10))
+    }, 30000) // New notification every 30 seconds
+
+    return () => clearInterval(interval)
+  }, [])
 
   const [isSearchFocused, setIsSearchFocused] = useState(false)
   const [isCommandPaletteOpen, setIsCommandPaletteOpen] = useState(false)
@@ -94,13 +123,13 @@ export function DashboardHeader({ onOpenWidgetLibrary, onOpenCollaboration, user
     {
       name: 'Dashboard Settings',
       icon: Cog6ToothIcon,
-      action: () => {/* Open settings */ },
+      action: onOpenSettings || (() => { }),
       shortcut: 'S'
     },
     {
       name: 'Analytics',
       icon: ChartBarIcon,
-      action: () => {/* Navigate to analytics */ },
+      action: onNavigateAnalytics || (() => { }),
       shortcut: 'A'
     }
   ]

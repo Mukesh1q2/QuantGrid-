@@ -13,7 +13,7 @@
           "position": {
             "x": 0,
             "y": 0,
-            "w": 6,
+            "w": 7,
             "h": 4
           },
           "config": {
@@ -29,7 +29,7 @@
           "title": "Portfolio Performance",
           "position": {
             "x": 6,
-            "y": 0,
+            "y": 4,
             "w": 6,
             "h": 4
           },
@@ -61,7 +61,7 @@
           "title": "Weather Impact",
           "position": {
             "x": 4,
-            "y": 4,
+            "y": 8,
             "w": 4,
             "h": 4
           },
@@ -77,7 +77,7 @@
           "title": "Demand-Supply Balance",
           "position": {
             "x": 8,
-            "y": 4,
+            "y": 8,
             "w": 4,
             "h": 4
           },
@@ -94,7 +94,7 @@
           "title": "Trading Dashboard",
           "position": {
             "x": 0,
-            "y": 8,
+            "y": 12,
             "w": 8,
             "h": 5
           },
@@ -118,7 +118,7 @@
           "title": "IEX India Live Prices",
           "position": {
             "x": 8,
-            "y": 8,
+            "y": 12,
             "w": 4,
             "h": 4
           },
@@ -142,7 +142,7 @@
           "title": "Geographic Asset Map",
           "position": {
             "x": 0,
-            "y": 13,
+            "y": 17,
             "w": 6,
             "h": 5
           },
@@ -195,9 +195,9 @@
       ],
       "sharedWith": [],
       "createdAt": "2025-12-19T21:55:46.794Z",
-      "updatedAt": "2025-12-21T03:17:19.909Z"
+      "updatedAt": "2025-12-22T20:18:46.943Z"
     }
   },
   "version": 1,
-  "lastModified": "2025-12-21T03:17:19.909Z"
+  "lastModified": "2025-12-22T20:18:46.943Z"
 }

@@ -473,8 +473,31 @@
       "isShared": false,
       "createdAt": "2025-12-20T21:45:55.096Z",
       "updatedAt": "2025-12-20T21:45:55.096Z"
+    },
+    "geographic-map-1766287039237": {
+      "id": "geographic-map-1766287039237",
+      "userId": "1",
+      "type": "geographic-map",
+      "title": "Geographic Asset Map",
+      "position": {
+        "x": 0,
+        "y": 13,
+        "w": 6,
+        "h": 5
+      },
+      "config": {
+        "mapType": "terrain",
+        "showClusters": true,
+        "highlightBy": "capacity"
+      },
+      "permissions": [
+        "data.view-asset"
+      ],
+      "isShared": false,
+      "createdAt": "2025-12-21T03:17:19.252Z",
+      "updatedAt": "2025-12-21T03:17:19.252Z"
     }
   },
   "version": 1,
-  "lastModified": "2025-12-20T21:45:55.096Z"
+  "lastModified": "2025-12-21T03:17:19.252Z"
 }

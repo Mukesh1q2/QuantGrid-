@@ -143,13 +143,14 @@ export function HeroSection() {
 
               {/* Secondary CTA */}
               <div className="flex justify-center sm:justify-start">
-                <button
+                <Link
+                  href="/demo"
                   className="inline-flex items-center px-6 py-3 border-2 border-gray-300 dark:border-gray-600 text-base font-medium rounded-lg text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 hover:border-blue-500 hover:text-blue-600 dark:hover:text-blue-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all duration-200"
                   onClick={() => handleCTAClick('/demo', 'watch_demo')}
                 >
                   <PlayIcon className="mr-2 h-5 w-5" />
                   {t('hero.ctaSecondary')}
-                </button>
+                </Link>
               </div>
             </motion.div>
 

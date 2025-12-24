@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useMemo } from 'react'
 import { motion } from 'framer-motion'
 import {
     ChartBarIcon,
@@ -36,14 +36,59 @@ import {
 } from 'recharts'
 
 // Mock data
-const revenueData = [
-    { month: 'Jan', revenue: 2450000, cost: 2100000, profit: 350000 },
-    { month: 'Feb', revenue: 2680000, cost: 2250000, profit: 430000 },
-    { month: 'Mar', revenue: 2890000, cost: 2400000, profit: 490000 },
-    { month: 'Apr', revenue: 3120000, cost: 2550000, profit: 570000 },
-    { month: 'May', revenue: 2980000, cost: 2480000, profit: 500000 },
-    { month: 'Jun', revenue: 3450000, cost: 2800000, profit: 650000 },
-]
+// Dynamic mock data generator
+const generateData = (range: string) => {
+    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+    const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+
+    // Revenue Data
+    let revenueData = []
+    if (range === '1y') {
+        revenueData = months.map(m => ({
+            month: m,
+            revenue: Math.floor(2000000 + Math.random() * 1500000),
+            cost: Math.floor(1500000 + Math.random() * 1000000),
+            profit: 0 // calc later
+        }))
+    } else if (range === '90d') {
+        revenueData = Array.from({ length: 12 }, (_, i) => ({
+            month: `Week ${i + 1}`,
+            revenue: Math.floor(500000 + Math.random() * 300000),
+            cost: Math.floor(300000 + Math.random() * 200000),
+            profit: 0
+        }))
+    } else {
+        // 30d or 7d
+        const daysCount = range === '30d' ? 30 : 7
+        revenueData = Array.from({ length: daysCount }, (_, i) => ({
+            month: `Day ${i + 1}`,
+            revenue: Math.floor(50000 + Math.random() * 50000),
+            cost: Math.floor(30000 + Math.random() * 30000),
+            profit: 0
+        }))
+    }
+    revenueData.forEach(d => d.profit = d.revenue - d.cost)
+
+    // Trading Volume
+    const tradingVolume = days.map(d => ({
+        day: d,
+        DAM: Math.floor(5000 + Math.random() * 10000),
+        RTM: Math.floor(3000 + Math.random() * 6000),
+        TAM: Math.floor(1000 + Math.random() * 4000)
+    }))
+
+    // Region Performance (Impacted by range scalar)
+    const scalar = range === '1y' ? 12 : range === '90d' ? 3 : 1
+    const regionPerformance = [
+        { region: 'Northern', volume: 45000 * scalar, revenue: 5.2 * scalar, efficiency: 92 },
+        { region: 'Western', volume: 38000 * scalar, revenue: 4.8 * scalar, efficiency: 89 },
+        { region: 'Southern', volume: 52000 * scalar, revenue: 5.8 * scalar, efficiency: 94 },
+        { region: 'Eastern', volume: 28000 * scalar, revenue: 3.2 * scalar, efficiency: 86 },
+        { region: 'North-East', volume: 12000 * scalar, revenue: 1.4 * scalar, efficiency: 82 },
+    ]
+
+    return { revenueData, tradingVolume, regionPerformance }
+}
 
 const generationBySource = [
     { source: 'Solar', value: 45, color: '#fbbf24' },
@@ -51,24 +96,6 @@ const generationBySource = [
     { source: 'Hydro', value: 15, color: '#06b6d4' },
     { source: 'Thermal', value: 12, color: '#ef4444' },
 ]
-
-const tradingVolume = [
-    { day: 'Mon', DAM: 12000, RTM: 8000, TAM: 4000 },
-    { day: 'Tue', DAM: 14000, RTM: 7500, TAM: 4500 },
-    { day: 'Wed', DAM: 11000, RTM: 9000, TAM: 3800 },
-    { day: 'Thu', DAM: 16000, RTM: 8500, TAM: 5200 },
-    { day: 'Fri', DAM: 13500, RTM: 9200, TAM: 4800 },
-    { day: 'Sat', DAM: 8000, RTM: 4500, TAM: 2200 },
-    { day: 'Sun', DAM: 6500, RTM: 3800, TAM: 1800 },
-]
-
-const priceHistory = Array.from({ length: 30 }, (_, i) => ({
-    date: `Dec ${i + 1}`,
-    price: 4200 + Math.sin(i / 3) * 300 + Math.random() * 100,
-    average: 4400,
-    high: 4600 + Math.random() * 200,
-    low: 4000 - Math.random() * 200
-}))
 
 const hourlyPattern = Array.from({ length: 24 }, (_, hour) => ({
     hour: `${hour}:00`,
@@ -84,18 +111,15 @@ const kpis = [
     { label: 'Avg MCP', value: '₹4,532/MWh', change: 5.4, trend: 'up', icon: ArrowTrendingUpIcon, color: 'orange' },
 ]
 
-const regionPerformance = [
-    { region: 'Northern', volume: 45000, revenue: 5.2, efficiency: 92 },
-    { region: 'Western', volume: 38000, revenue: 4.8, efficiency: 89 },
-    { region: 'Southern', volume: 52000, revenue: 5.8, efficiency: 94 },
-    { region: 'Eastern', volume: 28000, revenue: 3.2, efficiency: 86 },
-    { region: 'North-East', volume: 12000, revenue: 1.4, efficiency: 82 },
-]
+
 
 export default function AnalyticsPage() {
     const [timeRange, setTimeRange] = useState('30d')
     const [selectedMetric, setSelectedMetric] = useState('revenue')
     const [sidebarCollapsed, setSidebarCollapsed] = useState(false)
+
+    // Generate data based on active filters
+    const { revenueData, tradingVolume, regionPerformance } = useMemo(() => generateData(timeRange), [timeRange])
 
     return (
         <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
@@ -241,9 +265,17 @@ export default function AnalyticsPage() {
                                                 formatter={(value: number) => [`₹${(value / 1000000).toFixed(2)}M`, '']}
                                             />
                                             <Legend />
-                                            <Bar dataKey="revenue" name="Revenue" fill="#3b82f6" radius={[4, 4, 0, 0]} />
-                                            <Bar dataKey="cost" name="Cost" fill="#6b7280" radius={[4, 4, 0, 0]} />
-                                            <Line type="monotone" dataKey="profit" name="Profit" stroke="#10b981" strokeWidth={3} dot={{ r: 4 }} />
+                                            {(selectedMetric === 'revenue' || selectedMetric === 'cost') && (
+                                                <Bar
+                                                    dataKey={selectedMetric}
+                                                    name={selectedMetric === 'revenue' ? 'Revenue' : 'Cost'}
+                                                    fill={selectedMetric === 'revenue' ? '#3b82f6' : '#6b7280'}
+                                                    radius={[4, 4, 0, 0]}
+                                                />
+                                            )}
+                                            {selectedMetric === 'profit' && (
+                                                <Line type="monotone" dataKey="profit" name="Profit" stroke="#10b981" strokeWidth={3} dot={{ r: 4 }} />
+                                            )}
                                         </ComposedChart>
                                     </ResponsiveContainer>
                                 </div>

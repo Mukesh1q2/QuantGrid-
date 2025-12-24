@@ -12,12 +12,13 @@ import {
     SparklesIcon,
     CodeBracketIcon
 } from '@heroicons/react/24/outline'
-import { Sidebar } from '@/components/dashboard/Sidebar'
+import { DashboardShell } from '@/components/dashboard/DashboardShell'
 import DataUploadService from '@/components/data-upload/DataUploadService'
 import SchemaMapper from '@/components/data-upload/SchemaMapper'
 import GeminiOptimizer from '@/components/optimization/GeminiOptimizer'
 import EvaluationResultsDisplay from '@/components/evaluation/EvaluationResults'
 import CustomModelUpload from '@/components/evaluation/CustomModelUpload'
+import { PythonSandbox } from '@/components/evaluation/PythonSandbox'
 import { ErrorBoundary, ChartSkeleton, EvaluationPageSkeleton } from '@/components/common/ErrorBoundary'
 import DAMChart from '@/components/charts/DAMChart'
 import RTMChart from '@/components/charts/RTMChart'
@@ -66,7 +67,6 @@ export default function EvaluationPage() {
     const [mappings, setMappings] = useState<ColumnMapping[]>([])
     const [results, setResults] = useState<EvaluationResults | null>(null)
     const [isRunning, setIsRunning] = useState(false)
-    const [sidebarCollapsed, setSidebarCollapsed] = useState(false)
 
     // Custom model state
     const [modelSource, setModelSource] = useState<'gemini' | 'custom'>('gemini')
@@ -254,338 +254,368 @@ export default function EvaluationPage() {
     }
 
     return (
-        <div className="min-h-screen bg-gray-50 dark:bg-gray-950">
-            {/* Sidebar */}
-            <Sidebar onCollapsedChange={setSidebarCollapsed} />
-
-            {/* Main Content with sidebar offset */}
-            <div
-                className="transition-all duration-200"
-                style={{ marginLeft: sidebarCollapsed ? 72 : 240 }}
-            >
-                {/* Header */}
-                <div className="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800">
-                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-                        <div className="flex items-center justify-between">
-                            <div>
-                                <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
-                                    Data Evaluation Studio
-                                </h1>
-                                <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
-                                    Upload datasets, run optimization models, and generate IEX-style market analysis
-                                </p>
-                            </div>
-                            {results && (
-                                <button
-                                    onClick={exportResults}
-                                    className="flex items-center space-x-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
-                                >
-                                    <DocumentArrowDownIcon className="h-5 w-5" />
-                                    <span>Export Results</span>
-                                </button>
-                            )}
+        <DashboardShell>
+            {/* Header */}
+            <div className="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+                    <div className="flex items-center justify-between">
+                        <div>
+                            <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
+                                Data Evaluation Studio
+                            </h1>
+                            <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
+                                Upload datasets, run optimization models, and generate IEX-style market analysis
+                            </p>
                         </div>
+                        {results && (
+                            <button
+                                onClick={exportResults}
+                                className="flex items-center space-x-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                            >
+                                <DocumentArrowDownIcon className="h-5 w-5" />
+                                <span>Export Results</span>
+                            </button>
+                        )}
+                    </div>
 
-                        {/* Progress Steps */}
-                        <div className="mt-6">
-                            <div className="flex items-center justify-between">
-                                {STEPS.map((step, index) => {
-                                    const status = getStepStatus(step.id as Step)
-                                    const Icon = step.icon
-                                    return (
-                                        <React.Fragment key={step.id}>
-                                            <button
-                                                onClick={() => status !== 'pending' && setCurrentStep(step.id as Step)}
-                                                disabled={status === 'pending'}
-                                                className={`flex items-center space-x-2 px-4 py-2 rounded-lg transition-all ${status === 'current'
-                                                    ? 'bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400'
-                                                    : status === 'completed'
-                                                        ? 'bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400 cursor-pointer hover:bg-green-200'
-                                                        : 'bg-gray-100 text-gray-400 dark:bg-gray-800 dark:text-gray-500 cursor-not-allowed'
-                                                    }`}
-                                            >
-                                                {status === 'completed' ? (
-                                                    <CheckCircleIcon className="h-5 w-5" />
-                                                ) : (
-                                                    <Icon className="h-5 w-5" />
-                                                )}
-                                                <span className="text-sm font-medium">{step.label}</span>
-                                            </button>
-                                            {index < STEPS.length - 1 && (
-                                                <div className={`flex-1 h-0.5 mx-2 ${getStepStatus(STEPS[index + 1].id as Step) !== 'pending'
-                                                    ? 'bg-green-300 dark:bg-green-700'
-                                                    : 'bg-gray-200 dark:bg-gray-700'
-                                                    }`} />
+                    {/* Progress Steps */}
+                    <div className="mt-6">
+                        <div className="flex items-center justify-between">
+                            {STEPS.map((step, index) => {
+                                const status = getStepStatus(step.id as Step)
+                                const Icon = step.icon
+                                return (
+                                    <React.Fragment key={step.id}>
+                                        <button
+                                            onClick={() => status !== 'pending' && setCurrentStep(step.id as Step)}
+                                            disabled={status === 'pending'}
+                                            className={`flex items-center space-x-2 px-4 py-2 rounded-lg transition-all ${status === 'current'
+                                                ? 'bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400'
+                                                : status === 'completed'
+                                                    ? 'bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400 cursor-pointer hover:bg-green-200'
+                                                    : 'bg-gray-100 text-gray-400 dark:bg-gray-800 dark:text-gray-500 cursor-not-allowed'
+                                                }`}
+                                        >
+                                            {status === 'completed' ? (
+                                                <CheckCircleIcon className="h-5 w-5" />
+                                            ) : (
+                                                <Icon className="h-5 w-5" />
                                             )}
-                                        </React.Fragment>
-                                    )
-                                })}
-                            </div>
+                                            <span className="text-sm font-medium">{step.label}</span>
+                                        </button>
+                                        {index < STEPS.length - 1 && (
+                                            <div className={`flex-1 h-0.5 mx-2 ${getStepStatus(STEPS[index + 1].id as Step) !== 'pending'
+                                                ? 'bg-green-300 dark:bg-green-700'
+                                                : 'bg-gray-200 dark:bg-gray-700'
+                                                }`} />
+                                        )}
+                                    </React.Fragment>
+                                )
+                            })}
                         </div>
                     </div>
                 </div>
+            </div>
 
-                {/* Content */}
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-                    <AnimatePresence mode="wait">
-                        {/* Step 1: Upload */}
-                        {currentStep === 'upload' && (
-                            <motion.div
-                                key="upload"
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                exit={{ opacity: 0, y: -20 }}
-                                className="max-w-3xl mx-auto"
-                            >
-                                <div className="bg-white dark:bg-gray-900 rounded-xl p-6 shadow-lg border border-gray-200 dark:border-gray-700">
-                                    <h2 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
-                                        Upload Your Dataset
-                                    </h2>
-                                    <DataUploadService onDataReady={handleDataReady} />
-                                </div>
-                            </motion.div>
-                        )}
+            {/* Content */}
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+                <AnimatePresence mode="wait">
+                    {/* Step 1: Upload */}
+                    {currentStep === 'upload' && (
+                        <motion.div
+                            key="upload"
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -20 }}
+                            className="max-w-3xl mx-auto"
+                        >
+                            <div className="bg-white dark:bg-gray-900 rounded-xl p-6 shadow-lg border border-gray-200 dark:border-gray-700">
+                                <h2 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
+                                    Upload Your Dataset
+                                </h2>
+                                <DataUploadService onDataReady={handleDataReady} />
+                            </div>
+                        </motion.div>
+                    )}
 
-                        {/* Step 2: Schema Mapping */}
-                        {currentStep === 'mapping' && uploadedFiles[0]?.data && (
-                            <motion.div
-                                key="mapping"
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                exit={{ opacity: 0, y: -20 }}
-                                className="max-w-5xl mx-auto"
-                            >
-                                <div className="bg-white dark:bg-gray-900 rounded-xl p-6 shadow-lg border border-gray-200 dark:border-gray-700">
-                                    <SchemaMapper
-                                        columns={uploadedFiles[0].data.columnTypes}
-                                        onMappingComplete={handleMappingComplete}
-                                    />
-                                </div>
-                            </motion.div>
-                        )}
+                    {/* Step 2: Schema Mapping */}
+                    {currentStep === 'mapping' && uploadedFiles[0]?.data && (
+                        <motion.div
+                            key="mapping"
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -20 }}
+                            className="max-w-5xl mx-auto"
+                        >
+                            <div className="bg-white dark:bg-gray-900 rounded-xl p-6 shadow-lg border border-gray-200 dark:border-gray-700">
+                                <SchemaMapper
+                                    columns={uploadedFiles[0].data.columnTypes}
+                                    onMappingComplete={handleMappingComplete}
+                                />
+                            </div>
+                        </motion.div>
+                    )}
 
-                        {/* Step 3: Configure Optimization */}
-                        {currentStep === 'configure' && (
-                            <motion.div
-                                key="configure"
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                exit={{ opacity: 0, y: -20 }}
-                                className="max-w-2xl mx-auto space-y-6"
-                            >
-                                {/* Model Source Tabs */}
-                                <div className="bg-white dark:bg-gray-900 rounded-xl p-4 shadow-lg border border-gray-200 dark:border-gray-700">
-                                    <div className="flex space-x-2 mb-4">
-                                        <button
-                                            onClick={() => setModelSource('gemini')}
-                                            className={`flex-1 flex items-center justify-center space-x-2 px-4 py-3 rounded-lg font-medium transition-all ${modelSource === 'gemini'
-                                                ? 'bg-blue-600 text-white'
-                                                : 'bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700'
-                                                }`}
-                                        >
-                                            <SparklesIcon className="h-5 w-5" />
-                                            <span>Gemini AI</span>
-                                        </button>
-                                        <button
-                                            onClick={() => setModelSource('custom')}
-                                            className={`flex-1 flex items-center justify-center space-x-2 px-4 py-3 rounded-lg font-medium transition-all ${modelSource === 'custom'
-                                                ? 'bg-purple-600 text-white'
-                                                : 'bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700'
-                                                }`}
-                                        >
-                                            <CodeBracketIcon className="h-5 w-5" />
-                                            <span>Custom Model</span>
-                                        </button>
-                                    </div>
-
-                                    <p className="text-sm text-gray-500 dark:text-gray-400 text-center">
-                                        {modelSource === 'gemini'
-                                            ? 'Use Gemini AI for intelligent optimization recommendations'
-                                            : 'Upload your own Python optimization model'}
-                                    </p>
-                                </div>
-
-                                {/* Gemini Optimizer or Custom Model Upload */}
-                                {modelSource === 'gemini' ? (
-                                    <GeminiOptimizer
-                                        config={optimizationConfig}
-                                        onConfigChange={setOptimizationConfig as any}
-                                        onRunOptimization={handleRunOptimization}
-                                        isRunning={isRunning}
-                                        dataLoaded={uploadedFiles.length > 0}
-                                    />
-                                ) : (
-                                    <div className="bg-white dark:bg-gray-900 rounded-xl p-6 shadow-lg border border-gray-200 dark:border-gray-700">
-                                        <CustomModelUpload
-                                            onModelUploaded={(file) => {
-                                                setCustomModelFile(file)
-                                                setCustomModelStatus('ready')
-                                            }}
-                                            onRunModel={async () => {
-                                                if (!customModelFile) return
-                                                setCustomModelStatus('running')
-                                                setIsRunning(true)
-
-                                                try {
-                                                    const formData = new FormData()
-                                                    formData.append('model', customModelFile)
-                                                    formData.append('data', JSON.stringify(uploadedFiles[0]?.data?.rows || []))
-                                                    formData.append('config', JSON.stringify(optimizationConfig))
-
-                                                    const response = await fetch('/api/evaluation/custom-model', {
-                                                        method: 'POST',
-                                                        body: formData
-                                                    })
-
-                                                    if (response.ok) {
-                                                        const result = await response.json()
-                                                        if (result.success) {
-                                                            setCustomModelStatus('complete')
-                                                            setResults({
-                                                                damData: result.results?.optimalBidPrices || generateSampleResults().damData,
-                                                                rtmData: generateSampleResults().rtmData,
-                                                                soData: generateSampleResults().soData,
-                                                                combinedData: generateSampleResults().combinedData,
-                                                                metrics: {
-                                                                    ...generateSampleResults().metrics,
-                                                                    ...result.metrics,
-                                                                    customModelOutput: true
-                                                                },
-                                                                recommendations: result.recommendations || [],
-                                                                aiAnalysis: result.stdout
-                                                            })
-                                                            setCurrentStep('results')
-                                                        } else {
-                                                            setCustomModelStatus('error')
-                                                        }
-                                                    } else {
-                                                        setCustomModelStatus('error')
-                                                    }
-                                                } catch (error) {
-                                                    console.error('Custom model error:', error)
-                                                    setCustomModelStatus('error')
-                                                } finally {
-                                                    setIsRunning(false)
-                                                }
-                                            }}
-                                            status={customModelStatus}
-                                            modelFile={customModelFile}
+                    {/* Step 3: Configure Optimization */}
+                    {currentStep === 'configure' && (
+                        <motion.div
+                            key="configure"
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -20 }}
+                            className="max-w-2xl mx-auto space-y-6"
+                        >
+                            {/* Model Source Tabs */}
+                            <div className="bg-white dark:bg-gray-900 rounded-xl p-4 shadow-lg border border-gray-200 dark:border-gray-700">
+                                <div className="flex space-x-2 mb-4">
+                                    <label className={`flex items-center p-4 border rounded-xl cursor-pointer transition-all ${modelSource === 'gemini'
+                                        ? 'border-blue-500 bg-blue-50 dark:border-blue-400 dark:bg-blue-900/20'
+                                        : 'border-gray-200 dark:border-gray-700 hover:border-blue-300'
+                                        }`}>
+                                        <input
+                                            type="radio"
+                                            name="modelSource"
+                                            value="gemini"
+                                            checked={modelSource === 'gemini'}
+                                            onChange={() => setModelSource('gemini')}
+                                            className="w-4 h-4 text-blue-600 focus:ring-blue-500"
                                         />
-                                    </div>
-                                )}
-                            </motion.div>
-                        )}
-
-                        {/* Step 4: Results */}
-                        {currentStep === 'results' && results && (
-                            <motion.div
-                                key="results"
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                exit={{ opacity: 0, y: -20 }}
-                                className="space-y-6"
-                            >
-                                {/* Metrics Cards */}
-                                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                                    {[
-                                        { label: 'Total Revenue', value: `₹${(results.metrics.totalRevenue / 100000).toFixed(1)}L`, color: 'blue' },
-                                        { label: 'Profit', value: `₹${(results.metrics.profit / 100000).toFixed(1)}L`, color: 'green' },
-                                        { label: 'Profit Margin', value: `${results.metrics.profitMargin.toFixed(1)}%`, color: 'purple' },
-                                        { label: 'Confidence', value: `${results.metrics.confidenceLevel.toFixed(0)}%`, color: 'orange' },
-                                    ].map((metric, i) => (
-                                        <div key={i} className="bg-white dark:bg-gray-900 rounded-xl p-4 shadow-lg border border-gray-200 dark:border-gray-700">
-                                            <p className="text-sm text-gray-500 dark:text-gray-400">{metric.label}</p>
-                                            <p className={`text-2xl font-bold text-${metric.color}-600 dark:text-${metric.color}-400`}>
-                                                {metric.value}
-                                            </p>
-                                        </div>
-                                    ))}
-                                </div>
-
-                                {/* AI Analysis */}
-                                {results.aiAnalysis && (
-                                    <div className="bg-gradient-to-r from-purple-50 to-indigo-50 dark:from-purple-900/20 dark:to-indigo-900/20 rounded-xl p-6 border border-purple-200 dark:border-purple-800">
-                                        <div className="flex items-start space-x-3">
-                                            <SparklesIcon className="h-6 w-6 text-purple-500 mt-1" />
-                                            <div>
-                                                <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-                                                    Gemini AI Analysis
-                                                </h3>
-                                                <p className="text-gray-700 dark:text-gray-300">{results.aiAnalysis}</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                )}
-                                {/* Interactive Results Display */}
-                                {results.combinedData && results.combinedData.length > 0 && (
-                                    <div className="bg-white dark:bg-gray-900 rounded-xl p-6 shadow-lg border border-gray-200 dark:border-gray-700">
-                                        <EvaluationResultsDisplay
-                                            data={results.combinedData}
-                                            mappings={mappings}
-                                            metrics={{
-                                                totalRevenue: results.metrics.totalRevenue,
-                                                totalCost: results.metrics.totalCost,
-                                                profit: results.metrics.profit,
-                                                profitMargin: results.metrics.profitMargin,
-                                                avgPrice: results.metrics.avgDAMPrice,
-                                                maxPrice: results.metrics.avgDAMPrice * 1.2,
-                                                minPrice: results.metrics.avgDAMPrice * 0.8,
-                                                confidenceLevel: results.metrics.confidenceLevel
-                                            }}
-                                            aiAnalysis={results.aiAnalysis}
-                                            recommendations={results.recommendations}
+                                        <span className="ml-3 font-medium text-gray-900 dark:text-white">Gemini AI</span>
+                                    </label>
+                                    <label className={`flex items-center p-4 border rounded-xl cursor-pointer transition-all ${modelSource === 'custom'
+                                        ? 'border-blue-500 bg-blue-50 dark:border-blue-400 dark:bg-blue-900/20'
+                                        : 'border-gray-200 dark:border-gray-700 hover:border-blue-300'
+                                        }`}>
+                                        <input
+                                            type="radio"
+                                            name="modelSource"
+                                            value="custom"
+                                            checked={modelSource === 'custom'}
+                                            onChange={() => setModelSource('custom')}
+                                            className="w-4 h-4 text-blue-600 focus:ring-blue-500"
                                         />
+                                        <span className="ml-3 font-medium text-gray-900 dark:text-white">Custom Python Model</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            {modelSource === 'custom' && (
+                                <div className="mb-8">
+                                    <PythonSandbox />
+                                </div>
+                            )}
+
+                            {/* Optimization Parameters (Hidden if Custom Model is active to focus on Sandbox) */}
+                            {modelSource === 'gemini' && (
+                                <div className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 space-y-6">
+                                    <h3 className="text-lg font-medium text-gray-900 dark:text-white flex items-center">
+                                        <CpuChipIcon className="w-5 h-5 mr-2 text-blue-500" />
+                                        Optimization Parameters
+                                    </h3>
+
+                                    {/* Objective Function */}
+                                    <div>
+                                        <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                                            Objective Function
+                                        </label>
+                                        <select
+                                            value={optimizationConfig.objective}
+                                            onChange={(e) => setOptimizationConfig({ ...optimizationConfig, objective: e.target.value as any })}
+                                            className="w-full rounded-lg border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-blue-500 focus:border-blue-500"
+                                        >
+                                            <option value="maximize_revenue">Maximize Revenue</option>
+                                            <option value="minimize_risk">Minimize Risk</option>
+                                            <option value="balanced">Balanced Strategy</option>
+                                        </select>
                                     </div>
-                                )}
 
-                                {/* Fallback: Original IEX Charts Grid - Wrapped with ErrorBoundary */}
-                                <ErrorBoundary componentName="Market Charts" fallback={<ChartSkeleton height={300} />}>
-                                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                                        <DAMChart data={results.damData} showOptimization={true} />
-                                        <RTMChart data={results.rtmData} showDAMComparison={true} />
-                                    </div>
-                                </ErrorBoundary>
-
-                                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                                    <SOChart data={results.soData} showRegulation={true} />
-
-                                    {/* Recommendations */}
-                                    <div className="bg-white dark:bg-gray-900 rounded-xl p-4 shadow-lg border border-gray-200 dark:border-gray-700">
-                                        <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
-                                            Optimization Recommendations
-                                        </h3>
-                                        <div className="space-y-3">
-                                            {results.recommendations.map((rec, i) => (
-                                                <div key={i} className={`p-3 rounded-lg border-l-4 ${rec.priority === 'high'
-                                                    ? 'border-red-500 bg-red-50 dark:bg-red-900/20'
-                                                    : 'border-yellow-500 bg-yellow-50 dark:bg-yellow-900/20'
-                                                    }`}>
-                                                    <p className="font-medium text-gray-800 dark:text-gray-200">{rec.title}</p>
-                                                    <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">{rec.description}</p>
-                                                    <p className="text-sm font-medium text-green-600 dark:text-green-400 mt-2">
-                                                        Expected: {rec.expectedImpact}
-                                                    </p>
-                                                </div>
+                                    {/* Market Selection */}
+                                    <div>
+                                        <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                                            Target Markets
+                                        </label>
+                                        <div className="flex flex-wrap gap-2">
+                                            {['DAM', 'RTM', 'SO', 'GTAM'].map((market) => (
+                                                <button
+                                                    key={market}
+                                                    type="button"
+                                                    onClick={() => {
+                                                        const newMarkets = optimizationConfig.marketTypes.includes(market as any)
+                                                            ? optimizationConfig.marketTypes.filter(m => m !== market)
+                                                            : [...optimizationConfig.marketTypes, market as any]
+                                                        setOptimizationConfig({ ...optimizationConfig, marketTypes: newMarkets })
+                                                    }}
+                                                    className={`px-3 py-1.5 rounded-full text-sm font-medium transition-colors ${optimizationConfig.marketTypes.includes(market as any)
+                                                        ? 'bg-blue-100 text-blue-700 dark:bg-blue-900/40 dark:text-blue-300'
+                                                        : 'bg-gray-100 text-gray-600 dark:bg-gray-700 dark:text-gray-400'
+                                                        }`}
+                                                >
+                                                    {market}
+                                                </button>
                                             ))}
                                         </div>
                                     </div>
                                 </div>
+                            )}
 
-                                {/* Run Again Button */}
-                                <div className="flex justify-center pt-4">
+                            <div className="flex justify-end pt-6">
+                                <button
+                                    onClick={handleRunOptimization}
+                                    disabled={isRunning}
+                                    className="px-6 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-xl font-medium shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed transition-all flex items-center"
+                                >
+                                    {isRunning ? (
+                                        <>
+                                            <ArrowPathIcon className="w-5 h-5 mr-2 animate-spin" />
+                                            Running Optimization...
+                                        </>
+                                    ) : (
+                                        <>
+                                            <SparklesIcon className="w-5 h-5 mr-2" />
+                                            Run Optimization
+                                        </>
+                                    )}
+                                </button>
+                            </div>
+                        </motion.div>
+                    )}
+
+                    {/* Step 4: Results */}
+                    {currentStep === 'results' && results && (
+                        <motion.div
+                            key="results"
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -20 }}
+                            className="space-y-6"
+                        >
+                            <div className="flex items-center justify-between">
+                                <div className="flex items-center space-x-2">
+                                    <div className="p-2 bg-green-100 dark:bg-green-900/30 rounded-full">
+                                        <CheckCircleIcon className="w-6 h-6 text-green-600 dark:text-green-400" />
+                                    </div>
+                                    <div>
+                                        <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Optimization Complete</h2>
+                                        <p className="text-gray-500 dark:text-gray-400">Results generated successfully</p>
+                                    </div>
+                                </div>
+                                <div className="flex space-x-3">
+                                    <button className="px-4 py-2 text-sm font-medium text-gray-600 bg-gray-100 rounded-lg hover:bg-gray-200 dark:text-gray-300 dark:bg-gray-800 dark:hover:bg-gray-700" title="Feature coming soon">
+                                        Compare Results (Backlog)
+                                    </button>
+                                    <button className="px-4 py-2 text-sm font-medium text-gray-600 bg-gray-100 rounded-lg hover:bg-gray-200 dark:text-gray-300 dark:bg-gray-800 dark:hover:bg-gray-700" title="Feature coming soon">
+                                        Version History (Backlog)
+                                    </button>
                                     <button
-                                        onClick={() => setCurrentStep('configure')}
-                                        className="flex items-center space-x-2 px-6 py-3 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+                                        onClick={exportResults}
+                                        className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 shadow-sm flex items-center"
                                     >
-                                        <ArrowPathIcon className="h-5 w-5" />
-                                        <span>Modify Configuration &amp; Re-run</span>
+                                        <DocumentArrowDownIcon className="w-4 h-4 mr-2" />
+                                        Export Report
                                     </button>
                                 </div>
-                            </motion.div>
-                        )}
-                    </AnimatePresence>
-                </div>
+                            </div>
+                            {/* Metrics Cards */}
+                            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                                {[
+                                    { label: 'Total Revenue', value: `₹${(results.metrics.totalRevenue / 100000).toFixed(1)}L`, color: 'blue' },
+                                    { label: 'Profit', value: `₹${(results.metrics.profit / 100000).toFixed(1)}L`, color: 'green' },
+                                    { label: 'Profit Margin', value: `${results.metrics.profitMargin.toFixed(1)}%`, color: 'purple' },
+                                    { label: 'Confidence', value: `${results.metrics.confidenceLevel.toFixed(0)}%`, color: 'orange' },
+                                ].map((metric, i) => (
+                                    <div key={i} className="bg-white dark:bg-gray-900 rounded-xl p-4 shadow-lg border border-gray-200 dark:border-gray-700">
+                                        <p className="text-sm text-gray-500 dark:text-gray-400">{metric.label}</p>
+                                        <p className={`text-2xl font-bold text-${metric.color}-600 dark:text-${metric.color}-400`}>
+                                            {metric.value}
+                                        </p>
+                                    </div>
+                                ))}
+                            </div>
+
+                            {/* AI Analysis */}
+                            {results.aiAnalysis && (
+                                <div className="bg-gradient-to-r from-purple-50 to-indigo-50 dark:from-purple-900/20 dark:to-indigo-900/20 rounded-xl p-6 border border-purple-200 dark:border-purple-800">
+                                    <div className="flex items-start space-x-3">
+                                        <SparklesIcon className="h-6 w-6 text-purple-500 mt-1" />
+                                        <div>
+                                            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
+                                                Gemini AI Analysis
+                                            </h3>
+                                            <p className="text-gray-700 dark:text-gray-300">{results.aiAnalysis}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            )}
+                            {/* Interactive Results Display */}
+                            {results.combinedData && results.combinedData.length > 0 && (
+                                <div className="bg-white dark:bg-gray-900 rounded-xl p-6 shadow-lg border border-gray-200 dark:border-gray-700">
+                                    <EvaluationResultsDisplay
+                                        data={results.combinedData}
+                                        mappings={mappings}
+                                        metrics={{
+                                            totalRevenue: results.metrics.totalRevenue,
+                                            totalCost: results.metrics.totalCost,
+                                            profit: results.metrics.profit,
+                                            profitMargin: results.metrics.profitMargin,
+                                            avgPrice: results.metrics.avgDAMPrice,
+                                            maxPrice: results.metrics.avgDAMPrice * 1.2,
+                                            minPrice: results.metrics.avgDAMPrice * 0.8,
+                                            confidenceLevel: results.metrics.confidenceLevel
+                                        }}
+                                        aiAnalysis={results.aiAnalysis}
+                                        recommendations={results.recommendations}
+                                    />
+                                </div>
+                            )}
+
+                            {/* Fallback: Original IEX Charts Grid - Wrapped with ErrorBoundary */}
+                            <ErrorBoundary componentName="Market Charts" fallback={<ChartSkeleton height={300} />}>
+                                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                                    <DAMChart data={results.damData} showOptimization={true} />
+                                    <RTMChart data={results.rtmData} showDAMComparison={true} />
+                                </div>
+                            </ErrorBoundary>
+
+                            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                                <SOChart data={results.soData} showRegulation={true} />
+
+                                {/* Recommendations */}
+                                <div className="bg-white dark:bg-gray-900 rounded-xl p-4 shadow-lg border border-gray-200 dark:border-gray-700">
+                                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
+                                        Optimization Recommendations
+                                    </h3>
+                                    <div className="space-y-3">
+                                        {results.recommendations.map((rec, i) => (
+                                            <div key={i} className={`p-3 rounded-lg border-l-4 ${rec.priority === 'high'
+                                                ? 'border-red-500 bg-red-50 dark:bg-red-900/20'
+                                                : 'border-yellow-500 bg-yellow-50 dark:bg-yellow-900/20'
+                                                }`}>
+                                                <p className="font-medium text-gray-800 dark:text-gray-200">{rec.title}</p>
+                                                <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">{rec.description}</p>
+                                                <p className="text-sm font-medium text-green-600 dark:text-green-400 mt-2">
+                                                    Expected: {rec.expectedImpact}
+                                                </p>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Run Again Button */}
+                            <div className="flex justify-center pt-4">
+                                <button
+                                    onClick={() => setCurrentStep('configure')}
+                                    className="flex items-center space-x-2 px-6 py-3 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+                                >
+                                    <ArrowPathIcon className="h-5 w-5" />
+                                    <span>Modify Configuration &amp; Re-run</span>
+                                </button>
+                            </div>
+                        </motion.div>
+                    )}
+                </AnimatePresence>
             </div>
-        </div>
+        </DashboardShell>
     )
 }
+

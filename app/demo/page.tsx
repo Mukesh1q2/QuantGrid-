@@ -23,6 +23,8 @@ import {
 } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
+import { Navigation } from '@/components/layout/Navigation';
+import { Footer } from '@/components/layout/Footer';
 
 // Dynamic imports for map and chart components (avoid SSR issues)
 const IndiaEnergyMap = dynamic(
@@ -156,6 +158,7 @@ const DemoPage = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50">
+      <Navigation />
       {/* Header */}
       <section className="relative pt-32 pb-20 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-indigo-700"></div>
@@ -611,6 +614,7 @@ const DemoPage = () => {
           </div>
         </div>
       </section>
+      <Footer />
     </div>
   );
 };

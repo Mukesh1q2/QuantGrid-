@@ -29,10 +29,10 @@ interface PositionMonitorWidgetProps {
 
 function generatePositions(): Position[] {
     return [
-        { id: '1', market: 'DAM', type: 'long', quantity: 500, entryPrice: 4480, currentPrice: 4532, pnl: 26000, pnlPercent: 1.16, openTime: '09:30' },
-        { id: '2', market: 'RTM', type: 'short', quantity: 300, entryPrice: 4820, currentPrice: 4789, pnl: 9300, pnlPercent: 0.64, openTime: '10:15' },
-        { id: '3', market: 'TAM', type: 'long', quantity: 200, entryPrice: 4380, currentPrice: 4345, pnl: -7000, pnlPercent: -0.80, openTime: '11:00' },
-        { id: '4', market: 'GDAM', type: 'long', quantity: 150, entryPrice: 4050, currentPrice: 4120, pnl: 10500, pnlPercent: 1.73, openTime: '08:45' },
+        { id: '1', market: 'DAM', type: 'long', quantity: 500, entryPrice: 4.48, currentPrice: 4.53, pnl: 25000, pnlPercent: 1.12, openTime: '09:30' },
+        { id: '2', market: 'RTM', type: 'short', quantity: 300, entryPrice: 4.82, currentPrice: 4.79, pnl: 9000, pnlPercent: 0.62, openTime: '10:15' },
+        { id: '3', market: 'TAM', type: 'long', quantity: 200, entryPrice: 4.38, currentPrice: 4.34, pnl: -8000, pnlPercent: -0.91, openTime: '11:00' },
+        { id: '4', market: 'GDAM', type: 'long', quantity: 150, entryPrice: 4.05, currentPrice: 4.12, pnl: 10500, pnlPercent: 1.73, openTime: '08:45' },
     ]
 }
 
@@ -41,23 +41,7 @@ export function PositionMonitorWidget({ className = '' }: PositionMonitorWidgetP
 
     // Simulate price updates
     useEffect(() => {
-        const interval = setInterval(() => {
-            setPositions(prev => prev.map(pos => {
-                const priceChange = (Math.random() - 0.5) * 20
-                const newPrice = pos.currentPrice + priceChange
-                const newPnl = (newPrice - pos.entryPrice) * pos.quantity * (pos.type === 'long' ? 1 : -1)
-                const newPnlPercent = ((newPrice - pos.entryPrice) / pos.entryPrice) * 100 * (pos.type === 'long' ? 1 : -1)
-
-                return {
-                    ...pos,
-                    currentPrice: newPrice,
-                    pnl: newPnl,
-                    pnlPercent: newPnlPercent
-                }
-            }))
-        }, 2000)
-
-        return () => clearInterval(interval)
+        // Static data for now to avoid jitter
     }, [])
 
     const totalPnl = positions.reduce((sum, p) => sum + p.pnl, 0)

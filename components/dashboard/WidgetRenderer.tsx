@@ -1131,14 +1131,14 @@ export function WidgetRenderer({ widget, layoutItem, onAction, isViewMode, user 
                     <Menu.Item>
                       {({ active }) => (
                         <button
-                          onClick={() => handleAction('configure')}
+                          onClick={() => onAction('configure')}
                           className={clsx(
                             'flex items-center px-4 py-2 text-sm w-full text-left',
                             active && 'bg-gray-100 dark:bg-gray-600',
                             'text-gray-700 dark:text-gray-200'
                           )}
                         >
-                          <Cog6ToothIcon className="mr-3 h-4 w-4" />
+                          <AdjustmentsHorizontalIcon className="mr-3 h-4 w-4" />
                           Configure
                         </button>
                       )}
@@ -1146,22 +1146,7 @@ export function WidgetRenderer({ widget, layoutItem, onAction, isViewMode, user 
                     <Menu.Item>
                       {({ active }) => (
                         <button
-                          onClick={() => handleAction('share')}
-                          className={clsx(
-                            'flex items-center px-4 py-2 text-sm w-full text-left',
-                            active && 'bg-gray-100 dark:bg-gray-600',
-                            'text-gray-700 dark:text-gray-200'
-                          )}
-                        >
-                          <ShareIcon className="mr-3 h-4 w-4" />
-                          Share
-                        </button>
-                      )}
-                    </Menu.Item>
-                    <Menu.Item>
-                      {({ active }) => (
-                        <button
-                          onClick={() => handleAction('duplicate')}
+                          onClick={() => onAction('duplicate')}
                           className={clsx(
                             'flex items-center px-4 py-2 text-sm w-full text-left',
                             active && 'bg-gray-100 dark:bg-gray-600',
@@ -1173,65 +1158,31 @@ export function WidgetRenderer({ widget, layoutItem, onAction, isViewMode, user 
                         </button>
                       )}
                     </Menu.Item>
-                    <div className="border-t border-gray-200 dark:border-gray-600 my-1"></div>
-                    <Menu.Item>
-                      {({ active }) => (
-                        <button
-                          onClick={() => handleAction('export', { format: 'csv' })}
-                          className={clsx(
-                            'flex items-center px-4 py-2 text-sm w-full text-left',
-                            active && 'bg-gray-100 dark:bg-gray-600',
-                            'text-gray-700 dark:text-gray-200'
-                          )}
-                        >
-                          <svg className="mr-3 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                          </svg>
-                          Export as CSV
-                        </button>
-                      )}
-                    </Menu.Item>
-                    <Menu.Item>
-                      {({ active }) => (
-                        <button
-                          onClick={() => handleAction('export', { format: 'json' })}
-                          className={clsx(
-                            'flex items-center px-4 py-2 text-sm w-full text-left',
-                            active && 'bg-gray-100 dark:bg-gray-600',
-                            'text-gray-700 dark:text-gray-200'
-                          )}
-                        >
-                          <svg className="mr-3 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                          </svg>
-                          Export as JSON
-                        </button>
-                      )}
-                    </Menu.Item>
-                    <div className="border-t border-gray-200 dark:border-gray-600 my-1"></div>
-                    <Menu.Item>
-                      {({ active }) => (
-                        <button
-                          onClick={() => handleAction('delete')}
-                          className={clsx(
-                            'flex items-center px-4 py-2 text-sm w-full text-left',
-                            active && 'bg-gray-100 dark:bg-gray-600',
-                            'text-red-600 dark:text-red-400'
-                          )}
-                        >
-                          <TrashIcon className="mr-3 h-4 w-4" />
-                          Delete
-                        </button>
-                      )}
-                    </Menu.Item>
                   </div>
+                  <div className="border-t border-gray-200 dark:border-gray-600 my-1"></div>
+                  <Menu.Item>
+                    {({ active }) => (
+                      <button
+                        onClick={() => onAction('remove')}
+                        className={clsx(
+                          'flex items-center px-4 py-2 text-sm w-full text-left',
+                          active && 'bg-gray-100 dark:bg-gray-600',
+                          'text-red-600 dark:text-red-400'
+                        )}
+                      >
+                        <TrashIcon className="mr-3 h-4 w-4" />
+                        Delete
+                      </button>
+                    )}
+                  </Menu.Item>
                 </Menu.Items>
               </Transition>
             </Menu>
           </div>
-        </div >
+        </div>
       )
       }
+}
 
       {/* Widget Content */}
       <div className="flex-1 overflow-hidden">

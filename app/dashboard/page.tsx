@@ -546,6 +546,8 @@ export default function DashboardPage() {
                     <DashboardHeader
                       onOpenWidgetLibrary={() => setIsWidgetLibraryOpen(true)}
                       onOpenCollaboration={() => setIsCollaborationOpen(true)}
+                      onOpenSettings={() => router.push('/settings')}
+                      onNavigateAnalytics={() => router.push('/dashboard/analytics')}
                       user={user}
                       isConnected={iexSync.isConnected || isConnected}
                       connectionStatus={iexSync.isConnected ? 'connected' : connectionStatus}
