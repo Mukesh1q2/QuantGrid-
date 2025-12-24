@@ -9,6 +9,7 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   // Remove deprecated appDir config (now default in Next.js 13+)
+  output: 'standalone',
   images: {
     domains: [
       'images.unsplash.com',
